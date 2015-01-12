@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dbn: MyString
+  school: MyString
+  total_enrollment: 1
+  amount_owed: 1
+
+two:
+  dbn: MyString
+  school: MyString
+  total_enrollment: 1
+  amount_owed: 1
