@@ -53,6 +53,12 @@ body {
   background-color: rgba(255,255,255,0.8);
 }
 
+/* Custom Horizontal Rule */
+
+hr.small {
+    max-width: 100px;
+}
+
 /* Header */
 
 .header {
@@ -68,12 +74,51 @@ body {
   -o-background-size: cover;
 }
 
-.header h1{
+.header .title{
 	font-family: 'Walter Turncoat', cursive;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header .subtitle{
+	margin-left:auto;
+	margin-right: auto;
+	width: 60%;
+	font-size: 140%;
+	font-family: 'Didact Gothic', sans-serif;	
+}
+
+.header .search-bar {
 }
 
 /* About */
 
 .about {
   padding: 50px 0;
+}
+
+/* Circle Counter */
+
+.counter {
+  display: table-cell;
+  margin:1.5%;
+  font-size:20px;
+  width:200px;
+  border-radius: 50%;
+  height:200px;
+	font-family: 'Didact Gothic', sans-serif;	
+  vertical-align: middle;
+}
+
+.counter-text{
+	font-family: 'Didact Gothic', sans-serif;	
+	height:30px;	
+	font-size: 13px;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
