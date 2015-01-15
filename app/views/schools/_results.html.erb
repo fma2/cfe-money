@@ -1,6 +1,8 @@
 <h6>search results: <%= @results.length %></h5>
-<% @results.each do |item| %>
-	<div class="result-item">
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#schoolModal" data-dbn=<%= item.dbn%> data-school="<%= item.school  %>" data-enrollment=<%= item.total_enrollment %> data-owed=<%= item.amount_owed %>><%= item.dbn%> <%= item.school %></button>
-	</div>
-<% end %>
+	<ul class="list-group">
+		<% @results.each do |item| %>
+		<div class="result-item">
+			<a data-toggle="modal" data-target="#schoolModal" data-dbn=<%= item.dbn%> data-school="<%= item.school  %>" data-enrollment=<%= item.total_enrollment %> data-owed=<%= item.amount_owed %>><li class="list-group-item"><%= item.dbn%> <%= item.school %></li></a>
+			</div>
+			<% end %>
+	</ul>
