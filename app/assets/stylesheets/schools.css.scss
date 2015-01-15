@@ -67,7 +67,7 @@ hr.small {
   position: relative;
   width: 100%;
   height: 100%;
-  background: url(http://mapographic.nycthing.com/files/2012/09/mapographic-nyc-525.jpeg) no-repeat center center scroll;
+  background: #246BB2;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -75,7 +75,8 @@ hr.small {
 }
 
 .header .title{
-	font-family: 'Walter Turncoat', cursive;
+  font-family: 'Didact Gothic', sans-serif;
+
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
@@ -143,6 +144,11 @@ hr.small {
   margin-right: auto;
 }
 
+
+.modal-content{
+  font-family: 'Didact Gothic', sans-serif;
+  
+}
 .modal-title{
   font-size: 200%;
 }
