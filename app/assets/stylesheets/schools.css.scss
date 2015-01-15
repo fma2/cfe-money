@@ -95,7 +95,7 @@ hr.small {
 	width: 60%;
 	font-size: 140%;
 	font-family: 'Didact Gothic', sans-serif;
-
+  color: white;
 }
 
 .header .search-bar {
@@ -108,9 +108,7 @@ hr.small {
 }
 
 #results {
-  background: white;
   font-family: 'Didact Gothic', sans-serif;
-
 }
 
 /* About */
@@ -147,11 +145,12 @@ hr.small {
 
 .modal-content{
   font-family: 'Didact Gothic', sans-serif;
-  
 }
 .modal-title{
   font-size: 200%;
 }
+
+
 .amount-number{
   font-size: 350%;
 }
