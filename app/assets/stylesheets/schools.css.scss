@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import url(http://fonts.googleapis.com/css?family=Codystar:300);
+
 html,
 body {
   width: 100%;
@@ -10,19 +12,39 @@ body {
 
 body {
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+}
+
+/* Body background */
+body::after {
+  content: attr(data-bg);
+  /*content: "My text"; if not using js*/
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #CCCCCC;
+  overflow-y: hidden;
+  text-align: justify;
+  speak: none;
+  font-family: 'Codystar', cursive;
+  font-size: 20px;
+  color:  #E6E6E6;
+
 }
 
 .text-vertical-center {
   display: table-cell;
-  text-align: center;
+  /*text-align: center;*/
   vertical-align: middle;
-}
-
-.text-vertical-center h1 {
-  margin: 0;
-  padding: 0;
-  font-size: 4.5em;
-  font-weight: 700;
 }
 
 /* Custom Button Styles */
@@ -53,12 +75,6 @@ body {
   background-color: rgba(255,255,255,0.8);
 }
 
-/* Custom Horizontal Rule */
-
-hr.small {
-  max-width: 100px;
-}
-
 /* Header */
 
 .header {
@@ -74,39 +90,55 @@ hr.small {
 }
 
 .header .title{
-  font-family: 'Didact Gothic', sans-serif;
-	width: 60%;
-	margin-left: auto;
-	margin-right: auto;
-  text-shadow:
+  margin: 0;
+  padding: 0;
+  font-size: 4.5em;
+  font-weight: 700;
+  /*font-family: 'Didact Gothic', sans-serif;*/
+	/*width: 60%;*/
+	/*margin-left: auto;
+	margin-right: auto;*/
+  /*text-shadow:
       3px 3px 0 #000,
       -1px -1px 0 #000,  
       1px -1px 0 #000,
       -1px 1px 0 #000,
-      1px 1px 0 #000;
+      1px 1px 0 #000;*/
   color: white;
 }
 
 .header .subtitle{
-	margin-left:auto;
-	margin-right: auto;
-	width: 60%;
+	/*margin-left:auto;
+	margin-right: auto;*/
+	/*width: 60%;*/
 	font-size: 140%;
-	font-family: 'Didact Gothic', sans-serif;
+	/*font-family: 'Didact Gothic', sans-serif;*/
   color: white;
-}
-
-.header .search-bar {
 }
 
 #search_text {
   height: 50px;
-  font-family: 'Didact Gothic', sans-serif;
-
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 #results {
-  font-family: 'Didact Gothic', sans-serif;
+}
+
+/* Modal */
+.modal-content{
+
+}
+.modal-title{
+  font-size: 200%;
+}
+
+
+.amount-number{
+  font-size: 350%;
+}
+
+.enrollment-number {
+  font-size: 350%;
 }
 
 /* About */
@@ -124,12 +156,10 @@ hr.small {
   width:200px;
   border-radius: 50%;
   height:200px;
-	font-family: 'Didact Gothic', sans-serif;	
   vertical-align: middle;
 }
 
 .counter-text{
-	font-family: 'Didact Gothic', sans-serif;	
 	height:30px;	
 	font-size: 13px;
 }
@@ -141,43 +171,58 @@ hr.small {
 }
 
 
-.modal-content{
-  font-family: 'Didact Gothic', sans-serif;
-}
-.modal-title{
-  font-size: 200%;
-}
-
-
-.amount-number{
-  font-size: 350%;
-}
-
-.enrollment-number {
-  font-size: 350%;
-}
-@import url(http://fonts.googleapis.com/css?family=Codystar:300);
-*, *::after, *::before {
-  padding: 0;
-  margin: 0;
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+    padding: 7px 16px;
+    border: 2px solid #fff;
+    border-radius: 35px;
+    font-size: 40px;
+    color: #fff;
+    background: 0 0;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
 }
 
-/* Body background */
-body::after {
-  content: attr(data-bg);
-  /*content: "My text"; if not using js*/
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #CCCCCC;
-  overflow-y: hidden;
-  text-align: justify;
-  speak: none;
-  font-family: 'Codystar', cursive;
-  font-size: 20px;
-  color:  #E6E6E6;
+.btn-circle:hover,
+.btn-circle:focus {
+    outline: 0;
+    color: #fff;
+    background: rgba(255,255,255,.1);
+}
 
+.btn-circle i.animated {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+}
+
+.btn-circle:hover i.animated {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+}
+
+.content-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+@media(min-width:767px) {
+  .content-section {
+    padding-top: 250px;
+    padding-bottom: 250px;
+  }
 }
