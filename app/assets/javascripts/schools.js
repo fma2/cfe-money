@@ -1,6 +1,6 @@
 $( document ).ready(function() {
   $("body").hide(0).delay(100).fadeIn(2200);
-  
+
   $.ajax({
     dataType: 'json',
     url: '/random',
@@ -9,8 +9,7 @@ $( document ).ready(function() {
     createDynamicTextBackground(data)
   }).fail(function() {
     console.log("Failed to load background text")
-  });
-  
+  });  
 });
 
 $(window).on('show.bs.modal', function (event) {
@@ -48,3 +47,15 @@ function createDynamicTextBackground(data) {
   attribute.value = txt_rep;
   document.body.setAttributeNode(attribute);
 }
+
+//jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+  $('a.page-scroll').bind('click', function(event) {
+    console.log("hi")
+    var $anchor = $(this);
+    $('html, body').stop().animate({
+      scrollTop: $($anchor.attr('href')).offset().top
+    }, 1500, 'easeInOutExpo');
+    event.preventDefault();
+  });
+});
