@@ -5,7 +5,6 @@ class SchoolsController < ApplicationController
 	end
 	
 	def search
-		# @results = PgSearch.multisearch(params["search"])
 		@results = School.search_schools(params["search"])
 	end
 
