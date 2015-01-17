@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'schools#index'
   get '/search' => 'schools#search'
   get '/random' => 'schools#random40'
+  get '/districts' => 'schools#districts'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
