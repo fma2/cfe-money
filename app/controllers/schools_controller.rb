@@ -25,4 +25,21 @@ class SchoolsController < ApplicationController
 			format.json { render json: @json }
 		end
 	end
+
+	def districts
+		results = School.search_schools("District ");
+		@json = Array.new
+		results.each do |district|
+			@json << {
+				code: district.dbn,
+				district: district.school,
+				total_enrollment: district.total_enrollment,
+				amount_owed: district.amount_owed
+			}
+		end
+		respond_to do |format|
+			format.html
+			format.json { render json: @json }
+		end
+	end
 end
