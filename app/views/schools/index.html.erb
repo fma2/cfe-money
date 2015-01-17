@@ -12,7 +12,6 @@
 				<div class="input-group" >
 					<%= text_field_tag("search_text", nil, placeholder: "search by school name or dbn", size: 250, class:'form-control') %>
 				</div>
-				<!-- <a href="#about" class="btn btn-dark btn-lg">Search</a> -->
 				<% end %>
 				<a href="#more" class="btn btn-circle page-scroll">
 					<i class="fa fa-angle-double-down animated"></i>
@@ -23,104 +22,77 @@
 					$.get('/search?search='+ $(this).val());
 				});
 				</script>
-
 			</div>
-
 		</div><!-- /input-group -->
 	</div><!-- /.col-lg-6 -->
 </div>
 </section>
 
 
-<!-- About Section -->
-<section id="more" class="container content-section text-center">
+<!-- More Information Section -->
+<section id="more" class="more-info container content-section">
 	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2">
-			<h2>About Grayscale</h2>
-			<p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-			<p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-			<p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
+		<div class="col-lg-12">
+			<div class="col-lg-4">
+				<div class="amount-owed-section">
+					<h4 class="info-text">citywide total amount that NYC is owed from State</h4>
+					<div class="info-number">$2,500,000,000</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="enrollment-section">
+					<h4 class="info-text">official school register as of 10/31/2013</h4>
+					<div class="info-number">1,032,314</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="amount-per-student-section">
+					<h4 class="info-text">amount owed per student</h4>
+					<div class="info-number">$2421.74</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-11">
+			<h4>by district</h4>
+			<div id="district-info">
+			</div>
+			<div id="district-buttons">
+			</div>
 		</div>
 	</div>
 </section>
-<!-- Citywide stats -->
-<!-- 		<div class="row">
-			<div class="col-lg-10 col-lg-offset-1">
+
+
+
+<div class="modal fade" id="schoolModal" tabindex="-1" role="dialog" aria-labelledby="schoolModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="schoolModalLabel"></h4>
+			</div>
+			<div class="modal-body">
 				<div class="row">
+					<div class="col-lg-8">
+						<div class="amount-owed-section">
+							<div class="amount-text">amount owed</div>
+							<div class="amount-number"></div>
+						</div>
 
-					<div class="col-md-4 col-sm-4">
-						<div class="counter">
-							<span class="fa-stack fa-4x">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-cloud fa-stack-1x text-primary"></i>
-							</span>
-							<h5 class="counter-text">
-								<strong>Total amount that NYC is owed from the State (CFE lawsuit)</strong>
-							</h5>
-							<p>$2,500,000,000</p>
+					</div>
+					<div class="col-lg-4">
+						<div class="enrollment-section">
+							<div class="enrollment-text">total enrollment</div>
+							<div class="enrollment-number"></div>
 						</div>
 					</div>
-
-					<div class="col-md-4 col-sm-4">
-						<div class="counter">
-							<span class="fa-stack fa-4x">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-cloud fa-stack-1x text-primary"></i>
-							</span>
-							<h5 class="counter-text">
-								<strong>Official school register as of 10/31/2013</strong>
-							</h5>
-							<p>1,032,314</p>
-						</div>
-					</div>
-
-					<div class="col-md-4 col-sm-4">
-						<div class="counter">
-							<span class="fa-stack fa-4x">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-cloud fa-stack-1x text-primary"></i>
-							</span>
-							<h5 class="counter-text">
-								<strong>Amount owed per student</strong>
-							</h5>
-							<p>$2421.74</p>
-						</div>
-					</div>
-
 				</div>
 			</div>
-		</div> -->
-
-
-		<div class="modal fade" id="schoolModal" tabindex="-1" role="dialog" aria-labelledby="schoolModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="schoolModalLabel"></h4>
-					</div>
-					<div class="modal-body">
-						<div class="row">
-							<div class="col-lg-8">
-								<div class="amount-owed-section">
-									<div class="amount-text">amount owed</div>
-
-									<div class="amount-number"></div>
-								</div>
-
-							</div>
-							<div class="col-lg-4">
-								<div class="enrollment-section">
-									<div class="enrollment-text">total enrollment</div>
-
-									<div class="enrollment-number"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-					</div>
-				</div>
+			<div class="modal-footer">
 			</div>
 		</div>
+	</div>
+</div>
 
