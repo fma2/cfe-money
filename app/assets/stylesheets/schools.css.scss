@@ -189,6 +189,10 @@ and (max-device-width : 1024px) {
   body::after {
     font-size:50px;
   }
+  .header .title{
+    font-size: 4.5em;
+    font-weight: 700;
+  }
 }
 
 @media(min-width:767px) {
