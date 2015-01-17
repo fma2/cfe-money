@@ -9,7 +9,18 @@ $( document ).ready(function() {
     createDynamicTextBackground(data)
   }).fail(function() {
     console.log("Failed to load background text")
-  });  
+  });
+
+  $.ajax({
+    dataType: 'json',
+    url: '/districts',
+    type: 'GET'
+  }).success(function(data) {
+    createDistrictInformation(data)
+  }).fail(function() {
+    console.log("Failed to load background text")
+  }); 
+ 
 });
 
 $(window).on('show.bs.modal', function (event) {
@@ -59,3 +70,15 @@ $(function() {
     event.preventDefault();
   });
 });
+
+function createDistrictInformation(data) {
+ var districtButtons = document.getElementById('district-buttons');
+  for (var i = 1; i < 33; i++) {
+    $('#district-buttons').append('<a class="btn btn-default" data-toggle="collapse" href="#district'+i+'" aria-expanded="false" aria-controls="collapseExample">District '+i+'</a>')
+  }
+
+  for (k in data) {
+    $('#district-info').append('<div class="collapse" id="district'+k+'"><div class="well"><h5 class="amount-owed-well-title">Total Amount Owed to District '+k+': </h5><h3 class="amount-owed-well-content">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div></div>')
+  }
+
+}
