@@ -24,7 +24,6 @@ body {
 /* Body background */
 body::after {
   content: attr(data-bg);
-  /*content: "My text"; if not using js*/
   z-index: -1;
   position: absolute;
   top: 0;
@@ -43,7 +42,6 @@ body::after {
 
 .text-vertical-center {
   display: table-cell;
-  /*text-align: center;*/
   vertical-align: middle;
 }
 
@@ -94,25 +92,11 @@ body::after {
   padding: 0;
   font-size: 4.5em;
   font-weight: 700;
-  /*font-family: 'Didact Gothic', sans-serif;*/
-	/*width: 60%;*/
-	/*margin-left: auto;
-	margin-right: auto;*/
-  /*text-shadow:
-      3px 3px 0 #000,
-      -1px -1px 0 #000,  
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
-      1px 1px 0 #000;*/
   color: white;
 }
 
 .header .subtitle{
-	/*margin-left:auto;
-	margin-right: auto;*/
-	/*width: 60%;*/
 	font-size: 140%;
-	/*font-family: 'Didact Gothic', sans-serif;*/
   color: white;
 }
 
@@ -121,8 +105,6 @@ body::after {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-#results {
-}
 
 /* Modal */
 .modal-content{
@@ -132,45 +114,23 @@ body::after {
   font-size: 200%;
 }
 
-
 .info-number{
   font-size: 350%;
 }
 
-.more-info {
+/* More Info Section */
+
+.content-section {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 
 }
 
-/* About */
-
-.about {
-  padding: 50px 0;
-}
-
-/* Circle Counter */
-
-.counter {
-  display: table-cell;
-  margin:1.5%;
-  font-size:20px;
-  width:200px;
-  border-radius: 50%;
-  height:200px;
-  vertical-align: middle;
-}
-
-.counter-text{
-	height:30px;	
-	font-size: 13px;
-}
-
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
+/* Button to jump to more info */
 .btn-circle {
     width: 70px;
     height: 70px;
@@ -211,14 +171,24 @@ body::after {
   -moz-animation-timing-function: linear;
 }
 
-.content-section {
-  padding-top: 200px;
-  padding-bottom: 200px;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+/*Media Queries*/
 
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+ body::after {
+    font-size:50px;
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+  body::after {
+    font-size:50px;
+  }
 }
 
 @media(min-width:767px) {
@@ -227,3 +197,5 @@ body::after {
     padding-bottom: 250px;
   }
 }
+
+
