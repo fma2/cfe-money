@@ -78,7 +78,7 @@ function createDistrictInformation(data) {
   }
 
   for (k in data) {
-    $('#district-info').append('<div class="collapse" id="district'+k+'"><div class="well"><h5 class="amount-owed-well-title">Total Amount Owed to District '+k+': </h5><h3 class="amount-owed-well-content">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div></div>')
+    $('#district-info').append('<div class="collapse" id="district'+k+'"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">Total Amount Owed to District '+k+': </h5><h3 class="well-content">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">Total Number Students</h5><h3 class="well-content">'+data[k].total_enrollment+'</h3></div></div></div></div>')
   }
 
 }
