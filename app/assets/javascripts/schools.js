@@ -26,6 +26,7 @@ $( document ).ready(function() {
 });
 
 $(document).on('show.bs.modal', function (event) {
+  alert("Hello.  Thanks for searching")
   var button = $(event.relatedTarget) // Button that triggered the modal
   var dbn = button.data('dbn'); // Extract info from data-* attributes
   var school = button.data('school');
