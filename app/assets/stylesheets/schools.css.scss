@@ -40,9 +40,75 @@ body::after {
 
 }
 
-.text-vertical-center {
-  display: table-cell;
+/* Header */
+
+.header {
+  display:table;
+	color: #4C4C4C;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.header-body {
   vertical-align: middle;
+  display: table-cell;
+}
+
+.header .title{
+  margin: 0;
+  padding: 0;
+  font-size: 4.5em;
+  font-weight: 700;
+  color: white;
+}
+
+.header .subtitle{
+	font-size: 140%;
+  color: white;
+}
+
+#search_text {
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* Modal */
+.modal-content{
+}
+
+.modal-title{
+  font-size: 200%;
+}
+
+.info-number{
+  font-size: 350%;
+}
+
+
+/* More Info Section */
+
+.content-section {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+}
+
+.well-title {
+  padding-top: 10px;
+}
+
+.well-content {
+  padding-bottom: 10px;
 }
 
 /* Custom Button Styles */
@@ -73,64 +139,8 @@ body::after {
   background-color: rgba(255,255,255,0.8);
 }
 
-/* Header */
-
-.header {
-	color: #4C4C4C;
-  display: table;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-}
-
-.header .title{
-  margin: 0;
-  padding: 0;
-  font-size: 4.5em;
-  font-weight: 700;
-  color: white;
-}
-
-.header .subtitle{
-	font-size: 140%;
-  color: white;
-}
-
-#search_text {
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-
-/* Modal */
-.modal-content{
-
-}
-.modal-title{
-  font-size: 200%;
-}
-
-.info-number{
-  font-size: 350%;
-}
-
-/* More Info Section */
-
-.content-section {
-  padding-top: 200px;
-  padding-bottom: 200px;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-
-}
-
 /* Button to jump to more info */
+
 .btn-circle {
     width: 70px;
     height: 70px;
@@ -178,11 +188,20 @@ body::after {
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
  body::after {
-    font-size:50px;
+    /*font-size:50px;*/
   }
   .header .title{
-    font-size: 4.5em;
+    font-size: 3em;
     font-weight: 700;
+  }
+  .content-section {
+    padding-top:100px;
+  }
+  .more-info .info-text{
+    font-size: 1em;
+  }
+  .more-info .info-number{
+    font-size: 2em;
   }
 }
 
@@ -191,10 +210,10 @@ and (max-device-width : 480px) {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) {
   body::after {
-    font-size:50px;
+    /*font-size:50px;*/
   }
   .header .title{
-    font-size: 4.5em;
+    font-size: 3.5em;
     font-weight: 700;
   }
 }
