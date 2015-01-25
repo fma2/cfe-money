@@ -1,6 +1,7 @@
 $( document ).ready(function() {
   $("body").hide(0).delay(100).fadeIn(2200);
 
+  //AJAX call for dynamic text background data
   $.ajax({
     dataType: 'json',
     url: '/random',
@@ -11,6 +12,7 @@ $( document ).ready(function() {
     console.log("Failed to load background text")
   });
 
+  //AJAX call for district section information
   $.ajax({
     dataType: 'json',
     url: '/districts',
@@ -18,7 +20,7 @@ $( document ).ready(function() {
   }).success(function(data) {
     createDistrictInformation(data)
   }).fail(function() {
-    console.log("Failed to load background text")
+    console.log("Failed to load district information");
   }); 
  
 });
@@ -37,7 +39,6 @@ $(window).on('show.bs.modal', function (event) {
 
 
 function createDynamicTextBackground(data) {
-  console.log(data);
   var txt = [];
   for (k in data) {
     txt.push(data[k].dbn);
