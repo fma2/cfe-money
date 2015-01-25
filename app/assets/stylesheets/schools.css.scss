@@ -95,6 +95,11 @@ body::after {
   font-size: 350%;
 }
 
+.modal.fade.in {
+  /*margin-top: -25%;
+  top: 50%;*/
+}
+
 /* More Info Section */
 
 .content-section {
@@ -181,6 +186,25 @@ and (max-device-width : 1024px) {
     padding-top: 200px;
     padding-bottom: 250px;
   }
+}
+
+@media (max-width: 480px)
+{
+  .modal {
+      position: fixed;
+      top: 3%;
+      right: 3%;
+      left: 3%;
+      bottom: 3%;
+      width: auto;
+      margin: 0;
+  }
+  .modal-body {
+      max-height: 350px;
+      padding: 15px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+   }
 }
 
 
