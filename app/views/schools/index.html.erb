@@ -1,3 +1,11 @@
+<div class="nav">
+	<a href="#top" class="btn btn-xs btn-dark page-scroll">
+		<i class="fa fa-chevron-up animated"></i>
+	</a>
+	<a href="#more" class="btn btn-xs btn-dark page-scroll">
+		<i class="fa fa-chevron-down animated"></i>
+	</a>
+</div>
 <!-- Search and title section -->
 <header id="top" class="header">
 	<div class="header-body">
@@ -16,9 +24,6 @@
 						<%= text_field_tag("search_text", nil, placeholder: "search by school name or dbn", size: 250, class:'form-control') %>
 					</div>
 					<% end %>
-					<a href="#more" class="btn btn-circle page-scroll">
-						<i class="fa fa-angle-double-down animated"></i>
-					</a>
 					<div id="results"></div>
 					<script type="text/javascript">
 					$("#search_text").keyup(function(event) {
