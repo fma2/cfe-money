@@ -38,7 +38,7 @@ $(document).on('show.bs.modal', function (event) {
     modal.find('.amount-number').text("$" + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
     modal.find('.enrollment-number').text(enrollment);
   }
-  
+
 });
 
 
@@ -83,7 +83,8 @@ function createDistrictInformation(data) {
   }
 
   for (k in data) {
-    $('#district-info').append('<div class="collapse" id="district'+k+'"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to district '+k+' </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>')
+    var n = parseInt(k) + 1;
+    $('#district-info').append('<div class="collapse" id="district'+n+'"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to district '+n+' </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>')
   }
 
 }
