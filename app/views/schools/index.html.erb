@@ -43,7 +43,7 @@
 			<div class="col-xs-12 col-md-12">
 				<div class="col-md-4">
 					<div class="amount-owed-section">
-						<h4 class="info-text">citywide total amount that NYC is owed from State</h4>
+						<h4 class="info-text">citywide amount NYS owes NYC</h4>
 						<h3 class="info-number highlight-title">$2,500,000,000</h3>
 					</div>
 				</div>
@@ -69,7 +69,11 @@
 				</div>
 				<div id="district-buttons">
 				</div>
-				<hr>
+			</div>
+		</div>
+		<hr>		
+		<div class="row">
+			<div class= "col-md-12">
 			</div>
 		</div>
 	</div>
@@ -77,7 +81,8 @@
 
 <footer>
 	<div class="container text-center">
-		<a href="http://farheenmalik.com" target="_blank">contact</a> / <a href="mailto:farheen.m.malik@gmail.com?Subject=CFE%20Site%20Feedback" target="_top">feedback</a> / <a href="https://github.com/fma2/cfe-money" target="_blank">github</a>
+		<a target="_blank" data-toggle="modal" data-target="#aboutModal" class="clickable">learn more</a> / <a href="mailto:farheen.m.malik@gmail.com?Subject=CFE%20Site%20Feedback" target="_top">give feedback</a> 
+
 	</div>
 </footer>
 
@@ -111,3 +116,37 @@
 	</div>
 </div>
 
+
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<p class="modal-title" id="aboutModalLabel"><br></p>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="subtitle-section">
+							<h4><strong>How much does NY State owe your school? - A tool for school communities by <a href="http://farheenmalik.com" target="_blank">Farheen Malik</a></strong></h4>
+							<p>This project provides information on CFE money owed to schools and districts in NYC. </p>
+						</div>
+						<div class="references-section">
+							<p>Raw data was provided by <a href="http://schools.nyc.gov/default.htm" target="_blank">NYC Department of Education (NYC DOE)</a> and analyzed by the <a href="http://annenberginstitute.org/" target="_blank">Annenberg Institute for School Reform</a>.</p>
+							
+							<p><u>How amount per school was calculated:</u>
+								<br>Total amount owed to NYC from CFE was divided by total number of students in the system, according to the NYC DOE.  This number was then multipled by enrollment in each school to get the amount owed per school.</p>
+
+							<p>Two datasets were considered for school, district, and citywide enrollment figures: <a href="http://schools.nyc.gov/AboutUs/schools/data/stats/default.htm" target="_blank">NYC DOE Official Register as of 10/31/2013</a> and <a href="http://schools.nyc.gov/AboutUs/schools/data/default.htm" target="_blank">NYC DOE Demographics Snapshot 2013-2014</a>.  The overall official audited citywide student count from the first data source (1,032,314), does not match the total count across 
+							all schools from the second data source (964,758). We relied on the official published citywide count based on the first data source to calculate the amount of money owed per student.</p>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="code-link-section">
+						Code on <a href="https://github.com/fma2/cfe-money" target="_blank">Github</a>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
