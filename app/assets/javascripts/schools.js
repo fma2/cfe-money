@@ -34,7 +34,8 @@ $(document).on('show.bs.modal', function (event) {
   
   if (dbn !=undefined) {
     var modal = $('#schoolModal')
-    modal.find('.modal-title').text(school);
+    modal.find('.modal-title').text(school + " ");
+    modal.find('.modal-title-dbn').text("(" + dbn + ")");
     modal.find('.amount-number').text("$" + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
     modal.find('.enrollment-number').text(enrollment);
   }
