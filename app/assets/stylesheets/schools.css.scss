@@ -109,7 +109,7 @@ body::after {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  background: linear-gradient(#E6EBE6, #FFF 30%);
+  background: linear-gradient(#E6EBE6, #FFF 20%);
 }
 
 .info-number {
@@ -188,7 +188,7 @@ footer p {
   color: black;  
 }
 
-.modal-title{
+#schoolModal .modal-title{
   font-size: 3em;
   color: white;
 }
@@ -198,6 +198,10 @@ footer p {
   font-size:3.5em;
 }
 
+#aboutModal .modal-title{
+  font-size: 1.5em;
+  color: white;
+}
 
 /* Custom Button Styles */
 
