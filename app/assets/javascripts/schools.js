@@ -31,10 +31,14 @@ $(document).on('show.bs.modal', function (event) {
   var school = button.data('school');
   var enrollment = button.data('enrollment');
   var amount = button.data('owed');
-  var modal = $('#schoolModal')
-  modal.find('.modal-title').text(school);
-  modal.find('.amount-number').text("$" + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
-  modal.find('.enrollment-number').text(enrollment);
+  
+  if (dbn !=undefined) {
+    var modal = $('#schoolModal')
+    modal.find('.modal-title').text(school);
+    modal.find('.amount-number').text("$" + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
+    modal.find('.enrollment-number').text(enrollment);
+  }
+  
 });
 
 
