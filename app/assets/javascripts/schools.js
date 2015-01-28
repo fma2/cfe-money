@@ -34,10 +34,12 @@ $(document).on('show.bs.modal', function (event) {
   
   if (dbn !=undefined) {
     var modal = $('#schoolModal')
+    var formattedAmt = amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
     modal.find('.modal-title').text(school + " ");
     modal.find('.modal-title-dbn').text("(" + dbn + ")");
-    modal.find('.amount-number').text("$" + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
+    modal.find('.amount-number').text("$" + formattedAmt);
     modal.find('.enrollment-number').text(enrollment);
+    modal.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.howmuchnysrobbed.nyc/' data-text='NYS and @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='allkidsneed, wecantwait, eduequity'>Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>")
   }
 
 });
@@ -49,7 +51,7 @@ function createDynamicTextBackground(data) {
     txt.push(data[k].dbn);
     txt.push(data[k].school);
     txt.push(data[k].total_enrollment);
-    txt.push("$" + data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'))
+    txt.push("$" + data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,"))
   }
   var txt_now = '';
   for (var i = 0; i < txt.length; i++) {
