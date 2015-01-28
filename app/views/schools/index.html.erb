@@ -19,7 +19,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-md-12">
-					<%= form_tag(search_path, method: "get") do %>
+					<%= form_tag(search_path, method: "get", onsubmit: "return false") do %>
 					<div class="input-group" >
 						<%= text_field_tag("search_text", nil, placeholder: "search by school name or dbn", size: 250, class:'form-control') %>
 					</div>
