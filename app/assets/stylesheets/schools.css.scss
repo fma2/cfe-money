@@ -122,7 +122,6 @@ body::after {
 
   }
 }
-
 .info-number {
   font-size: 3em;
 }
@@ -141,8 +140,8 @@ body::after {
   text-align:right;
 }
 
-#district-buttons, .description-text {
-
+#district-buttons, 
+.description-text {
   .btn-custom {
     background-color: #FFF;
     border-color: #ded9d9;
@@ -181,7 +180,7 @@ body::after {
 
 .description-text {
   .btn-custom {
-  width: 100%;
+    width: 100%;
   }
 }
 
@@ -254,13 +253,16 @@ and (max-device-width : 480px) {
  body::after {
     /*font-size:50px;*/
   }
-  .header .title{
-    font-size: 3em;
-    font-weight: 700;
+  .header {
+    .title{
+      font-size: 3em;
+      font-weight: 700;
+    }
+    .subtitle{
+      font-size:1em;
+    }
   }
-  .header .subtitle{
-    font-size:1em;
-  }
+
   #schoolModal {
     .modal-title, .modal-title-dbn {
       font-size: 1.25em;
@@ -275,12 +277,22 @@ and (max-device-width : 480px) {
   .content-section {
     padding-top:100px;
   }
-  .more-info .info-text{
-    font-size: 1em;
+  .more-info {
+    .info-text{
+      font-size: 1em;
+    }
+    .info-number{
+      font-size: 2em;
+    }
+    .description-title {
+      font-size: 2em; 
+    }
+    .well-content{
+      font-size:2em;
+    }
+
   }
-  .more-info .info-number{
-    font-size: 2em;
-  }
+  
 }
 
 /* iPads (portrait and landscape) ----------- */
