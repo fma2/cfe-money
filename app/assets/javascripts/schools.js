@@ -26,7 +26,6 @@ $( document ).ready(function() {
   $('.read-more').click(function(e) {
     $(this).hide();
   });
-
 });
 
 $(document).on('show.bs.modal', function (event) {
@@ -84,15 +83,12 @@ $(function() {
 });
 
 function createDistrictInformation(data) {
- var districtButtons = document.getElementById('district-buttons');
- for (var i = 1; i < 33; i++) {
-  $('#district-buttons').append('<a class="btn btn-custom" data-toggle="collapse" href="#district'+i+'" aria-expanded="false" aria-controls="collapseExample">District '+i+'</a>')
+  var districtButtons = document.getElementById('district-buttons');
+  for (var i = 1; i < 33; i++) {
+    $('#district-buttons').append('<a class="btn btn-custom" data-toggle="collapse" href="#district'+i+'" aria-expanded="false" aria-controls="collapseExample">District '+i+'</a>')
+  }
+  for (k in data) {
+    var n = parseInt(k) + 1;
+    $('#district-info').append('<div class="collapse" id="district'+n+'"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to district '+n+' </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>')
+  }
 }
-
-for (k in data) {
-  var n = parseInt(k) + 1;
-  $('#district-info').append('<div class="collapse" id="district'+n+'"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to district '+n+' </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>')
-}
-
-}
-
