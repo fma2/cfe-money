@@ -110,6 +110,17 @@ body::after {
   background-size: cover;
   -o-background-size: cover;
   background: linear-gradient(#E6EBE6, #FFF 20%);
+
+  .description-text {
+  a {
+    color: #003300;
+  }
+  a:hover{
+    color:  #335C33;
+    text-decoration:none;
+  }
+
+  }
 }
 
 .info-number {
@@ -126,42 +137,52 @@ body::after {
   font-size: 3em;
 }
 
-#district-buttons {
+.source-text {
+  text-align:right;
+}
 
-.btn-custom {
-  background-color: #FFF;
-  border-color: #ded9d9;
-  border-color: #f5f5f5;
-  color: #4C4C4C;
+#district-buttons, .description-text {
 
-  color:#B2B2B2;
-  color: #4C4C4C;
+  .btn-custom {
+    background-color: #FFF;
+    border-color: #ded9d9;
+    border-color: #f5f5f5;
+    color: #4C4C4C;
+
+    color:#B2B2B2;
+    color: #4C4C4C;
+
+  }
+
+  .btn-custom:hover,
+  .btn-custom:focus,
+  .btn-custom:active,
+  .btn-custom.active {
+    background-color:#E6EBE6;
+    border-color: #c6bebe;
+  }
+  .btn-custom.disabled:hover,
+  .btn-custom.disabled:focus,
+  .btn-custom.disabled:active,
+  .btn-custom.disabled.active,
+  .btn-custom[disabled]:hover,
+  .btn-custom[disabled]:focus,
+  .btn-custom[disabled]:active,
+  .btn-custom[disabled].active,
+  fieldset[disabled] .btn-custom:hover,
+  fieldset[disabled] .btn-custom:focus,
+  fieldset[disabled] .btn-custom:active,
+  fieldset[disabled] .btn-custom.active {
+    background-color: #ded9d9;
+    border-color: #ded9d9;
+  }
 
 }
 
-.btn-custom:hover,
-.btn-custom:focus,
-.btn-custom:active,
-.btn-custom.active {
-  background-color:#E6EBE6;
-  border-color: #c6bebe;
-}
-.btn-custom.disabled:hover,
-.btn-custom.disabled:focus,
-.btn-custom.disabled:active,
-.btn-custom.disabled.active,
-.btn-custom[disabled]:hover,
-.btn-custom[disabled]:focus,
-.btn-custom[disabled]:active,
-.btn-custom[disabled].active,
-fieldset[disabled] .btn-custom:hover,
-fieldset[disabled] .btn-custom:focus,
-fieldset[disabled] .btn-custom:active,
-fieldset[disabled] .btn-custom.active {
-  background-color: #ded9d9;
-  border-color: #ded9d9;
-}
-
+.description-text {
+  .btn-custom {
+  width: 100%;
+  }
 }
 
 /*Footer*/
@@ -169,11 +190,11 @@ fieldset[disabled] .btn-custom.active {
 footer {
   padding: 50px 0;
   a {
-    color: #808080;
-  }
-  a:hover {
     color: #003300;
-    text-decoration: none;
+  }
+  a:hover{
+    color:  #335C33;
+    text-decoration:none;
   }
 }
 
