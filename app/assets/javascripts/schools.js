@@ -37,7 +37,7 @@ $(document).on('show.bs.modal', function (event) {
   
   if (dbn !=undefined) {
     var modal = $('#schoolModal')
-    var formattedAmt = amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
+    var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
     modal.find('.modal-title').text(school + " ");
     modal.find('.modal-title-dbn').text("(" + dbn + ")");
     modal.find('.amount-number').text("$" + formattedAmt);
