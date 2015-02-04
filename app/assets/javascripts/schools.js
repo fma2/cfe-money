@@ -34,7 +34,7 @@ $(document).on('show.bs.modal', function (event) {
   var school = button.data('school');
   var enrollment = button.data('enrollment');
   var amount = button.data('owed');
-  
+  $.getScript("http://platform.twitter.com/widgets.js");
   if (dbn !=undefined) {
     var modal = $('#schoolModal')
     var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
@@ -42,7 +42,7 @@ $(document).on('show.bs.modal', function (event) {
     modal.find('.modal-title-dbn').text("(" + dbn + ")");
     modal.find('.amount-number').text("$" + formattedAmt);
     modal.find('.enrollment-number').text(enrollment);
-    modal.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.howmuchnysrobbed.nyc/' data-text='NYS and @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='allkidsneed, wecantwait, eduequity'>Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>")
+    modal.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.howmuchnysrobbed.nyc/' data-text='NYS and @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='allkidsneed, wecantwait, eduequity'>Tweet</a>")
   }
 
 });
