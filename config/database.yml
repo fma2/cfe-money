@@ -78,16 +78,16 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: cfe-money_production
-  username: cfe-money
-  password: <%= ENV['CFE-MONEY_DATABASE_PASSWORD'] %>
-
 # production:
 #   <<: *default
-#   database: <%= ENV['RDS_DB_NAME'] %>
-#   username: <%= ENV['RDS_USERNAME'] %>
-#   password: <%= ENV['RDS_PASSWORD'] %>
-#   host: <%= ENV['RDS_HOSTNAME'] %>
-#   port: <%= ENV['RDS_PORT'] %>
+#   database: cfe-money_production
+#   username: cfe-money
+#   password: <%= ENV['CFE-MONEY_DATABASE_PASSWORD'] %>
+
+production:
+  <<: *default
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
