@@ -7,6 +7,7 @@ class CreateSchools < ActiveRecord::Migration
       t.float :amount_owed
       t.string :district_name
       t.integer :district_no
+      t.string :district_code
       t.string :assembly_district
       t.integer :senate_district
 
