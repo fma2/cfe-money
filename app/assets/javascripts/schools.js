@@ -31,6 +31,7 @@ $( document ).ready(function() {
 $(document).on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var school = button.data('school');
+  var district = button.data('district');
   var enrollment = button.data('enrollment');
   var amount = button.data('owed');
   $.getScript("http://platform.twitter.com/widgets.js");
@@ -38,6 +39,7 @@ $(document).on('show.bs.modal', function (event) {
     var modal = $('#schoolModal')
     var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
     modal.find('.modal-title').text(school + " ");
+    modal.find('.modal-title-district').text("(" + district + ")")
     modal.find('.amount-number').text("$" + formattedAmt);
     modal.find('.enrollment-number').text(enrollment);
     modal.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.howmuchnysrobbed.nyc/' data-text='NYS and @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='allkidsneed, wecantwait, eduequity'>Tweet</a>")
