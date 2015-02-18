@@ -6,24 +6,32 @@ class School < ActiveRecord::Base
                     :tsearch => {:prefix => true},
                   }
   	
-  def self.districts_num_arr
-  	districts = School.select(:district_no).map(&:district_no).uniq
+  def self.districts_arr(field)
+  	districts = School.pluck(:"#{field}").uniq
   	districts.delete_if { |d| d == nil }
   	districts.sort
   end
 
-  def self.get_district_code(schools_arr)
-  	district_code = schools_arr.map(&:district_code).uniq
+  def self.get_district_code(schools_arr, param)
+  	district_code = schools_arr.map(&:"#{param}").uniq
   	district_code[0]
   end
 
-  def self.get_district_name(schools_arr)
-  	district_name = schools_arr.map(&:district_name).uniq
+  def self.get_district_name(schools_arr, param)
+  	district_name = schools_arr.map(&:"#{param}").uniq
   	district_name[0]
   end
 
   def self.district_schools(num)
 		School.where(district_no: num)
+	end
+
+	def self.ad_schools(str)
+		School.where(assembly_district: str)	
+	end
+
+	def self.sd_schools(num)
+		School.where(senate_district:num)
 	end
 
 	def self.district_enrollment_sum(schools_arr)
@@ -34,7 +42,6 @@ class School < ActiveRecord::Base
 		schools_arr.sum(:amount_owed)
 	end
 
-	def self.ad_schools(num)
-	end
+
 
 end
