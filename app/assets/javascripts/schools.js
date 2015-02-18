@@ -30,16 +30,14 @@ $( document ).ready(function() {
 
 $(document).on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
-  var dbn = button.data('dbn'); // Extract info from data-* attributes
   var school = button.data('school');
   var enrollment = button.data('enrollment');
   var amount = button.data('owed');
   $.getScript("http://platform.twitter.com/widgets.js");
-  if (dbn !=undefined) {
+  if (school !=undefined) {
     var modal = $('#schoolModal')
     var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
     modal.find('.modal-title').text(school + " ");
-    modal.find('.modal-title-dbn').text("(" + dbn + ")");
     modal.find('.amount-number').text("$" + formattedAmt);
     modal.find('.enrollment-number').text(enrollment);
     modal.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.howmuchnysrobbed.nyc/' data-text='NYS and @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='allkidsneed, wecantwait, eduequity'>Tweet</a>")
@@ -51,7 +49,6 @@ $(document).on('show.bs.modal', function (event) {
 function createDynamicTextBackground(data) {
   var txt = [];
   for (k in data) {
-    txt.push(data[k].dbn);
     txt.push(data[k].school);
     txt.push(data[k].total_enrollment);
     txt.push("$" + data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,"))
