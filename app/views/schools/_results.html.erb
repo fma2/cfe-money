@@ -2,7 +2,7 @@
 	<ul class="list-group results-list">
 		<% @results.each do |item| %>
 		<div class="result-item clickable">
-			<a data-toggle="modal" data-target="#schoolModal" data-dbn=<%= item.dbn%> data-school="<%= item.school  %>" data-enrollment=<%= item.total_enrollment %> data-owed=<%= item.amount_owed %>><li class="list-group-item"><%= item.dbn%> <%= item.school %></li></a>
+			<a data-toggle="modal" data-target="#schoolModal" data-dbn="<%= item.dbn%>" data-school="<%= item.school  %>" data-district="<%= item.district_name %>"data-enrollment=<%= item.total_enrollment %> data-owed=<%= item.amount_owed %>><li class="list-group-item"><%= item.dbn%> <%= item.school %>  (<%= item.district_code %> <%= item.district_name %>)</li></a>
 			</div>
 			<% end %>
 	</ul>

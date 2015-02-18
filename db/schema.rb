@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 20150112214727) do
     t.string   "school"
     t.integer  "total_enrollment"
     t.float    "amount_owed"
+    t.string   "district_name"
+    t.integer  "district_no"
+    t.string   "district_code"
+    t.string   "assembly_district"
+    t.integer  "senate_district"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

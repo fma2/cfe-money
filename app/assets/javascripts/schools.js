@@ -18,9 +18,30 @@ $( document ).ready(function() {
     url: '/districts',
     type: 'GET'
   }).success(function(data) {
-    createDistrictInformation(data)
+    var schoolDistrictButtons = $('#school-district-buttons');
+    var schoolDistrictInfo =  $('#school-district-info');
+    createDistrictButtons(data, schoolDistrictButtons);
+    createDistrictInformation(data, schoolDistrictInfo)
   }).fail(function() {
-    console.log("Failed to load district information");
+    console.log("Failed to load school district information");
+  }); 
+
+  $('.read-more').click(function(e) {
+    $(this).hide();
+  });
+
+  //AJAX call for assembly section information
+  $.ajax({
+    dataType: 'json',
+    url: '/electoral',
+    type: 'GET'
+  }).success(function(data) {
+    var electoralDistrictButtons = $("#electoral-district-buttons");
+    var electoralDistrictInfo = $("#electoral-district-info");
+    createDistrictButtons(data, electoralDistrictButtons);
+    createDistrictInformation(data,electoralDistrictInfo);
+  }).fail(function() {
+    console.log("Failed to load electoral district information");
   }); 
 
   $('.read-more').click(function(e) {
@@ -30,16 +51,16 @@ $( document ).ready(function() {
 
 $(document).on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
-  var dbn = button.data('dbn'); // Extract info from data-* attributes
   var school = button.data('school');
+  var district = button.data('district');
   var enrollment = button.data('enrollment');
   var amount = button.data('owed');
   $.getScript("http://platform.twitter.com/widgets.js");
-  if (dbn !=undefined) {
+  if (school !=undefined) {
     var modal = $('#schoolModal')
     var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
     modal.find('.modal-title').text(school + " ");
-    modal.find('.modal-title-dbn').text("(" + dbn + ")");
+    modal.find('.modal-title-district').text("(" + district + ")")
     modal.find('.amount-number').text("$" + formattedAmt);
     modal.find('.enrollment-number').text(enrollment);
     modal.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.howmuchnysrobbed.nyc/' data-text='NYS and @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='allkidsneed, wecantwait, eduequity'>Tweet</a>")
@@ -51,7 +72,6 @@ $(document).on('show.bs.modal', function (event) {
 function createDynamicTextBackground(data) {
   var txt = [];
   for (k in data) {
-    txt.push(data[k].dbn);
     txt.push(data[k].school);
     txt.push(data[k].total_enrollment);
     txt.push("$" + data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,"))
@@ -82,13 +102,16 @@ $(function() {
   });
 });
 
-function createDistrictInformation(data) {
-  var districtButtons = document.getElementById('district-buttons');
-  for (var i = 1; i < 33; i++) {
-    $('#district-buttons').append('<a class="btn btn-custom" data-toggle="collapse" href="#district'+i+'" aria-expanded="false" aria-controls="collapseExample">District '+i+'</a>')
-  }
+
+function createDistrictButtons(data,buttonsdiv) {
   for (k in data) {
-    var n = parseInt(k) + 1;
-    $('#district-info').append('<div class="collapse" id="district'+n+'"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to district '+n+' </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>')
+    buttonsdiv.append('<a class="btn btn-custom" data-toggle="collapse" href="#district'+data[k].code+'" aria-expanded="false" aria-controls="collapseExample">'+data[k].district+'</a>')
   }
+}
+
+function createDistrictInformation(data, infodiv) {
+  for (k in data) {
+    infodiv.append('<div class="collapse" id="district'+data[k].code+'"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to '+data[k].district+' </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>') 
+  }
+
 }
