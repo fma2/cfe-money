@@ -140,6 +140,10 @@ body::after {
   text-align:right;
 }
 
+.district-caption {
+  text-align:right;
+}
+
 #school-district-buttons, 
 #electoral-district-buttons,
 .description-text {
@@ -294,6 +298,10 @@ and (max-device-width : 480px) {
       font-size:2em;
     }
 
+  }
+
+  #search_text {
+    font-size: 8.5px;
   }
   
 }
