@@ -18,9 +18,30 @@ $( document ).ready(function() {
     url: '/districts',
     type: 'GET'
   }).success(function(data) {
-    createDistrictInformation(data)
+    var schoolDistrictButtons = $('#school-district-buttons');
+    var schoolDistrictInfo =  $('#school-district-info');
+    createDistrictButtons(data, schoolDistrictButtons);
+    createDistrictInformation(data, schoolDistrictInfo)
   }).fail(function() {
-    console.log("Failed to load district information");
+    console.log("Failed to load school district information");
+  }); 
+
+  $('.read-more').click(function(e) {
+    $(this).hide();
+  });
+
+  //AJAX call for assembly section information
+  $.ajax({
+    dataType: 'json',
+    url: '/electoral',
+    type: 'GET'
+  }).success(function(data) {
+    var electoralDistrictButtons = $("#electoral-district-buttons");
+    var electoralDistrictInfo = $("#electoral-district-info");
+    createDistrictButtons(data, electoralDistrictButtons);
+    createDistrictInformation(data,electoralDistrictInfo);
+  }).fail(function() {
+    console.log("Failed to load electoral district information");
   }); 
 
   $('.read-more').click(function(e) {
@@ -81,19 +102,16 @@ $(function() {
   });
 });
 
-function createDistrictInformation(data) {
-  var districtButtons = document.getElementById('district-buttons');
-  for (var i = 1; i < 33; i++) {
-    $('#district-buttons').append('<a class="btn btn-custom" data-toggle="collapse" href="#district'+i+'" aria-expanded="false" aria-controls="collapseExample">District '+i+'</a>')
-  }
-  console.log(data)
-  $('#district-buttons').append('<a class="btn btn-custom" data-toggle="collapse" href="#district75" aria-expanded="false" aria-controls="collapseExample">District 75</a>')
+
+function createDistrictButtons(data,buttonsdiv) {
   for (k in data) {
-    var district = parseInt(k) + 1;
-    if (data[k].code == 'D75') {
-      $('#district-info').append('<div class="collapse" id="district75"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to special schools district 75 </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>')
-    }
-    $('#district-info').append('<div class="collapse" id="district'+district+'"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to geographic district '+district+' </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>') 
+    buttonsdiv.append('<a class="btn btn-custom" data-toggle="collapse" href="#district'+data[k].code+'" aria-expanded="false" aria-controls="collapseExample">'+data[k].district+'</a>')
+  }
+}
+
+function createDistrictInformation(data, infodiv) {
+  for (k in data) {
+    infodiv.append('<div class="collapse" id="district'+data[k].code+'"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to '+data[k].district+' </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>') 
   }
 
 }
