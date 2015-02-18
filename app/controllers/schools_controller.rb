@@ -14,7 +14,6 @@ class SchoolsController < ApplicationController
 			offset = rand(School.count)
 			rand_record = School.offset(offset).first
 			@json << {
-				dbn: rand_record.dbn,
 				school: rand_record.school,
 				total_enrollment: rand_record.total_enrollment,
 				amount_owed: rand_record.amount_owed
