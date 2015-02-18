@@ -86,8 +86,14 @@ function createDistrictInformation(data) {
   for (var i = 1; i < 33; i++) {
     $('#district-buttons').append('<a class="btn btn-custom" data-toggle="collapse" href="#district'+i+'" aria-expanded="false" aria-controls="collapseExample">District '+i+'</a>')
   }
+  console.log(data)
+  $('#district-buttons').append('<a class="btn btn-custom" data-toggle="collapse" href="#district75" aria-expanded="false" aria-controls="collapseExample">District 75</a>')
   for (k in data) {
-    var n = parseInt(k) + 1;
-    $('#district-info').append('<div class="collapse" id="district'+n+'"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to district '+n+' </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>')
+    var district = parseInt(k) + 1;
+    if (data[k].code == 'D75') {
+      $('#district-info').append('<div class="collapse" id="district75"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to special schools district 75 </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>')
+    }
+    $('#district-info').append('<div class="collapse" id="district'+district+'"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to geographic district '+district+' </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>') 
   }
+
 }
