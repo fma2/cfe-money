@@ -1,9 +1,8 @@
 class School < ActiveRecord::Base
 	include PgSearch
-	multisearchable :against => [:dbn, :school]
 	pg_search_scope :search_schools, 
-									:against => [:dbn, :school], 
+									:against => [[:district_code, 'B'],[:district_name, 'C'], [:school, 'A']], 
 									:using => {
-                    :tsearch => {:prefix => true}
+                    :tsearch => {:prefix => true},
                   }
 end
