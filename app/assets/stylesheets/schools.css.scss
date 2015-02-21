@@ -146,7 +146,7 @@ body::after {
 
 #school-district-buttons, 
 #electoral-district-buttons,
-.description-text {
+.description-text, footer {
   .btn-custom {
     background-color: #FFF;
     border-color: #ded9d9;
@@ -183,6 +183,23 @@ body::after {
 
 }
 
+footer {
+  .btn-custom {
+    font-size: 11px;
+    background-color:#E6EBE6;
+
+    i {
+      vertical-align:middle;
+    }
+  }
+  .btn-custom:hover,
+  .btn-custom:focus,
+  .btn-custom:active,
+  .btn-custom.active {
+    background-color: #FFF;    
+    border-color: #c6bebe;
+  }
+}
 .description-text {
   .btn-custom {
     width: 100%;
