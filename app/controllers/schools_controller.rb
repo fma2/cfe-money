@@ -1,7 +1,6 @@
 class SchoolsController < ApplicationController
 
 	def index
-		
 	end
 	
 	def search
@@ -65,7 +64,6 @@ class SchoolsController < ApplicationController
 				amount_owed: School.district_owed_sum(schools_in_district)
 			}
 		end
-		p @json
 		respond_to do |format|
 			format.html
 			format.json { render json: @json }
