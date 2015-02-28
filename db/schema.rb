@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150227151749) do
 
   create_table "locations", force: true do |t|
     t.string   "name"
+    t.string   "loc_code"
     t.string   "endpoint"
     t.datetime "created_at"
     t.datetime "updated_at"
