@@ -10,6 +10,7 @@ class CreateSchools < ActiveRecord::Migration
       t.string :district_code
       t.string :assembly_district
       t.integer :senate_district
+      t.references :location
 
       t.timestamps
     end
