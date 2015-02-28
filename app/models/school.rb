@@ -1,5 +1,6 @@
 class School < ActiveRecord::Base
 	include PgSearch
+	belongs_to :location
 	pg_search_scope :search_schools, 
 									:against => [[:district_code, 'B'],[:district_name, 'C'], [:school, 'A']], 
 									:using => {
