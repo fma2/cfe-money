@@ -13,18 +13,18 @@ $( document ).ready(function() {
   });
 
   //AJAX call for district section information
-  $.ajax({
-    dataType: 'json',
-    url: '/districts',
-    type: 'GET'
-  }).success(function(data) {
-    var schoolDistrictButtons = $('#school-district-buttons');
-    var schoolDistrictInfo =  $('#school-district-info');
-    createDistrictButtons(data, schoolDistrictButtons);
-    createDistrictInformation(data, schoolDistrictInfo)
-  }).fail(function() {
-    console.log("Failed to load school district information");
-  }); 
+  // $.ajax({
+  //   dataType: 'json',
+  //   url: '/districts',
+  //   type: 'GET'
+  // }).success(function(data) {
+  //   var schoolDistrictButtons = $('#school-district-buttons');
+  //   var schoolDistrictInfo =  $('#school-district-info');
+  //   createDistrictButtons(data, schoolDistrictButtons);
+  //   createDistrictInformation(data, schoolDistrictInfo)
+  // }).fail(function() {
+  //   console.log("Failed to load school district information");
+  // }); 
 
   $('.read-more').click(function(e) {
     $(this).hide();
