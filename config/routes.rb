@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  # root 'welcome#index'
   root 'schools#index'
+  # get '/nyc' => 'schools#nyc'
+  # get '/rest-of-nystate' => 'schools#index'
+
   get '/search' => 'schools#search'
   get '/random' => 'schools#random40'
   get '/districts' => 'schools#districts'
