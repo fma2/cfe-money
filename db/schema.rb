@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112214727) do
+ActiveRecord::Schema.define(version: 20150227151749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.string   "endpoint"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pg_search_documents", force: true do |t|
     t.text     "content"
@@ -34,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150112214727) do
     t.string   "district_code"
     t.string   "assembly_district"
     t.integer  "senate_district"
+    t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
