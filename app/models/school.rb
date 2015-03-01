@@ -1,12 +1,21 @@
 class School < ActiveRecord::Base
 	include PgSearch
 	belongs_to :location
-	pg_search_scope :search_schools, 
+
+	pg_search_scope :search_nyc_schools, 
 									:against => [[:district_code, 'B'],[:district_name, 'C'], [:school, 'A']], 
 									:using => {
                     :tsearch => {:prefix => true},
                   }
-  	
+  scope :in_nyc_location, -> { where(location_id: 1)}
+
+	pg_search_scope :search_ros_schools, 
+									:against => [[:district_code, 'B'],[:district_name, 'C'], [:school, 'A']],
+									:using => {
+                    :tsearch => {:prefix => true},
+                  }
+  scope :in_ros_location, -> { where(location_id: 2)}
+
   def self.districts_arr(field)
   	districts = School.pluck(:"#{field}").uniq
   	districts.delete_if { |d| d == nil }
@@ -35,14 +44,16 @@ class School < ActiveRecord::Base
 		School.where(senate_district:num)
 	end
 
-	def self.district_enrollment_sum(schools_arr)
+	def self.total_enrollment_sum(schools_arr)
 		schools_arr.sum(:total_enrollment)
 	end
 
-	def self.district_owed_sum(schools_arr)
+	def self.total_owed_sum(schools_arr)
 		schools_arr.sum(:amount_owed)
 	end
 
-
+	def self.amount_per_student(owed, enrollment)
+		owed / enrollment
+	end
 
 end
