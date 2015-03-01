@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  # root 'welcome#index'
-  root 'schools#index'
-  # get '/nyc' => 'schools#nyc'
-  # get '/rest-of-nystate' => 'schools#index'
+  root 'welcome#index'
 
-  get '/search' => 'schools#search'
+  get '/nyc' => 'schools#nyc_index'
+  get '/rest-of-nystate' => 'schools#index'
+
+  match '/search/:id' => 'schools#search', via: [:get], as: "search"
   get '/random' => 'schools#random40'
   get '/districts' => 'schools#districts'
   get '/electoral' => 'schools#electoral_districts'
