@@ -55,7 +55,7 @@ $(document).on('show.bs.modal', function (event) {
   var district = button.data('district');
   var enrollment = button.data('enrollment');
   var amount = button.data('owed');
-  $.getScript("http://platform.twitter.com/widgets.js");
+  $.getScript("https://platform.twitter.com/widgets.js");
   if (school !=undefined) {
     var modal = $('#schoolModal')
     var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
