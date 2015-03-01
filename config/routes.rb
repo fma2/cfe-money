@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  get '/nyc' => 'schools#nyc_index'
-  get '/rest-of-nystate' => 'schools#index'
+  get '/nyc' => 'locations#show'
+  get '/rest-of-nystate' => 'schools#index' #will need to change!
 
   match '/search/:id' => 'schools#search', via: [:get], as: "search"
   get '/random' => 'schools#random40'
