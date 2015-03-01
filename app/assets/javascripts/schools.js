@@ -31,18 +31,18 @@ $( document ).ready(function() {
   });
 
   //AJAX call for assembly section information
-  $.ajax({
-    dataType: 'json',
-    url: '/electoral',
-    type: 'GET'
-  }).success(function(data) {
-    var electoralDistrictButtons = $("#electoral-district-buttons");
-    var electoralDistrictInfo = $("#electoral-district-info");
-    createDistrictButtons(data, electoralDistrictButtons);
-    createDistrictInformation(data,electoralDistrictInfo);
-  }).fail(function() {
-    console.log("Failed to load electoral district information");
-  }); 
+  // $.ajax({
+  //   dataType: 'json',
+  //   url: '/electoral',
+  //   type: 'GET'
+  // }).success(function(data) {
+  //   var electoralDistrictButtons = $("#electoral-district-buttons");
+  //   var electoralDistrictInfo = $("#electoral-district-info");
+  //   createDistrictButtons(data, electoralDistrictButtons);
+  //   createDistrictInformation(data,electoralDistrictInfo);
+  // }).fail(function() {
+  //   console.log("Failed to load electoral district information");
+  // }); 
 
   $('.read-more').click(function(e) {
     $(this).hide();
