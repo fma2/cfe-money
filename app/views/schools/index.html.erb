@@ -68,7 +68,7 @@
 				<div class="col-md-4">
 					<div class="amount-owed-section">
 						<h4 class="info-text">amount owed to <%= @location_name %></h4>
-						<h3 class="info-number highlight-title">$<%= number_with_precision(@total_owed, :precision => 2, :delimiter => ',') %></h3>
+						<h3 class="info-number highlight-title">$<%= number_with_precision(@total_owed, :precision => 0, :delimiter => ',') %></h3>
 					</div>
 				</div>
 				<div class="col-md-4">
