@@ -22,7 +22,7 @@ body {
 }
 
 /* Body background */
-body::after {
+/*body::after {
   content: attr(data-bg);
   z-index: -1;
   position: absolute;
@@ -37,11 +37,11 @@ body::after {
   font-family: 'Codystar', cursive;
   font-size: 20px;
   color:  #B8B8B8;
-
 }
+*/
 
 /* Header */
-
+/*
 .header {
   display:table;
 	color: #4C4C4C;
@@ -68,15 +68,14 @@ body::after {
 
 .header .subtitle{
 	font-size: 140%;
-  /*letter-spacing: 0.5px;*/
 }
+*/
+
 
 .highlight-title:hover{
   color:black;
 }
 
-.loc-selection {
-}
 
 #search_text {
   height: 50px;
@@ -281,7 +280,7 @@ and (max-device-width : 480px) {
  body::after {
     /*font-size:50px;*/
   }
-  .header {
+  /*.header {
     .title{
       font-size: 3em;
       font-weight: 700;
@@ -290,6 +289,7 @@ and (max-device-width : 480px) {
       font-size:1em;
     }
   }
+  */
 
   #schoolModal {
     .modal-title, .modal-title-dbn, .modal-title-district {
