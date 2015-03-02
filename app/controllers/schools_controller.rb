@@ -12,8 +12,10 @@ class SchoolsController < ApplicationController
 		@location = Location.find(params["id"])
 		if @location.loc_code == "nyc"
 			@results = School.in_nyc_location.search_nyc_schools(params["search"])
+			render 'search1.js.erb'
 		else
 			@results = School.in_ros_location.search_ros_schools(params["search"])
+			render 'search2.js.erb'
 		end
 	end
 
