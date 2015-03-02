@@ -77,7 +77,7 @@ body {
 }
 
 
-#search_text {
+#search_text1, #search_text2 {
   height: 50px;
   background-color: rgba(255, 255, 255, 0.5);
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -112,7 +112,7 @@ body {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  background: linear-gradient(#E6EBE6, #FFF 20%);
+  /*background: linear-gradient(#E6EBE6, #FFF 20%);*/
 
   .description-text {
   a {
@@ -321,7 +321,7 @@ and (max-device-width : 480px) {
 
   }
 
-  #search_text {
+  #search_text1, #search_text2 {
     font-size: 8.5px;
   }
   
