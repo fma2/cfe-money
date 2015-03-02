@@ -1,16 +1,43 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-/*text */
+/* GENERAL STYLING */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Codystar:300);
 
-html, body, header, section, footer, h1, h2, h3,h4, h5, p, .modal {
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+ 
+header, 
+section, 
+footer, 
+h1, 
+h2, 
+h3,
+h4, 
+h5, 
+h6,
+p, 
+.modal,
+.nav {
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
-/* nav bar background */
+.clickable {
+  cursor: pointer;
+}
+
+.highlight-title:hover{
+  color:black;
+}
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+}
+
+
+/* NAVBAR BACKGROUND */
 #background::after {
   content: attr(data-bg);
   z-index: -1;
@@ -29,10 +56,29 @@ html, body, header, section, footer, h1, h2, h3,h4, h5, p, .modal {
   height:50px;
 }
 
+/* NAVBAR BUTTONS */
+.nav {
+  position: fixed;
+  z-index: 99999;
+  width: 100%;
+  text-align: right;
 
-/* landing page header styling */
+  .btn-dark {
+    border-radius: 0;
+    color: #fff;
+    background-color: rgba(0,0,0,0.4);
+  }
+  .btn-dark:hover,
+  .btn-dark:focus,
+  .btn-dark:active {
+    color: #fff;
+    background-color: rgba(0,0,0,0.7);
+  }
+}
+
+/* LANDING PAGE HEADER */
 .header {
-	h1 {
+ 	h1 {
 		font-weight: 300;
 		text-align:center;
   	font-size: 4em;
@@ -42,6 +88,7 @@ html, body, header, section, footer, h1, h2, h3,h4, h5, p, .modal {
 	color: #4C4C4C;
   position: relative;
   width: 100%;
+  height:100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -55,8 +102,7 @@ html, body, header, section, footer, h1, h2, h3,h4, h5, p, .modal {
   	-moz-background-size: cover;
   	background-size: cover;
   	-o-background-size: cover;*/
-  	/*background: linear-gradient(#E6EBE6, #FFF 20%);*/
-  	
+  	/*background: linear-gradient(#E6EBE6, #FFF 20%);*/      	
   	h4.subtitle-text{
 			font-size: 140%;
 			font-weight:200;
@@ -66,25 +112,31 @@ html, body, header, section, footer, h1, h2, h3,h4, h5, p, .modal {
 
 #location-tabs-row {
 	height: 100px;
-
 }
 
 .nav-tabs > li, .nav-pills > li {
   float:none !important;
   display:inline-block !important;
   *display:inline; /* ie7 fix */
-   zoom:1; /* hasLayout ie7 trigger */
+  zoom:1; /* hasLayout ie7 trigger */
+  a {
+    color:#003300;
+  }
 }
 .nav-tabs, .nav-pills {
   text-align:center;
   position:relative;
+  z-index:1;
 }
 
-nav-tabs > li.action {
-	background: transparent;
+.nav-tabs>li.active>a {
+  color: #555;
+  background-color:  #335C33 !important;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
 }
 
-/* landing page header media queries */
+/* LANDING PAGE MEDIA QUERIES */
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 
 and (min-device-width : 320px) 
@@ -98,3 +150,5 @@ and (max-device-width : 480px) {
     }
   }
 }
+
+
