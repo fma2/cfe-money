@@ -29,7 +29,7 @@ class SchoolsController < ApplicationController
 	end
 
 	def districts
-		districts_num_list = School.districts_arr(:district_no)
+		districts_num_list = School.districts_arr(1, :district_no)
 		@json = Array.new
 		districts_num_list.each do |d|
 			schools_in_district = School.district_schools(d)
@@ -47,8 +47,8 @@ class SchoolsController < ApplicationController
 	end
 
 	def electoral_districts
-		ad_districts_list = School.districts_arr(:assembly_district)
-		sd_districts_list = School.districts_arr(:senate_district)
+		ad_districts_list = School.districts_arr(1, :assembly_district)
+		sd_districts_list = School.districts_arr(1, :senate_district)
 		@json = Array.new
 		ad_districts_list.each do |d|
 			schools_in_district = School.ad_schools(d)
