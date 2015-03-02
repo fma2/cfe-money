@@ -3,8 +3,15 @@
 		<a target="_blank" data-toggle="modal" data-target="#aboutModal" class="clickable btn btn-xs btn-dark">
 			<i class="fa fa-info"></i>
 		</a>
+		<a href="#top" class="btn btn-xs btn-dark page-scroll">
+		<i class="fa fa-chevron-up animated"></i>
+	</a>
+	<a href="#more" class="btn btn-xs btn-dark page-scroll">
+		<i class="fa fa-chevron-down animated"></i>
+	</a>
 	</div>
 </div>
+
 <header id="top" class="header">
 	<div class="header-body">
 		<div class="container">
@@ -17,24 +24,63 @@
 				</div>
 			</div>
 			<div class="row" id="subtitle-row">
-				<div class="col-xs-12 col-md-12 col-lg-12 no-gutters">
+				<div class="col-xs-12 col-md-12 col-lg-12">
 					<h4 class="subtitle-text">Find out how much New York State is robbing your school.<br>Select a location to get started.</h4>
 					<br>
-					<div class="subtitle-buttons">
-						<div class="col-xs-6 col-md-6 col-lg-6">
-
-							<a href="/nyc" alt="nyc">
-								<button class="btn btn-default btn-lg loc-selection" type="button" aria-expanded="false">
-									<h4>New York City</h4>
-								</button>
-							</a>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row" id="location-tabs-row">
+				<div class="col-xs-12 col-md-12 col-lg-12">
+					<div role="tabpanel" class="subtitle-buttons">
+						<ul class="nav nav-tabs loc-tabs" role="tablist">
+							<li role="presentation" class="active">
+								<a href="#nyc" aria-controls="nyc" role="tab" data-toggle="tab">
+									<div  aria-expanded="false">
+										<h4>New York City</h4>
+									</div>
+								</a>
+							</li>
+							<li role="presentation">
+								<a href="#ros" aria-controls="nyc" role="tab" data-toggle="tab">
+									<div aria-expanded="false">
+										<h4>Rest of New York State</h4>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="search-bar-row">
+				<div class="col-xs-12 col-md-12 col-lg-12">
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="nyc">
+							<%= form_tag(search_path(1), method: "get", onsubmit: "return false") do %>
+							<div class="input-group" >
+								<%= text_field_tag("search_text1", nil, placeholder: "search a school by school name or by district number (e.g. D03 or District 3)", size: 250, class:'form-control') %>
+							</div>
+							<% end %>
+							<div id="results1"></div>
+							<script type="text/javascript">
+							$("#search_text1").keyup(function(event) {
+								$.get('/search/1?search='+ $(this).val());
+							});
+							</script>
 						</div>
-						<div class="col-xs-6 col-md-6 col-lg-6">
-							<a href="/rest-of-nystate" alt="rest of the state">
-								<button class="btn btn-default btn-lg loc-selection" type="button" aria-expanded="false">
-									<h4>Rest of New York State</h4>
-								</button>
-							</a>
+						<div role="tabpanel" class="tab-pane fade" id="ros">
+							<%= form_tag(search_path(2), method: "get", onsubmit: "return false") do %>
+							<div class="input-group" >
+								<%= text_field_tag("search_text2", nil, placeholder: "search a school by school name or by district name (e.g. Albany)", size: 250, class:'form-control') %>
+							</div>
+							<% end %>
+							<div id="results2"></div>
+							<script type="text/javascript">
+							$("#search_text2").keyup(function(event) {
+								$.get('/search/2?search='+ $(this).val());
+							});
+							</script>
 						</div>
 					</div>
 				</div>
@@ -42,6 +88,80 @@
 		</div>
 	</div>
 </header>
+
+
+<section id="more" class="more-info content-section">
+	<div class="container">
+		<hr>
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<h1 class="description-title highlight-title">New York State continues to violate students' constitutional rights</h1>
+				<div class="description-text">
+					<p>The Campaign for Fiscal Equity (CFE) lawsuit was brought against the state of New York by New York City parents claiming the state underfunded the city’s public schools and therefore denied its students their constitutional right to a “sound basic education.”  In a landmark 2007 decision, the state's highest court made explicit the state’s constitutional obligation to provide <a class="clickable" title="CFE funding was tied to effective classroom reform strategies through the Contract for Excellence which prioritized pre-kindergarten, class-size reduction, middle and high school reform, programs for English language learners, effective teaching, and more time on task (longer school days or school years, tutoring, etc.)" data-toggle="tooltip" data-placement="top"> essential resources</a> to all public school children and found that New York State is not providing the funding necessary to fulfill this constitutional obligation.</p>
+					<button class="btn btn-custom read-more clickable" data-toggle="collapse" href="#readMore" aria-expanded="false" aria-controls="collapseReadMore">
+						continue reading
+					</button>
+					<div class="collapse" id="readMore">
+						<p>For two years the state met its obligations, resulting in effective reforms in classrooms around the state. However, in 2009, as a result of the fiscal crisis, school aid was frozen.  Then, over the following two years, the state enacted over $2.7 billion in cuts, including over $2.1 billion in classroom cuts, in effect reversing CFE.</p>
+
+						<p>The past few years have been incredibly difficult for our public schools.  Devastating cuts and inadequate state budgets have taken vital programs and services away from our students.  It is the state’s constitutional obligation to educate every student, and it's time that the State renews its commitment to the Campaign for Fiscal Equity before another generation of students graduates without having access to the resources they need to prepare them for college, careers, and life.  </p>
+						<p>For more information, visit <a href="http://www.aqeny.org/" target="_blank">www.aqeny.org</a>.</p>
+						<p class="source-text">source: <a href="http://www.aqeny.org/wp-content/uploads/2014/08/REPORT-NY-Billions-Behind.pdf" target="_blank" alt="aqe-report">Billions Behind, New York State Continues to Violate Students’ Constitutional Rights</a></p>
+
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer>
+	<div class="container text-center">
+		<br>
+		<div id="fb-root"></div>
+		<a class="fb-share-button" data-href="http://www.howmuchnysrobbed.nyc/" data-layout="button"></a>
+		<br>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.howmuchnysrobbed.nyc/" data-text="How much does NY State owe your school?" data-via="angryteachrlady" data-count="none" data-hashtags="allkidsneed,eduequity,wecantwait">tweet</a>
+		<br><br>
+		<a target="_blank" data-toggle="modal" data-target="#aboutModal" class="clickable">learn more</a> / <a href="mailto:cfe@farheen.nyc?Subject=CFE%20Site%20Feedback" target="_top">give feedback</a>
+		<br><br>
+		<small>copyright ©<a href="http://farheen.nyc" target="_blank">Farheen Malik</a> 2015. all rights reserved</small>
+	</div>
+</footer>
+
+<!-- School Modal -->
+<div class="modal fade" id="schoolModal" tabindex="-1" role="dialog" aria-labelledby="schoolModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 id="schoolModalLabel"><span class="modal-title"></span><span class="modal-title-dbn"></span><span class="modal-title-district"></span></h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="amount-owed-section">
+							<div class="amount-text">amount owed</div>
+							<div class="amount-number"></div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="enrollment-section">
+							<div class="enrollment-text">enrollment</div>
+							<div class="enrollment-number"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="twitter-link">
+				</div>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- Learn More Modal -->
 <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
