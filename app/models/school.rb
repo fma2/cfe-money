@@ -16,8 +16,8 @@ class School < ActiveRecord::Base
                   }
   scope :in_ros_location, -> { where(location_id: 2)}
 
-  def self.districts_arr(field)
-  	districts = School.pluck(:"#{field}").uniq
+  def self.districts_arr(num,field)
+  	districts = Location.find(num).schools.pluck(:"#{field}").uniq
   	districts.delete_if { |d| d == nil }
   	districts.sort
   end
