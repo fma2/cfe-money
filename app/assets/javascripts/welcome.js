@@ -11,8 +11,8 @@ $( document ).ready(function() {
   }).fail(function() {
     console.log("Failed to load background text")
   });
-
 })
+
 
 // function createDynamicTextBackground(data) {
 //   var txt = [];
