@@ -211,6 +211,9 @@ footer p {
   color: black;  
 }
 
+#schoolModal, #aboutModal {
+  z-index: 99999;
+}
 #schoolModal .modal-title, .modal-title-dbn, .modal-title-district{
   font-size: 3em;
   color: white;
