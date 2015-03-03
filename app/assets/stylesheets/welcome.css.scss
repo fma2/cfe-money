@@ -214,6 +214,40 @@ and (max-device-width : 480px) {
       font-size:1em;
     }
   }
+
+  .more-info {
+    padding-top:100px;
+
+    .info-text{
+      font-size: 1em;
+    }
+    .info-number{
+      font-size: 2em;
+    }
+    .description-title {
+      font-size: 2em; 
+    }
+    .well-content{
+      font-size:2em;
+    }
+
+  }
 }
 
 
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+  .header .title{
+    font-size: 3.5em;
+    font-weight: 700;
+  }
+}
+
+@media(min-width:767px) {
+  .more-info {
+    padding-top: 200px;
+    padding-bottom: 250px;
+  }
+}

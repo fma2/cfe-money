@@ -1,4 +1,5 @@
-/* SEARCH SCHOOLS SECTION */
+/* Search Schools Section */
+
 #search_text1, #search_text2 {
   height: 50px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -23,7 +24,7 @@
   }
 }
 
-/* LOC/DISTRICTS NUMBERS SECTION */
+/* Districts Section */
 
 .info-number {
   font-size: 3em;
@@ -80,10 +81,7 @@
 
 }
 
-
-
-
-/* Modal */
+/* School Modal */
 .modal-header {
   background-color: #003300;
   color: black;  
@@ -109,26 +107,12 @@
 
 
 
-/*Media Queries*/
+/* Media Queries */
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
- body::after {
-    /*font-size:50px;*/
-  }
-  /*.header {
-    .title{
-      font-size: 3em;
-      font-weight: 700;
-    }
-    .subtitle{
-      font-size:1em;
-    }
-  }
-  */
-
   #schoolModal {
     .modal-title, .modal-title-dbn, .modal-title-district {
       font-size: 1.1em;
@@ -139,24 +123,6 @@ and (max-device-width : 480px) {
   }
   .results-list{
     height:200px;
-  }
-  .content-section {
-    padding-top:100px;
-  }
-  .more-info {
-    .info-text{
-      font-size: 1em;
-    }
-    .info-number{
-      font-size: 2em;
-    }
-    .description-title {
-      font-size: 2em; 
-    }
-    .well-content{
-      font-size:2em;
-    }
-
   }
 
   #search_text1, #search_text2 {
@@ -169,24 +135,12 @@ and (max-device-width : 480px) {
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) {
-  body::after {
-    /*font-size:50px;*/
-  }
   .results-list{
     height:270px;
   }
-  .header .title{
-    font-size: 3.5em;
-    font-weight: 700;
-  }
 }
 
-@media(min-width:767px) {
-  .content-section {
-    padding-top: 200px;
-    padding-bottom: 250px;
-  }
-}
+
 
 
 
