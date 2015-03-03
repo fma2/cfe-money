@@ -5,9 +5,9 @@ $( document ).ready(function() {
     $(this).hide();
   });
 
-  $('.loc-tabs li:first').addClass('active');
-  $('.tab-content .tab-pane:first').addClass('in');
-  $('.tab-content .tab-pane:first').addClass('active');
+  $('.loc-tabs li:nth-child(2)').addClass('active'); // selects RoS tab when page loads
+  $('.tab-content .tab-pane:nth-child(2)').addClass('in');
+  $('.tab-content .tab-pane:nth-child(2)').addClass('active');
 
   //AJAX call for dynamic text background data
   $.ajax({
