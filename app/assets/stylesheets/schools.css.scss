@@ -8,7 +8,7 @@
 }
 
 .search-bar-results {
-  height: 300px
+  height: 250px
 }
 
 .results-list {
@@ -23,6 +23,7 @@
     text-decoration:none;
   }
 }
+
 
 /* Districts Section */
 
@@ -81,7 +82,9 @@
 
 }
 
+
 /* School Modal */
+
 .modal-header {
   background-color: #003300;
   color: black;  
@@ -104,7 +107,6 @@
   font-size: 1.5em;
   color: white;
 }
-
 
 
 /* Media Queries */
@@ -139,8 +141,6 @@ and (max-device-width : 1024px) {
     height:270px;
   }
 }
-
-
 
 
 
