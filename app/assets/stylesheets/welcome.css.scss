@@ -260,9 +260,15 @@ and (max-device-width : 1024px) {
 }
 
 @media(min-width:767px) {
+  .totals-row {
+    padding-top: 200px;
+  }
   .more-info {
     padding-top: 200px;
     padding-bottom: 250px;
+  }
+  .results-list {
+    height: 250px;
   }
 }
 
