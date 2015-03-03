@@ -27,5 +27,4 @@ function createDistrictInformation(data, infodiv) {
   for (k in data) {
     infodiv.append('<div class="collapse" id="district'+data[k].code+'"><div class="well"><div class="row"><div class="col-md-8"><h5 class="well-title">total amount owed to '+data[k].district+' </h5><h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3></div><div class="col-md-4"><h5 class="well-title">total number students</h5><h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3></div></div></div></div>') 
   }
-
 }

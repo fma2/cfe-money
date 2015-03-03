@@ -9,6 +9,12 @@ $( document ).ready(function() {
   $('.tab-content .tab-pane:nth-child(2)').addClass('in');
   $('.tab-content .tab-pane:nth-child(2)').addClass('active');
 
+  $('#search_text2, #search_text1').on("click", function( e ) {
+    $("body, html").animate({ 
+      scrollTop: $('.loc-tabs').offset().top 
+    }, 600);
+  })
+
   //AJAX call for dynamic text background data
   $.ajax({
     dataType: 'json',
