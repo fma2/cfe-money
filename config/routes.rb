@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  get '/nyc' => 'locations#nyc_index'
-  get '/rest-of-nystate' => 'locations#ros_index' #will need to change!
-
-
   match '/search/:id' => 'schools#search', via: [:get], as: "search"
   get '/random' => 'schools#random40'
-  get '/districts' => 'schools#districts'
-  get '/electoral' => 'schools#electoral_districts'
+  get '/school_districts' => 'schools#districts'
+  get '/electoral_districts' => 'schools#electoral_districts'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
