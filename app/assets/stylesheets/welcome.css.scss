@@ -1,4 +1,4 @@
-/* GENERAL STYLING */
+/* General */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
 @import url(https://fonts.googleapis.com/css?family=Codystar:300);
 
@@ -36,8 +36,8 @@ p,
   margin: 0;
 }
 
+/* Navbar */
 
-/* NAVBAR BACKGROUND */
 #background::after {
   content: attr(data-bg);
   z-index: -1;
@@ -51,12 +51,11 @@ p,
   text-align: justify;
   speak: none;
   font-family: 'Codystar', cursive;
-  font-size: 1.05em;
+  font-size: 0.5em;
   color:  #B8B8B8;
-  height:50px;
+  height:25px;
 }
 
-/* NAVBAR BUTTONS */
 .nav {
   position: fixed;
   z-index: 99999;
@@ -76,7 +75,7 @@ p,
   }
 }
 
-/* LANDING PAGE HEADER */
+/* Header */
 .header {
  	h1 {
 		font-weight: 300;
@@ -110,6 +109,8 @@ p,
   }
 }
 
+/* Location Tabs */
+
 #location-tabs-row {
 	height: 100px;
 }
@@ -136,7 +137,71 @@ p,
   border-bottom-color: transparent;
 }
 
-/* LANDING PAGE MEDIA QUERIES */
+
+/* More Information Section */
+
+.more-info {
+  color: #808080;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  
+  .description-text {
+    a {
+      color: #003300;
+    }
+    a:hover{
+      color:  #335C33;
+      text-decoration:none;
+    }
+    .btn-custom {
+      width: 100%;
+    }
+    .source-text {
+      text-align:right;
+    }
+  }
+}
+
+/* Footer */
+
+footer {
+  padding: 50px 0;
+  a {
+    color: #003300;
+  }
+  a:hover{
+    color:  #335C33;
+    text-decoration:none;
+  }
+  .btn-custom {
+    font-size: 11px;
+    background-color:#E6EBE6;
+
+    i {
+      vertical-align:middle;
+    }
+  }
+  .btn-custom:hover,
+  .btn-custom:focus,
+  .btn-custom:active,
+  .btn-custom.active {
+    background-color: #FFF;    
+    border-color: #c6bebe;
+  }
+}
+
+footer p {
+  margin: 0;
+}
+
+.twitter-share-button {width: 60px !important;}
+
+
+/* Media Queries */
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 
 and (min-device-width : 320px) 
