@@ -1,20 +1,19 @@
-<div class="row">
-	<div class="col-xs-12 col-md-12 search-bar-results">
-		<%= form_tag(search_path(location), method: "get", onsubmit: "return false") do %>
-		<div class="input-group search-bar-section" >
-			<%= text_field_tag("search_text1", nil, placeholder: "search a #{location_name} school by school name or by district number (e.g. D03 or District 3)", size: 250, class:'form-control') %>
-		</div> 
-		<% end %>
-		<div id="results1"></div>
-		<script type="text/javascript">
-		$("#search_text1").keyup(function(event) {
-			$.get('/search/1?search='+ $(this).val());
-		});
-		</script>
-	</div>
+<div class="search-bar-and-results-section">
+	<%= form_tag(search_path(location), method: "get", onsubmit: "return false") do %>
+	<div class="input-group search-bar-section" >
+		<%= text_field_tag("search_text1", nil, placeholder: "search a #{location_name} school by school name or by district number (e.g. D03 or District 3)", size: 250, class:'form-control') %>
+	</div> 
+	<% end %>
+	<div id="results1"></div>
+	<script type="text/javascript">
+	$("#search_text1").keyup(function(event) {
+		$.get('/search/1?search='+ $(this).val());
+	});
+	</script>
 </div>
+<div class="row totals-row">
 <hr>
-<div class="row">
+	
 	<div class="col-xs-12 col-md-12">
 		<div class="col-md-4">
 			<div class="amount-owed-section">
