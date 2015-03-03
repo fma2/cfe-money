@@ -1,57 +1,4 @@
-/* Body background */
-/*body::after {
-  content: attr(data-bg);
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #E6EBE6;
-  overflow-y: hidden;
-  text-align: justify;
-  speak: none;
-  font-family: 'Codystar', cursive;
-  font-size: 20px;
-  color:  #B8B8B8;
-}
-*/
-
-/* Header */
-/*
-.header {
-  display:table;
-	color: #4C4C4C;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-}
-
-.header-body {
-  vertical-align: middle;
-  display: table-cell;
-}
-
-.header .title{
-  margin: 0;
-  padding: 0;
-  font-size: 4.5em;
-  font-weight: 700;
-}
-
-.header .subtitle{
-	font-size: 140%;
-}
-*/
-
-
-
-
-
+/* SEARCH SCHOOLS SECTION */
 #search_text1, #search_text2 {
   height: 50px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -76,31 +23,8 @@
   }
 }
 
+/* LOC/DISTRICTS NUMBERS SECTION */
 
-/* More Info Section */
-
-.content-section {
-  color: #808080;
-  /*background-color: rgba(255, 255, 255, 0.5);*/
-  padding-top: 200px;
-  padding-bottom: 200px;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  /*background: linear-gradient(#E6EBE6, #FFF 20%);*/
-
-  .description-text {
-  a {
-    color: #003300;
-  }
-  a:hover{
-    color:  #335C33;
-    text-decoration:none;
-  }
-
-  }
-}
 .info-number {
   font-size: 3em;
 }
@@ -113,10 +37,6 @@
 .well-content {
   padding-bottom: 10px;
   font-size: 3em;
-}
-
-.source-text {
-  text-align:right;
 }
 
 .district-caption {
@@ -134,9 +54,7 @@
 
     color:#B2B2B2;
     color: #4C4C4C;
-
   }
-
   .btn-custom:hover,
   .btn-custom:focus,
   .btn-custom:active,
@@ -162,47 +80,7 @@
 
 }
 
-footer {
-  .btn-custom {
-    font-size: 11px;
-    background-color:#E6EBE6;
 
-    i {
-      vertical-align:middle;
-    }
-  }
-  .btn-custom:hover,
-  .btn-custom:focus,
-  .btn-custom:active,
-  .btn-custom.active {
-    background-color: #FFF;    
-    border-color: #c6bebe;
-  }
-}
-.description-text {
-  .btn-custom {
-    width: 100%;
-  }
-}
-
-/*Footer*/
-
-footer {
-  padding: 50px 0;
-  a {
-    color: #003300;
-  }
-  a:hover{
-    color:  #335C33;
-    text-decoration:none;
-  }
-}
-
-footer p {
-  margin: 0;
-}
-
-.twitter-share-button {width: 60px !important;}
 
 
 /* Modal */
