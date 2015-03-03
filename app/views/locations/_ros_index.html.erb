@@ -1,6 +1,6 @@
 <%= form_tag(search_path(location), method: "get", onsubmit: "return false") do %>
 <div class="input-group" >
-	<%= text_field_tag("search_text2", nil, placeholder: "search a school by school name or by district name (e.g. Albany)", size: 250, class:'form-control') %>
+	<%= text_field_tag("search_text2", nil, placeholder: "search a #{location_name} school by school name or by district name (e.g. Albany)", size: 250, class:'form-control') %>
 </div>
 <% end %>
 <div id="results2"></div>
