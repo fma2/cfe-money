@@ -23,7 +23,7 @@ $( document ).ready(function() {
   //AJAX call for district section information
   $.ajax({
     dataType: 'json',
-    url: '/districts',
+    url: '/school_districts',
     type: 'GET'
   }).success(function(data) {
     var schoolDistrictButtons = $('#school-district-buttons');
@@ -37,7 +37,7 @@ $( document ).ready(function() {
   // AJAX call for assembly section information
   $.ajax({
     dataType: 'json',
-    url: '/electoral',
+    url: '/electoral_districts',
     type: 'GET'
   }).success(function(data) {
     var electoralDistrictButtons = $("#electoral-district-buttons");
