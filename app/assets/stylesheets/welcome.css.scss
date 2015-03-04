@@ -181,6 +181,9 @@ p,
     .source-text {
       text-align:right;
     }
+    p {
+      font-weight:300;
+    }
   }
 }
 
@@ -212,35 +215,78 @@ footer {
 
 
 
-
-
 /* Media Queries */
 
 /* Smartphones (portrait and landscape) ----------- */
+
+/* iPhone 2G-4S */
 @media only screen 
 and (min-device-width : 320px) 
-and (max-device-width : 480px) {
+and (max-device-width : 480px) { 
+  .header {
+    h1 {
+      font-size: 1.7em;
+    }
+
+    #subtitle-row h4.subtitle-text{
+      font-size:95%;
+    }
+    #location-tabs-row {
+      height:80px;
+    }
+  }
+  .nav-tabs > li, .nav-pills > li {
+    h4 {
+      font-size: 0.75em;
+    } 
+  }
+  .more-info {
+    padding-top:100px;
+
+    .info-text{
+      font-size: 1em;
+    }
+    .info-number{
+      font-size: 2em;
+    }
+    .description-title {
+      font-size: 1.2em; 
+    }
+    .description-text p {
+      font-size:0.95em;
+    }
+    
+  }
+  .well-content{
+    font-size:2em;
+  }
+
+}
+/* iPhone 5 & 5S */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) { }
+
+/* iPhone 6 */
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) { 
   .header {
     h1{
       font-size: 3.2em;
     }
-
     #subtitle-row h4.subtitle-text{
       font-size:130%;
     }
-
   }
   .nav-tabs > li, .nav-pills > li {
     h4 {
       font-size: 1em;
     } 
   }
-
   #location-tabs-row {
     height: 75px;
   }
-
-
   .more-info {
     padding-top:100px;
 
@@ -253,12 +299,16 @@ and (max-device-width : 480px) {
     .description-title {
       font-size: 2em; 
     }
-    .well-content{
+  }
+  .well-content{
       font-size:2em;
     }
-
-  }
 }
+
+/* iPhone 6 Plus */
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) { }
 
 
 /* iPads (portrait and landscape) ----------- */
