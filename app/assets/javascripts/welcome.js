@@ -5,9 +5,9 @@ $( document ).ready(function() {
     $(this).hide();
   });
 
-  $('.loc-tabs li:nth-child(2)').addClass('active'); // selects RoS tab when page loads
-  $('.tab-content .tab-pane:nth-child(2)').addClass('in');
-  $('.tab-content .tab-pane:nth-child(2)').addClass('active');
+  $('.loc-tabs li:nth-child(1)').addClass('active'); // selects RoS tab when page loads
+  $('.tab-content .tab-pane:nth-child(1)').addClass('in');
+  $('.tab-content .tab-pane:nth-child(1)').addClass('active');
 
   $('#search_text2, #search_text1').on("click", function( e ) {
     $("body, html").animate({ 
