@@ -260,12 +260,18 @@ and (max-device-width : 480px) {
   .well-content{
     font-size:2em;
   }
-
 }
+
 /* iPhone 5 & 5S */
 @media only screen 
 and (min-device-width : 320px) 
-and (max-device-width : 568px) { }
+and (max-device-width : 568px) { 
+  .header {
+    h1 {
+      font-size: 2em;
+    }
+  }
+}
 
 /* iPhone 6 */
 @media only screen 
