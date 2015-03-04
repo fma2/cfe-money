@@ -88,6 +88,8 @@ p,
     color: #fff;
     background-color: rgba(0,0,0,0.7);
   }
+
+  
 }
 
 
@@ -198,8 +200,18 @@ footer {
     color:  $link-hover-font-color;
     text-decoration:none;
   }
-  .twitter-share-button {width: 60px !important;}
+  #social-buttons {
+    .facebook-share-button {
+      vertical-align: middle;
+    }
+    .twitter-share-button {
+      width: 60px !important;
+    } 
+  }
 }
+
+
+
 
 
 /* Media Queries */
