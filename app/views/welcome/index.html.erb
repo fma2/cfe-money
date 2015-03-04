@@ -51,9 +51,9 @@
 			<div class="row" id="search-bar-row">
 				<div class="col-xs-12 col-md-12 col-lg-12">
 					<div class="tab-content">
-						<% @locations.each do |l|  %>
+						<% @locations.each_with_index do |l, i|  %>
 						<div role="tabpanel" class="tab-pane fade" id="<%= l.loc_code %>">
-							<%= render :partial => "/locations/#{l.loc_code}_index", :locals => {:location => l.id, :location_name => l.name, :totals => @totals[0][l.loc_code]}  %>
+							<%= render :partial => "/locations/#{l.loc_code}_index", :locals => {:location => l.id, :location_name => l.name, :totals => @totals[i][l.loc_code] }  %>
 						</div>
 						<% end %>
 					</div>
