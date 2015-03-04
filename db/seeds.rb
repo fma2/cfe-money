@@ -1,9 +1,29 @@
 require 'csv' 
+require 'faraday'
 
+Location.delete_all
 School.delete_all   
 
-csv_text = File.read('db/cfe-money-new-data-feb15.csv')
-csv = CSV.parse(csv_text, :headers => true)
-csv.each do |row|
-  School.create!(row.to_hash)
+# Seed Locations
+loc_url = URI("https://cfe-data.herokuapp.com/locations")
+connection = Faraday.new(url: loc_url.to_s)
+response = connection.get
+collection = JSON.parse(response.body)
+collection.each do |item|
+	Location.create!(item)
+end
+
+
+# Seed Schools
+locations = Location.all
+locations.each do |l|
+	location = l
+	schools_url = URI(location.endpoint)
+	connection = Faraday.new(url: schools_url.to_s)
+	response = connection.get
+	collection = JSON.parse(response.body)
+
+	collection.each do |item|
+		location.schools << School.create!(item)
+	end
 end

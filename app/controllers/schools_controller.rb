@@ -1,11 +1,14 @@
 class SchoolsController < ApplicationController
 
-	def index
-		
-	end
-	
 	def search
-		@results = School.search_schools(params["search"])
+		@location = Location.find(params["id"])
+		if @location.loc_code == "nyc"
+			@results = School.in_nyc_location.search_nyc_schools(params["search"])
+			render 'search1.js.erb'
+		else
+			@results = School.in_ros_location.search_ros_schools(params["search"])
+			render 'search2.js.erb'
+		end
 	end
 
 	def random40
@@ -26,15 +29,15 @@ class SchoolsController < ApplicationController
 	end
 
 	def districts
-		districts_num_list = School.districts_arr(:district_no)
+		districts_num_list = School.districts_arr(1, :district_no)
 		@json = Array.new
 		districts_num_list.each do |d|
 			schools_in_district = School.district_schools(d)
 			@json << {
 				code: School.get_district_code(schools_in_district, :district_code),
 				district: School.get_district_name(schools_in_district, :district_name),
-				total_enrollment: School.district_enrollment_sum(schools_in_district),
-				amount_owed: School.district_owed_sum(schools_in_district)
+				total_enrollment: School.total_enrollment_sum(schools_in_district),
+				amount_owed: School.total_owed_sum(schools_in_district)
 			}
 		end
 		respond_to do |format|
@@ -44,16 +47,16 @@ class SchoolsController < ApplicationController
 	end
 
 	def electoral_districts
-		ad_districts_list = School.districts_arr(:assembly_district)
-		sd_districts_list = School.districts_arr(:senate_district)
+		ad_districts_list = School.districts_arr(1, :assembly_district)
+		sd_districts_list = School.districts_arr(1, :senate_district)
 		@json = Array.new
 		ad_districts_list.each do |d|
 			schools_in_district = School.ad_schools(d)
 			@json << {
 				code: "AD" + d,
 				district: "AD" + School.get_district_name(schools_in_district, :assembly_district),
-				total_enrollment: School.district_enrollment_sum(schools_in_district),
-				amount_owed: School.district_owed_sum(schools_in_district)
+				total_enrollment: School.total_enrollment_sum(schools_in_district),
+				amount_owed: School.total_owed_sum(schools_in_district)
 			}
 		end
 		sd_districts_list.each do |d|
@@ -61,11 +64,10 @@ class SchoolsController < ApplicationController
 			@json << {
 				code: "SD" + d.to_s,
 				district: "SD" + School.get_district_name(schools_in_district, :senate_district).to_s,
-				total_enrollment: School.district_enrollment_sum(schools_in_district),
-				amount_owed: School.district_owed_sum(schools_in_district)
+				total_enrollment: School.total_enrollment_sum(schools_in_district),
+				amount_owed: School.total_owed_sum(schools_in_district)
 			}
 		end
-		p @json
 		respond_to do |format|
 			format.html
 			format.json { render json: @json }

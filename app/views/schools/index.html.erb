@@ -16,21 +16,21 @@
 			<div class="row">
 				<div class="col-xs-12 col-md-12">
 					<h1 class="title highlight-title">How much does NY State owe your school?</h1>
-					<h4 class="subtitle">Governor Cuomo continues to ignore the settlement of a landmark school funding lawsuit that requires the state to provide New York City schools $2.5 billion more. <span class="highlight-title">&nbsp;Find out how much New York State is robbing your school.</span></h4>
+					<h4 class="subtitle">Governor Cuomo continues to ignore the settlement of a landmark school funding lawsuit that requires the state to provide <%= @location_name %> schools $<%= number_to_human(@total_owed)  %> more. <span class="highlight-title">&nbsp;Find out how much New York State is robbing your school.</span></h4>
 					<br>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-md-12">
-					<%= form_tag(search_path, method: "get", onsubmit: "return false") do %>
+					<%= form_tag(search_path(@location.id), method: "get", onsubmit: "return false") do %>
 					<div class="input-group" >
-						<%= text_field_tag("search_text", nil, placeholder: "search a school by school name or by district number (e.g. D03 or District 3)", size: 250, class:'form-control') %>
+						<%= text_field_tag("search_text", nil, placeholder: "search a school by school name or by district name or number (e.g. D03 or District 3)", size: 250, class:'form-control') %>
 					</div>
 					<% end %>
 					<div id="results"></div>
 					<script type="text/javascript">
 					$("#search_text").keyup(function(event) {
-						$.get('/search?search='+ $(this).val());
+						$.get('/search/<%= @location.id %>?search='+ $(this).val());
 					});
 					</script>
 				</div>
@@ -67,20 +67,20 @@
 			<div class="col-xs-12 col-md-12">
 				<div class="col-md-4">
 					<div class="amount-owed-section">
-						<h4 class="info-text">citywide amount NYS owes NYC</h4>
-						<h3 class="info-number highlight-title">$2,528,932,296</h3>
+						<h4 class="info-text">amount owed to <%= @location_name %></h4>
+						<h3 class="info-number highlight-title">$<%= number_with_precision(@total_owed, :precision => 0, :delimiter => ',') %></h3>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="enrollment-section">
-						<h4 class="info-text">citywide enrollment</h4>
-						<h3 class="info-number highlight-title">948,261</h3>
+						<h4 class="info-text">total enrollment</h4>
+						<h3 class="info-number highlight-title"><%= @total_enrollment %></h3>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="amount-per-student-section">
 						<h4 class="info-text">amount owed per student</h4>
-						<h3 class="info-number highlight-title">$2,666.92</h3>
+						<h3 class="info-number highlight-title">$<%= number_with_precision(@amount_per_student, :precision=> 2, :delimiter => ',')  %></h3>
 					</div>
 				</div>
 			</div>
@@ -118,9 +118,7 @@
 		<a class="fb-share-button" data-href="http://www.howmuchnysrobbed.nyc/" data-layout="button"></a>
 		<br>
 		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.howmuchnysrobbed.nyc/" data-text="How much does NY State owe your school?" data-via="angryteachrlady" data-count="none" data-hashtags="allkidsneed,eduequity,wecantwait">tweet</a>
-		<!-- <br>
-		<a class="btn btn-custom btn-sm contact-legislator" href="http://www.commoncause.org/take-action/find-elected-officials/" target="_blank"><p><i class="fa fa-phone"></i>  contact your<br>legislators</p></a>
- -->		<br><br>
+		<br><br>
 		<a target="_blank" data-toggle="modal" data-target="#aboutModal" class="clickable">learn more</a> / <a href="mailto:farheen.m.malik+cfe@gmail.com?Subject=CFE%20Site%20Feedback" target="_top">give feedback</a>
 		<br><br>
 		<small>copyright ©<a href="http://farheen.nyc" target="_blank">Farheen Malik</a> 2015. all rights reserved</small>
@@ -174,7 +172,7 @@
 						<div class="subtitle-section">
 							<h4><strong>How much does NY State owe your school? - A tool for school communities by <a href="http://farheen.nyc" target="_blank">Farheen Malik</a></strong></h4>
 							<br>
-							<p>This web application provides information on CFE money owed to schools and districts in NYC.  It takes data shared by <a href="http://www.aqeny.org/" alt="aqe-site" target="_blank">Alliance for Quality Education</a> (AQE) and presents it in an easily searchable and shareable way to help relevant stakeholders educate and mobilize. </p> 
+							<p>This web application provides information on CFE money owed to schools and districts in <%= @location.name  %>.  It takes data shared by <a href="http://www.aqeny.org/" alt="aqe-site" target="_blank">Alliance for Quality Education</a> (AQE) and presents it in an easily searchable and shareable way to help relevant stakeholders educate and mobilize. </p> 
 							<p>See below for more details on data sources and analysis.</p>
 							
 							<p>To make suggestions for future iterations of the site, <a href="mailto:farheen.m.malik+cfe@gmail.com?Subject=CFE%20Site%20Feedback" target="_top">email</a> your ideas or tweet at Farheen <a href="https://twitter.com/angryteachrlady">@angryteachrlady</a>.  All feedback is appreciated!</p>
@@ -185,7 +183,7 @@
 
 							<p>To calculate the amount owed per pupil, AQE divided the total amount owed to each school district by the total amount enrolled in the district (the sum of students in each school). They then calculated the amount owed to each school by the number of students in that school.</p> 
 
-							<p>The actual distribution by school may vary depending on whether funding is provided as foundation aid, whether the Contract for Excellence rules apply, whether New York City uses its Fair Student Funding Formula and other factors. There is no way for anyone to calculate in advance the intersection of those formulae and rules. The methodology in <a href="http://www.aqeny.org/" alt="aqe-site" target="_blank">AQE's report</a> provides a fair and reasonable estimation of distribution based upon student enrollment data.</p>
+							<p>The actual distribution by school may vary depending on whether funding is provided as foundation aid, whether the Contract for Excellence rules apply, whether <%= @location.name %> uses its Fair Student Funding Formula and other factors. There is no way for anyone to calculate in advance the intersection of those formulae and rules. The methodology in <a href="http://www.aqeny.org/" alt="aqe-site" target="_blank">AQE's report</a> provides a fair and reasonable estimation of distribution based upon student enrollment data.</p>
 
 							<p>To calculate the amount owed per Senate and Assembly district, AQE summed the total amount per school in each legislative district. AQE received the database that shows the schools and districts in each legislative district by the State Education Department.</p>
 							<hr>

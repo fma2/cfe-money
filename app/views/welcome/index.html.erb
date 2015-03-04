@@ -1,0 +1,104 @@
+<div class="nav">
+	<div id="background">
+		<a href="#more" class="btn btn-xs btn-dark page-scroll">learn</a>
+		<a href="#subtitle-row" class="btn btn-xs btn-dark page-scroll">search</a>
+		<a href="#social-buttons" class="btn btn-xs btn-dark page-scroll">share</a>
+		<a target="_blank" data-toggle="modal" data-target="#aboutModal" class="clickable btn btn-xs btn-dark">
+			<i class="fa fa-info"></i>
+		</a>
+	</div>
+</div>
+
+<header id="top" class="header">
+	<div class="header-body">
+		<div class="container">
+			<div class="row" id="title-row">
+				<div class="col-xs-12 col-md-12 col-lg-12">
+					<div class="title highlight-title">
+						<h1>How much does NY State owe your school?</h1>
+					</div>
+					<br>
+				</div>
+			</div>
+			<div class="row" id="subtitle-row">
+				<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+					<h4 class="subtitle-text">Governor Cuomo continues to ignore the settlement of a landmark school funding lawsuit that requires the state to provide billions more to schools. &nbsp;Find out how much New York State is robbing your school. <br><span class="highlight-title get-started-text">Select a location to get started.</span></h4>
+					<br>
+					<br>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row" id="location-tabs-row">
+				<div class="col-xs-12 col-md-12 col-lg-12">
+					<div role="tabpanel" class="subtitle-buttons">
+						<ul class="nav nav-tabs nav-pills loc-tabs" role="tablist">
+							<% @locations.each do |l|  %>
+							<li role="presentation">
+								<a href="#<%= l.loc_code %>" aria-controls="<%= l.loc_code %>" role="tab" data-toggle="tab">
+									<div  aria-expanded="false">
+										<h4><%= l.name  %></h4>
+									</div>
+								</a>
+							</li>
+							<% end %>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row" id="search-bar-row">
+				<div class="col-xs-12 col-md-12 col-lg-12">
+					<div class="tab-content">
+						<% @locations.each_with_index do |l, i|  %>
+						<div role="tabpanel" class="tab-pane fade" id="<%= l.loc_code %>">
+							<%= render :partial => "/locations/#{l.loc_code}_index", :locals => {:location => l.id, :location_name => l.name, :totals => @totals[i][l.loc_code] }  %>
+						</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+
+	<section id="more" class="more-info">
+	<div class="container">
+		<hr>
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<%= render :partial => 'more_info' %> 
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer>
+	<div class="container text-center">
+		<%= render :partial => 'footer' %>
+	</div>
+</footer>
+
+<!-- School Modal -->
+<div class="modal fade" id="schoolModal" tabindex="-1" role="dialog" aria-labelledby="schoolModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<%= render :partial => '/schools/school_modal'  %>
+		</div>
+	</div>
+</div>
+
+<!-- Learn More Modal -->
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<p class="modal-title" id="aboutModalLabel"><br></p>
+			</div>
+			<%= render :partial => 'about_modal' %>
+		</div>
+	</div>
+</div>
