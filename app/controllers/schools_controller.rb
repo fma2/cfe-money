@@ -1,7 +1,7 @@
 class SchoolsController < ApplicationController
 
 	def search
-		@location = Location.find(params["id"])
+		@location = Location.find_by(loc_code: params["loc_code"])
 		if @location.loc_code == "nyc"
 			@results = School.in_nyc_location.search_nyc_schools(params["search"])
 			render 'search1.js.erb'
@@ -29,7 +29,8 @@ class SchoolsController < ApplicationController
 	end
 
 	def districts
-		districts_num_list = School.districts_arr(1, :district_no)
+		location_id = Location.find_by(loc_code: "nyc").id
+		districts_num_list = School.districts_arr(location_id, :district_no)
 		@json = Array.new
 		districts_num_list.each do |d|
 			schools_in_district = School.district_schools(d)
@@ -47,8 +48,9 @@ class SchoolsController < ApplicationController
 	end
 
 	def electoral_districts
-		ad_districts_list = School.districts_arr(1, :assembly_district)
-		sd_districts_list = School.districts_arr(1, :senate_district)
+		location_id = Location.find_by(loc_code: "nyc").id
+		ad_districts_list = School.districts_arr(location_id, :assembly_district)
+		sd_districts_list = School.districts_arr(location_id, :senate_district)
 		@json = Array.new
 		ad_districts_list.each do |d|
 			schools_in_district = School.ad_schools(d)
