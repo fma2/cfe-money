@@ -35,7 +35,7 @@ $( document ).ready(function() {
     var schoolDistrictButtons = $('#school-district-buttons');
     var schoolDistrictInfo =  $('#school-district-info');
     createDistrictButtons(data, schoolDistrictButtons);
-    createDistrictInformation(data, schoolDistrictInfo)
+    createSchoolDistrictInformation(data, schoolDistrictInfo)
   }).fail(function() {
     console.log("Failed to load school district information");
   }); 
@@ -49,7 +49,7 @@ $( document ).ready(function() {
     var electoralDistrictButtons = $("#electoral-district-buttons");
     var electoralDistrictInfo = $("#electoral-district-info");
     createDistrictButtons(data, electoralDistrictButtons);
-    createDistrictInformation(data,electoralDistrictInfo);
+    createElectoralDistrictInformation(data,electoralDistrictInfo);
   }).fail(function() {
     console.log("Failed to load electoral district information");
   }); 
