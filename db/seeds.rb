@@ -3,7 +3,8 @@ require 'faraday'
 
 Location.delete_all
 School.delete_all 
-ElectoralDistrict.delete_all  
+ElectoralDistrict.delete_all
+ElectoralDistrictSchool.delete_all
 
 # Seed Locations
 loc_url = URI("https://cfe-data.herokuapp.com/locations")
@@ -74,22 +75,28 @@ collection.each do |item|
 			district_name: item["district"],
 			website: item["site"],
 			albany_office_no: albany_office[0]["phone"],
-			# do_office_no: item["do_office_no"],
+			# social_facebook: item["social_facebook"],
+			# social_twitter: item["social_twitter"]
+			# do_office_no: ?,
 		)
 end
 
 #seed join table with assembly member info
 School.all.each do |school|
-	district = ElectoralDistrict.find_by(district_no: school.assembly_district)
-	if district 
-		ElectoralDistrictSchool.create(school_id: school.id, electoral_district_id: district.id)
+	p school
+	district = ElectoralDistrict.where(district_no: school.assembly_district, house: "AD")
+	p district
+	# district = ElectoralDistrict.find_by(district_no: school.assembly_district)
+	if district != [] 
+		ElectoralDistrictSchool.create(school_id: school.id, electoral_district_id: district[0].id)
 	end
 end
 
 #seed join table with senate member info
 School.all.each do |school|
-	district = ElectoralDistrict.find_by(district_no: school.senate_district.to_s)
-	if district 
-		ElectoralDistrictSchool.create(school_id: school.id, electoral_district_id: district.id)
+	district = ElectoralDistrict.where(district_no: school.senate_district.to_s, house: "SD")
+	# district = ElectoralDistrict.find_by(district_no: school.senate_district.to_s) #5
+	if district !=[]
+		ElectoralDistrictSchool.create(school_id: school.id, electoral_district_id: district[0].id)
 	end
 end
