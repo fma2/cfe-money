@@ -126,7 +126,6 @@ class SchoolsController < ApplicationController
 				}
 			end
 		end
-		p @json
 		respond_to do |format|
 			format.html
 			format.json { render json: @json }
