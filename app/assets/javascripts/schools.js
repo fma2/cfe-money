@@ -56,7 +56,7 @@ $(document).on('show.bs.modal', function (event) {
       modal.find('.amount-number').text("$" + formattedAmt);
     }
     modal.find('.enrollment-number').text(enrollment);
-    modal.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='NYOpportunity, allkidsneed, wecantwait'>Tweet</a>")
+    modal.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='MySchoolNeeds, AllKidsNeed, WeCantWait'>Tweet</a>")
   }
 });
 
