@@ -53,7 +53,7 @@
 					<div class="tab-content">
 						<% @locations.each_with_index do |l, i|  %>
 						<div role="tabpanel" class="tab-pane fade" id="<%= l.loc_code %>">
-							<%= render :partial => "/locations/#{l.loc_code}_index", :locals => {:location => l.id, :location_name => l.name, :totals => @totals[i][l.loc_code] }  %>
+							<%= render :partial => "/locations/#{l.loc_code}_index", :locals => {:location => l.loc_code, :location_name => l.name, :totals => @totals[i][l.loc_code] }  %>
 						</div>
 						<% end %>
 					</div>
