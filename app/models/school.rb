@@ -1,20 +1,25 @@
 class School < ActiveRecord::Base
 	include PgSearch
+	
 	belongs_to :location
 
+	has_many :electoral_district_schools
+	has_many :electoral_districts, through: :electoral_district_schools
+	
 	pg_search_scope :search_nyc_schools, 
 									:against => [[:district_code, 'B'],[:district_name, 'C'], [:school, 'A']], 
 									:using => {
                     :tsearch => {:prefix => true},
                   }
-  scope :in_nyc_location, -> { where(location_id: 1)}
+  scope :in_nyc_location, -> { where(location_id: Location.find_by(loc_code:"nyc").id
+  	)}
 
 	pg_search_scope :search_ros_schools, 
 									:against => [[:district_code, 'B'],[:district_name, 'C'], [:school, 'A']],
 									:using => {
                     :tsearch => {:prefix => true},
                   }
-  scope :in_ros_location, -> { where(location_id: 2)}
+  scope :in_ros_location, -> { where(location_id: Location.find_by(loc_code:"ros").id )}
 
   def self.districts_arr(num,field)
   	districts = Location.find(num).schools.pluck(:"#{field}").uniq

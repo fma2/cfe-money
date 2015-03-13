@@ -7,7 +7,7 @@
 	<div id="results2"></div>
 	<script type="text/javascript">
 	$("#search_text2").keyup(function(event) {
-		$.get('/search/2?search='+ $(this).val());
+		$.get('/search/<%= location %>?search='+ $(this).val());
 	});
 	</script>
 </div>

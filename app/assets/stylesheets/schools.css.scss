@@ -110,6 +110,105 @@
   color: white;
 }
 
+.legislators-title {
+  p {
+  font-weight: 200;
+  text-align:center;
+  }
+}
+
+.legislator-information {
+  img {
+    height: 71px;
+    width: 55px;
+    /*width:304; height:236;*/
+    height:71px;
+    background-color:#FFFFFF;
+    margin-top:20px;
+    border: solid 1px #CCC; -moz-box-shadow: 1px 1px 5px #999; -webkit-box-shadow: 1px 1px 5px #999; box-shadow: 1px 1px 5px #999;
+  }
+  
+  .leg-photo {
+    float: right;
+
+  }
+
+  .leg-email, 
+  .leg-website, 
+  .leg-albanyno {
+    /*line-height: 10px;*/
+    line-height: 70%;
+    /*font-size: 1em;*/
+  }
+
+  .leg-name {
+    /*font-size: 2em;*/
+  }
+
+  .leg-house,
+  .leg-district {
+    /*line-height: 12px;*/
+    line-height: 80%;
+    /*font-size: 1.5em;*/
+  }
+
+  .leg-district {
+    padding-bottom: 10px;
+  }
+
+  h3 {
+    font-weight: 200;
+  }
+  h4 {
+  }
+}
+
+.well-legislator-information {
+  img {
+    height: 71px;
+    width: 55px;
+    /*width:304; height:236;*/
+    height:71px;
+    background-color:#FFFFFF;
+    margin-top:20px;
+    border: solid 1px #CCC; -moz-box-shadow: 1px 1px 5px #999; -webkit-box-shadow: 1px 1px 5px #999; box-shadow: 1px 1px 5px #999;
+  }
+  .well-leg-email, 
+  .well-leg-website, 
+  .well-leg-albanyno {
+    /*line-height: 10px;*/
+    line-height: 70%;
+    /*font-size: 1em;*/
+  }
+
+  .well-leg-name {
+    /*font-size: 2em;*/
+  }
+
+  .well-leg-house,
+  .well-leg-district {
+    /*line-height: 12px;*/
+    line-height: 80%;
+    /*font-size: 1.5em;*/
+  }
+
+  .well-leg-district {
+    padding-bottom: 10px;
+  }
+
+
+}
+.well-schools-list {
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+}
+.well-schools-list-title {
+}
+
+.school-list-item{ 
+  display: block;
+}
 
 /* Media Queries */
 
@@ -131,7 +230,40 @@ and (max-device-width : 480px) {
 
   #search_text1, #search_text2 {
     font-size: 8.5px;
-  }  
+  } 
+
+  .legislator-information {
+    .leg-email, 
+    .leg-website, 
+    .leg-albanyno {
+      line-height: 60%;
+      font-size: 70%;
+    }
+
+    .leg-name {
+      font-size: 90%;
+    }
+
+    .leg-house,
+    .leg-district {
+      line-height: 70%;
+      font-size: 90%;
+    }
+
+    .leg-district {
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      font-weight: 200;
+    }
+  }
+  .well-legislator-information{
+     .well-leg-photo {
+      float: right;
+    }
+  }
+
 }
 
 /* iPads (portrait and landscape) ----------- */
