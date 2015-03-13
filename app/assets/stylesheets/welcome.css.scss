@@ -49,6 +49,12 @@ p,
   margin: 0;
 }
 
+a {
+  color: $link-font-color
+}
+a:hover {
+  color: $link-hover-font-color
+}
 
 /* Navbar */
 
