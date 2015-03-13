@@ -51,12 +51,15 @@ class SchoolsController < ApplicationController
 	def electoral_districts
 		location_id = Location.find_by(loc_code: "nyc").id
 		ad_districts_list = School.districts_arr(location_id, :assembly_district)
-		sd_districts_list = School.districts_arr(location_id, :senate_district)
+		sd_districts_list = School.districts_arr(location_id, :senate_district)		
 		@json = Array.new
 		ad_districts_list.each do |d|
 
 			electoral_district = ElectoralDistrict.where(house: "AD", district_no: d)[0]
 			schools_in_district = School.ad_schools(d)
+			schools_list = schools_in_district.map do |school|
+				" " + "#{school.school}"
+			end
 			if electoral_district != nil
 				@json << {
 					code: "AD" + d,
@@ -73,7 +76,8 @@ class SchoolsController < ApplicationController
 					district_name: electoral_district.district_name,
 					website: electoral_district.website,
 					albany_office_no: electoral_district.albany_office_no,
-					do_office_no: electoral_district.do_office_no
+					do_office_no: electoral_district.do_office_no,
+					schools: schools_list.sort
 				}
 			else
 				@json << {
@@ -81,12 +85,16 @@ class SchoolsController < ApplicationController
 					district: "AD" + School.get_district_name(schools_in_district, :assembly_district),
 					total_enrollment: School.total_enrollment_sum(schools_in_district),
 					amount_owed: School.total_owed_sum(schools_in_district),
+					schools: schools_list.sort
 				}
 			end
 		end
 		sd_districts_list.each do |d|
 			electoral_district = ElectoralDistrict.where(house: "SD", district_no: d.to_s)[0]
 			schools_in_district = School.sd_schools(d)
+			schools_list = schools_in_district.map do |school|
+				school.school
+			end
 			if electoral_district != nil
 				@json << {
 					code: "SD" + d.to_s,
@@ -103,14 +111,18 @@ class SchoolsController < ApplicationController
 					district_name: electoral_district.district_name,
 					website: electoral_district.website,
 					albany_office_no: electoral_district.albany_office_no,
-					do_office_no: electoral_district.do_office_no
+					do_office_no: electoral_district.do_office_no,
+					schools: schools_list.sort
+
 				}
 			else
 				@json << {
 					code: "SD" + d.to_s,
 					district: "SD" + School.get_district_name(schools_in_district, :senate_district).to_s,
 					total_enrollment: School.total_enrollment_sum(schools_in_district),
-					amount_owed: School.total_owed_sum(schools_in_district)
+					amount_owed: School.total_owed_sum(schools_in_district),
+					schools: schools_list.sort
+
 				}
 			end
 		end
