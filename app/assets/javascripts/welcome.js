@@ -48,7 +48,7 @@ $( document ).ready(function() {
   }).success(function(data) {
     var electoralDistrictButtons = $("#electoral-district-buttons");
     var electoralDistrictInfo = $("#electoral-district-info");
-    createDistrictButtons(data, electoralDistrictButtons);
+    createElectoralDistrictButtons(data, electoralDistrictButtons);
     createElectoralDistrictInformation(data,electoralDistrictInfo);
   }).fail(function() {
     console.log("Failed to load electoral district information");
