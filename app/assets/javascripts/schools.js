@@ -103,23 +103,23 @@ function createElectoralDistrictInformation(data, infodiv) {
       infodiv.append('<div class="collapse" id="district'+data[k].code+'">' +
       '<div class="well">'+
         '<div class="row">'+
-          '<div class="col-md-8">' +
+          '<div class="col-md-7">' +
             '<h5 class="well-title">total amount owed to '+data[k].district+'</h5>'+
             '<h3 class="well-content highlight-title">$'+data[k].amount_owed.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+'</h3>' +
           '</div>'+
-          '<div class="col-md-4">' +
+          '<div class="col-md-5">' +
             '<h5 class="well-title">total number students</h5>' +
             '<h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3>' +
           '</div>'+
         '</div>'+
         '<div class="row">'+
-          '<div class="col-md-8">' +
+          '<div class="col-md-7">' +
+            '<h5 class="well-title">schools in district</h5>'+
+            "<div class='well-schools-list'>"+listSchools(data[k].schools)+"</div>" +
+          '</div>'+
+          '<div class="col-md-5">' +
             '<h5 class="well-title">elected official</h5>'+
             "<p>VACANT</p>" +
-          '</div>'+
-          '<div class="col-md-4">' +
-            '<h5 class="well-title">schools in district</h5>'+
-            "<p>"+listSchools(data[k].schools)+"</p>" +
           '</div>'+
         '</div>'+
       '</div>'+
