@@ -26,7 +26,7 @@ $(document).on('show.bs.modal', function (event) {
                 "<p class='leg-house'>"+legislators_information[i].house+"</p>" +
                 "<h5 class='leg-district'>"+legislators_information[i].district_name+"</h5>" +
                 "<p class='leg-email'><a href='mailto:"+legislators_information[i].email+"?Subject=What are you doing to get CFE money back to our schools?'>"+legislators_information[i].email+"</a></p>" +
-                "<p class='leg-albanyno'>"+legislators_information[i].albany_office_no+"</p>" +
+                "<p class='leg-albanyno'><a href='tel:"+legislators_information[i].albany_office_no+"'>"+legislators_information[i].albany_office_no+"</a></p>" +
                 "<p class='leg-website'>" +
                   "<a href="+legislators_information[i].website+" target='_blank'>website</a>" +
                 "</p>" +
@@ -153,7 +153,7 @@ function createElectoralDistrictInformation(data, infodiv) {
                   "<p class='well-leg-house'>"+data[k].house+"</p>" +
                   "<h5 class='well-leg-district'>"+data[k].district_name+"</h5>" +
                   "<p class='well-leg-email'><a href='mailto:"+data[k].email+"?Subject=What are you doing to get CFE money back to our schools?'>"+data[k].email+"</a></p>" +
-                  "<p class='well-leg-albanyno'>"+data[k].albany_office_no+"</p>" +
+                  "<p class='well-leg-albanyno'><a href='tel:"+data[k].albany_office_no+"'>"+data[k].albany_office_no+"</a></p>" +
                   "<p class='well-leg-website'>" +
                     "<a href="+data[k].website+" target='_blank'>website</a>" +
                   "</p>" +
