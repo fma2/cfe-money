@@ -25,14 +25,14 @@ $(".result-item a").click(function(e) {
 	if (school !=undefined) {
 		var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
 		modal.find('.modal-title').text(school.toProperCase() + " ");
-		console.log(modal.find('.modal-title'));
 		modal.find('.modal-title-district').text("(" + district.toProperCase() + ")")
 		if (formattedAmt=="0.00") {
 			modal.find('.amount-number').text("budget data not available");
 		} else {
 			modal.find('.amount-number').text("$" + formattedAmt);
 		}
-		modal.find('.enrollment-number').text(enrollment);
+		var perStudentAmount = parseFloat(amount / enrollment).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+		modal.find('.per-student-amount').text(perStudentAmount);
 		modal.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='ProtectOurSchools, AllKidsNeed, WeCantWait'>Tweet</a>")
 	}
 });
