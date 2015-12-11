@@ -1,8 +1,39 @@
 <h6>search results: <%= @results.length %></h6>
-<ul class="list-group results-list">
+<ul class="list-group results-list" id="results-list">
 	<% @results.each do |item| %>
 	<div class="result-item clickable">
-		<a data-toggle="modal" data-target="#schoolModal" data-school-id="<%= item.id  %>"data-dbn="<%= item.dbn%>" data-school="<%= item.school  %>" data-district="<%= item.district_name %>"data-enrollment=<%= item.total_enrollment %> data-owed=<%= item.amount_owed %> ><li class="list-group-item"><%= item.dbn%> <%= item.school %>  (<%= item.district_name %>)</li></a>
+		<!-- <a data-toggle="modal" data-target="#schoolModal" data-school-id="<%= item.id  %>"data-dbn="<%= item.dbn%>" data-school="<%= item.school  %>" data-district="<%= item.district_name %>"data-enrollment=<%= item.total_enrollment %> data-owed=<%= item.amount_owed %> > -->
+		<a data-target="#schoolModal" data-school-id="<%= item.id  %>"data-dbn="<%= item.dbn%>" data-school="<%= item.school  %>" data-district="<%= item.district_name %>"data-enrollment=<%= item.total_enrollment %> data-owed=<%= item.amount_owed %> >
+			<li class="list-group-item"><%= item.dbn%> <%= item.school %>  (<%= item.district_name %>)</li>
+		</a>
 	</div>
 	<% end %>
 </ul>
+
+<script type="text/javascript">
+$(".result-item a").click(function(e) {
+	$(".warning-text").css("display", "none");
+	$("#search-results-section .school-section").css("display", "inline");
+	console.log('clicked');
+	var modal = $('#schoolModal')
+	var button = $(this)
+	var school = button.data('school');
+	console.log(school);
+	var district = button.data('district');
+	var enrollment = button.data('enrollment');
+	var amount = button.data('owed');
+	if (school !=undefined) {
+		var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
+		modal.find('.modal-title').text(school.toProperCase() + " ");
+		console.log(modal.find('.modal-title'));
+		modal.find('.modal-title-district').text("(" + district.toProperCase() + ")")
+		if (formattedAmt=="0.00") {
+			modal.find('.amount-number').text("budget data not available");
+		} else {
+			modal.find('.amount-number').text("$" + formattedAmt);
+		}
+		modal.find('.enrollment-number').text(enrollment);
+		modal.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='ProtectOurSchools, AllKidsNeed, WeCantWait'>Tweet</a>")
+	}
+});
+</script>
