@@ -5,6 +5,8 @@ $( document ).ready(function() {
     $(this).hide();
   });
 
+  $("#search-results-section .school-section").css("display", "none");
+
   $('.loc-tabs li:nth-child(2)').addClass('active'); // selects RoS tab when page loads
   $('.tab-content .tab-pane:nth-child(2)').addClass('in');
   $('.tab-content .tab-pane:nth-child(2)').addClass('active');
@@ -27,34 +29,35 @@ $( document ).ready(function() {
   });
 
   //AJAX call for district section information
-  $.ajax({
-    dataType: 'json',
-    url: '/school_districts',
-    type: 'GET'
-  }).success(function(data) {
-    var schoolDistrictButtons = $('#school-district-buttons');
-    var schoolDistrictInfo =  $('#school-district-info');
-    createDistrictButtons(data, schoolDistrictButtons);
-    createSchoolDistrictInformation(data, schoolDistrictInfo)
-  }).fail(function() {
-    console.log("Failed to load school district information");
-  }); 
+  // $.ajax({
+  //   dataType: 'json',
+  //   url: '/school_districts',
+  //   type: 'GET'
+  // }).success(function(data) {
+  //   var schoolDistrictButtons = $('#school-district-buttons');
+  //   var schoolDistrictInfo =  $('#school-district-info');
+  //   createDistrictButtons(data, schoolDistrictButtons);
+  //   createSchoolDistrictInformation(data, schoolDistrictInfo)
+  // }).fail(function() {
+  //   console.log("Failed to load school district information");
+  // }); 
 
   // AJAX call for assembly section information
-  $.ajax({
-    dataType: 'json',
-    url: '/electoral_districts',
-    type: 'GET'
-  }).success(function(data) {
-    var electoralDistrictButtons = $("#electoral-district-buttons");
-    var electoralDistrictInfo = $("#electoral-district-info");
-    createElectoralDistrictButtons(data, electoralDistrictButtons);
-    createElectoralDistrictInformation(data,electoralDistrictInfo);
-  }).fail(function() {
-    console.log("Failed to load electoral district information");
-  }); 
+  // $.ajax({
+  //   dataType: 'json',
+  //   url: '/electoral_districts',
+  //   type: 'GET'
+  // }).success(function(data) {
+  //   var electoralDistrictButtons = $("#electoral-district-buttons");
+  //   var electoralDistrictInfo = $("#electoral-district-info");
+  //   createElectoralDistrictButtons(data, electoralDistrictButtons);
+  //   createElectoralDistrictInformation(data,electoralDistrictInfo);
+  // }).fail(function() {
+  //   console.log("Failed to load electoral district information");
+  // }); 
 
 })
+
 
 //jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
