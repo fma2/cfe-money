@@ -102,11 +102,6 @@ a:hover {
 /* Header */
 
 .header {
- 	h1 {
-		font-weight: 300;
-		text-align:center;
-  	font-size: 4em;
-	}
 	padding-top: 75px;
   display:table;
 	color: #4C4C4C;
@@ -118,20 +113,42 @@ a:hover {
   background-size: cover;
   -o-background-size: cover;
 
-  #subtitle-row {
-  	text-align:center;
-		color: $subtitle-font-color;
-  	h4.subtitle-text{
-			font-size: 140%;
-			font-weight:200;
-		}
+  h1 {
+    font-weight: 300;
+    text-align:center;
+    font-size: 4em;
   }
+  
+  #subtitle-row {
+    text-align:center;
+    color: $subtitle-font-color;
+    
+    .subtitle1 {
+      height: 300px;
+    }
+
+    h4.subtitle-text1{
+      font-size: 2em;
+      font-weight:200;
+      text-align: justify;
+      position:relative;
+      top:20%;
+
+      .subtitle-text-1a{
+        font-weight: 400;
+      }
+    } 
+  }
+
   span.get-started-text{
     font-weight: 300;
     color: $highlight-text-color;
   }
-}
 
+  img {
+    max-width: 100%;
+  }
+}
 
 /* Location Tabs */
 
@@ -234,7 +251,7 @@ and (max-device-width : 480px) {
       font-size: 1.7em;
     }
 
-    #subtitle-row h4.subtitle-text{
+    #subtitle-row h4.subtitle-text1{
       font-size:95%;
     }
     #location-tabs-row {
@@ -287,7 +304,7 @@ and (max-device-width : 667px) {
     h1{
       font-size: 3.2em;
     }
-    #subtitle-row h4.subtitle-text{
+    #subtitle-row h4.subtitle-text1{
       font-size:130%;
     }
   }
