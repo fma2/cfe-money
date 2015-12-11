@@ -1,0 +1,57 @@
+<div class="row" id="title-row">
+	<div class="col-xs-12">
+		<div class="title highlight-title">
+			<h1>How much does NY State owe your school?</h1>
+		</div>
+		<br>
+	</div>
+</div>
+<div class="row" id="subtitle-row">
+	<div class="col-xs-12 col-md-6 subtitle1">
+		<h4 class="subtitle-text1"><span class="subtitle-text-1a">Governor	Cuomo	continues	to	ignore the	settlement	of	a	landmark	school funding	lawsuit	that	requires	the	state	to	provide	billions	more	to	schools.</span><br>More	than	$X	billion	is	now	owed.</h4>
+	</div>
+	<div class="col-xs-12 col-md-5 col-md-offset-1">
+		<div class="subtitle-image">
+			<img src="http://placehold.it/555x300">
+		</div>
+	</div>
+</div>
+<div class="row" id="subtitle-row">
+	<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 subtitle2">
+		<h4 class="subtitle-text2">Find out how much New York State is robbing your school. <br><span class="highlight-title get-started-text2">Select a location and search to get started.</span></h4>
+		<br>
+		<br>
+	</div>
+</div>
+</div>
+<div class="container">
+<div class="row" id="location-tabs-row">
+	<div class="col-xs-12 col-md-12 col-lg-12">
+		<div role="tabpanel" class="subtitle-buttons">
+			<ul class="nav nav-tabs nav-pills loc-tabs" role="tablist">
+				<% @locations.each do |l|  %>
+				<li role="presentation">
+					<a href="#<%= l.loc_code %>" aria-controls="<%= l.loc_code %>" role="tab" data-toggle="tab">
+						<div  aria-expanded="false">
+							<h4><%= l.name  %></h4>
+						</div>
+					</a>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+<div class="container">
+<div class="row" id="search-bar-row">
+	<div class="col-xs-12 col-md-12 col-lg-12">
+		<div class="tab-content">
+			<% @locations.each_with_index do |l, i|  %>
+			<div role="tabpanel" class="tab-pane fade" id="<%= l.loc_code %>">
+				<%= render :partial => "/locations/#{l.loc_code}_index", :locals => {:location => l.loc_code, :location_name => l.name, :totals => @totals[i][l.loc_code] }  %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
