@@ -76,61 +76,18 @@
 
 <section id="search-results-section" class="">
 	<div class="container">
-		<div class="row text-center school-search-result">
-			<h1 class="warning-text">Return to the top to search for a school</h1>
-			<div class="school-section" id="schoolModal">
-				<%= render :partial => 'schools/school_information' %>
-			</div>
-		</div>
-		<div class="row text-center">
-			<div class="row">
-				<h3>Think that our students and schools deserve better?</h3>
-				<h3>See what you can do to take action</h3>
-			</div>
-		</div>
+		<%= render :partial => 'school_section'  %>
 	</div>
 </section>
 
-<section id="" class="">
-	<div class="row">
-		<div class="col-xs-12 text-center">
-			<h1>Take action to end the injustice.</h1>
-		</div>
+<section id="take-action-section" class="">
+	<div class="container">
+		<%= render :partial => 'take_action'  %>
 	</div>
-	<div class="row text-center">
-		<div class="col-xs-2 col-xs-offset-2"><i class="fa fa-circle-o fa-5x"></i></div>
-		<div class="col-xs-8text-left">
-			<h3>Email	your	representatives	in	Albany	and	ask	what	they’re	doing	to	get	money	back	for	our	schools.</h3>
-		</div>
-	</div>
-	<div class="row text-center">
-		<div class="col-xs-2 col-xs-offset-2"><i class="fa fa-circle-o fa-5x"></i></div>
-		<div class="col-xs-8 text-left">
-			<h3>Tweet	to	spread	the	word.</h3>
-		</div>
-	</div>
-	<div class="row text-center">
-		<div class="col-xs-2 col-xs-offset-2"><i class="fa fa-circle-o fa-5x"></i></div>
-		<div class="col-xs-8 text-left">
-			<h3>Share	this	tool	on	Facebook	and	tell	friends	&	family	to search	for	their	own	school.		</h3>
-		</div>
-	</div>
-	<div class="row text-center">
-		<div class="col-xs-2 col-xs-offset-2"><i class="fa fa-circle-o fa-5x"></i></div>
-		<div class="col-xs-8 text-left">
-			<h3>Read	the	full	report	to	learn	more.</h3>
-		</div>
-	</div>
-	<div class="row text-center">
-			<div class="row">
-				<h3>What	can	your	school	achieve	with	the	money	it	deserves?	</h3>
-				<h3>Take	the	next	step	to	find	out.</h3>
-			</div>
-		</div>
 </section>
 
 
-<section id="more" class="more-info">
+<!-- <section id="more" class="more-info">
 	<div class="container">
 		<hr>
 		<div class="row">
@@ -139,7 +96,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
 <footer>
 	<div class="container text-center">
