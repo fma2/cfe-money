@@ -1,0 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Codystar:300);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+/* Variables */
+
+/*Colors*/
+$black: #000;
+$lighter-dark-green: #335C33;
+$dark-green: #003300;
+$light-gray: #E6EBE6;
+$gray: #B8B8B8;
+$white: #fff;
+
+$main-font: 'Lato', sans-serif;
+$navbar-font: 'Codystar', cursive;
+$navbar-background-color: $light-gray;
+$navbar-font-color: $gray;
+$subtitle-font-color: #808080;
+$link-font-color: $dark-green ;
+$link-hover-font-color: $lighter-dark-green;
+$highlight-text-color: $black;
