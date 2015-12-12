@@ -1,9 +1,11 @@
-/* Search Schools Section */
+@import 'variables.css.scss';
+@import 'base.css.scss';
 
+/* Search Schools Section */
 #search_text1, #search_text2 {
   height: 50px;
   background-color: rgba(255, 255, 255, 0.5);
-  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: $main-font;
   z-index:1;
 }
 
@@ -19,7 +21,7 @@
     color: #003300;
   }
   a:hover{
-    color:  #335C33;
+    color:  $link-hover-font-color;
     text-decoration:none;
   }
 }
@@ -85,24 +87,25 @@
 }
 
 
-/* School Modal */
+/* School information section */
 
-.modal-header {
+/*h1.schoolInfoLabel {
   background-color: #003300;
   color: black;  
-}
+}*/
 
-#schoolModal, #aboutModal {
+
+#aboutModal {
   z-index: 99999;
 }
-#schoolModal .modal-title, .modal-title-dbn, .modal-title-district{
-  font-size: 3em;
+
+#school-information .school-title, .school-title-dbn, .school-title-district{
   color: black;
 }
 
 .amount-number,
 .enrollment-number {
-  font-size:3.5em;
+  /*font-size:3.5em;*/
 }
 
 #aboutModal .modal-title{
