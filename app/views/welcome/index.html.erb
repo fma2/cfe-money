@@ -1,4 +1,5 @@
-<div class="nav">
+<!-- Nav Bar -->
+<!-- <div class="nav">
 	<div id="background">
 		<a href="#more" class="btn btn-xs btn-dark page-scroll">learn</a>
 		<a href="#subtitle-row" class="btn btn-xs btn-dark page-scroll">search</a>
@@ -7,29 +8,41 @@
 			<i class="fa fa-info"></i>
 		</a>
 	</div>
-</div>
+</div> -->
 
+<!-- Header -->
 <header id="top" class="header cover">
-	<div class="header-body cover-body">
-		<div class="container">
-			<%= render :partial => 'header'  %>
-		</div>
-	</div>
+	<%= render :partial => 'header'  %>
 </header>
 
-
-<section id="search-results-section" class="cover">
-	<div class="container cover-body">
-		<%= render :partial => 'school_section'  %>
+<!-- Search section -->
+<section id="search-section" class="search-section cover">
+	<div class="cover-body">
+		<%= render :partial => 'search_section'  %>
 	</div>
 </section>
 
-<section id="take-action-section" class="">
-	<div class="container">
+<!-- School search results -->
+<section id="results-section" class="results-section cover">
+	<div class="container cover-body">
+		<%= render :partial => 'school_info_section'  %>
+	</div>
+</section>
+
+<!-- Take action section -->
+<section id="take-action-section" class="take-action-section cover">
+	<div class="container cover-body">
 		<%= render :partial => 'take_action'  %>
 	</div>
 </section>
 
+<section id="cart-section" class="cover">
+	<div class="container cover-body">
+		<%  %>
+	</div>
+</section>
+
+<!-- Footer -->
 <footer>
 	<div class="container text-center">
 		<%= render :partial => 'footer' %>
