@@ -1,60 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
-@import url(https://fonts.googleapis.com/css?family=Codystar:300);
-
-/* Variables */
-
-$main-font: 'Source Sans Pro', sans-serif;
-$navbar-font: 'Codystar', cursive;
-$navbar-background-color: #E6EBE6;
-$navbar-font-color: #B8B8B8;
-$subtitle-font-color: #808080;
-$link-font-color: #003300;
-$link-hover-font-color: #335C33;
-$highlight-text-color: black;
-
-
-/* General */
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
-
-header, 
-section, 
-footer, 
-h1, 
-h2, 
-h3,
-h4, 
-h5, 
-h6,
-p, 
-.modal,
-.nav {
-	font-family: $main-font;
-}
-
-.clickable {
-  cursor: pointer;
-}
-
-.highlight-title:hover{
-  color:$highlight-text-color;
-}
-
-*, *::after, *::before {
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: $link-font-color
-}
-a:hover {
-  color: $link-hover-font-color
-}
+@import 'variables.css.scss';
+@import 'base.css.scss';
 
 /* Navbar */
 
@@ -98,141 +43,58 @@ a:hover {
   
 }
 
-
 /* Header */
 
 .header {
 	padding-top: 75px;
-  display:table;
   color: #4C4C4C;
   position: relative;
-  width: 100%;
-  height:100%;
-  -webkit-background-size: cover;
+  color: $palette-color5;
+  /*background: url("http://d9hhrg4mnvzow.cloudfront.net/action.uft.org/passion-and-promise/6ce5124e-backtoschool-header-bg.jpg") no-repeat bottom center scroll;*/
+  /*background-color: #000;*/
+  /*-webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover;
+  -o-background-size: cover;*/
+
+  .header-body {
+    display:block;    
+  }
 
   h1 {
     font-weight: 300;
     text-align:center;
+    text-transform: uppercase;
     font-size: 4em;
   }
   
   #subtitle-row {
-    text-align:center;
-    color: $subtitle-font-color;
-    
-    .subtitle1 {
-      height: 300px;
+    h4.subtitle-text2 {
+      color: $palette-color5;
     }
-
-    h4.subtitle-text1{
+    h4.subtitle-text1, h4.subtitle-text2{
       font-size: 2em;
-      font-weight:200;
-      text-align: justify;
+      font-weight:100;
+      /*text-align: justify;*/
       position:relative;
       top:20%;
 
-      .subtitle-text-1a{
-        font-weight: 400;
+      span.subtitle-text-1a{
+        font-weight: 500;
       }
     } 
   }
+}
 
-  span.get-started-text{
+span.get-started-text{
     font-weight: 300;
     color: $highlight-text-color;
   }
 
-  img {
-    max-width: 100%;
-  }
-}
-
-.cover {
-  display: table;
-  width: 100%;
-  /*height: auto;*/ 
-  height: 100%;
-  padding: 100px 0;
-  text-align: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  
-  .cover-body {
-    display: table-cell;
-    vertical-align: middle;
-
-    .brand-heading {
-      font-size: 40px;
-    }
-    .intro-text {
-      font-size: 18px;
-    }
-  }
-}
-
-
-@media(min-width:768px) {
-  .cover {
-    padding: 0;
-  }
-
-  .cover .cover-body .brand-heading {
-    font-size: 100px;
-  }
-
-  .cover .cover-body .intro-text {
-    font-size: 26px;
-  }
-}
-
-
 /*Action Section*/
-.btn-circle {
-  width: 70px;
-  height: 70px;
-  margin-top: 15px;
-  padding: 7px 16px;
-  border: 2px solid black;
-  border-radius: 100%!important;
-  font-size: 40px;
-  color: black;
-  background: 0 0;
-  -webkit-transition: background .3s ease-in-out;
-  -moz-transition: background .3s ease-in-out;
-  transition: background .3s ease-in-out;
-}
 
-.btn-circle:hover,
-.btn-circle:focus {
-  outline: 0;
-  color: black;
-  background: rgba(255,255,255,.1);
-}
 
-.btn-circle i.animated {
-  -webkit-transition-property: -webkit-transform;
-  -webkit-transition-duration: 1s;
-  -moz-transition-property: -moz-transform;
-  -moz-transition-duration: 1s;
-}
-
-.btn-circle:hover i.animated {
-  -webkit-animation-name: pulse;
-  -moz-animation-name: pulse;
-  -webkit-animation-duration: 1.5s;
-  -moz-animation-duration: 1.5s;
-  -webkit-animation-iteration-count: infinite;
-  -moz-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -moz-animation-timing-function: linear;
-}
-
-/* Location Tabs */
+/* Search Section */
 
 #location-tabs-row {
 	height: 100px;
@@ -244,7 +106,7 @@ a:hover {
   *display:inline; /* ie7 fix */
   zoom:1; /* hasLayout ie7 trigger */
   a {
-    color:$link-font-color;
+    color: $link-font-color;
   }
 }
 .nav-tabs, .nav-pills {
@@ -254,16 +116,21 @@ a:hover {
 }
 
 .nav-tabs>li.active>a {
-  color: #555;
-  background-color:  $link-hover-font-color !important;
+  background-color:  $pale-gray;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
 }
 
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+  background-color: $pale-gray;
+  color: $palette-color5;
+}
+
+/*School Section*/
 
 /* More Information Section */
 
-.more-info {
+/*.more-info {
   color: $subtitle-font-color;
   padding-top: 200px;
   padding-bottom: 200px;
@@ -290,7 +157,7 @@ a:hover {
       font-weight:300;
     }
   }
-}
+}*/
 
 
 /* Footer */
