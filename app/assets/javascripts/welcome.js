@@ -5,7 +5,7 @@ $( document ).ready(function() {
     $(this).hide();
   });
 
-  $("#search-results-section .school-section").css("display", "none");
+  $("#results-section .school-section").css("display", "none");
 
   $('.loc-tabs li:nth-child(2)').addClass('active'); // selects RoS tab when page loads
   $('.tab-content .tab-pane:nth-child(2)').addClass('in');
@@ -57,7 +57,6 @@ $( document ).ready(function() {
   // }); 
 
 })
-
 
 //jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
