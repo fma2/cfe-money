@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Codystar:300);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+/* Variables */
+
+/*Colors*/
+$black: #000;
+$lighter-dark-green: #335C33;
+$dark-green: #003300;
+$light-gray: #E6EBE6;
+$gray: #B8B8B8;
+$white: #fff;
+$pale-gray: #dddfd4;
+$pale-yellow: #fae596;
+$turquoise: #3fb0ac;
+$dark-turquoise: #173e43;
+$orange-red: #ff606e;
+$bright-blue: #00ddd8;
+$purple-blue: #517398;
+$midnight-blue: #262c3a;
+
+/*Palette*/
+$palette-color1: $white;
+$palette-color2: $orange-red;
+$palette-color3: $bright-blue;
+$palette-color4: $purple-blue;
+$palette-color5: $midnight-blue;
+$palette-color6: $black;
+$palette-color7: $pale-gray;
+
+
+/*Typography*/
+$main-font: 'Lato', sans-serif;
+$navbar-font: 'Codystar', cursive;
+$basic-color: $black;
+$highlight-text-color: $black;
+
+
+/*Links*/
+$link-font-color: $palette-color5;
+$link-hover-font-color: $palette-color4;
+
+
+
+/*Navigation*/
+$navbar-background-color: $light-gray;
+$navbar-font-color: $gray;
+$subtitle-font-color: #808080;
+
