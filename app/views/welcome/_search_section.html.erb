@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row" id="location-tabs-row">
+		<div class="col-xs-12 col-md-12 col-lg-12">
+			<h4 class="subtitle-text2">
+				<span class="highlight-title get-started-text">Select a location and search to get started.</span>
+			</h4>
+			<div role="tabpanel" class="subtitle-buttons">
+				<ul class="nav nav-tabs nav-pills loc-tabs" role="tablist">
+					<% @locations.each do |l|  %>
+					<li role="presentation">
+						<a href="#<%= l.loc_code %>" aria-controls="<%= l.loc_code %>" role="tab" data-toggle="tab">
+							<div  aria-expanded="false">
+								<h4><%= l.name  %></h4>
+							</div>
+						</a>
+					</li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row" id="search-bar-row">
+		<div class="col-xs-12 col-md-12 col-lg-12">
+			<div class="tab-content">
+				<% @locations.each_with_index do |l, i|  %>
+				<div role="tabpanel" class="tab-pane fade" id="<%= l.loc_code %>">
+					<%= render :partial => "/locations/#{l.loc_code}_index", :locals => {:location => l.loc_code, :location_name => l.name, :totals => @totals[i][l.loc_code] }  %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
