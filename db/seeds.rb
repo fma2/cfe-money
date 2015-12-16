@@ -19,6 +19,7 @@ end
 # Seed Schools
 locations = Location.all
 locations.each do |l|
+	p l
 	location = l
 	schools_url = URI(location.endpoint)
 	connection = Faraday.new(url: schools_url.to_s)

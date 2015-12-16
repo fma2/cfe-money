@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20150306190234) do
     t.string   "website"
     t.string   "albany_office_no"
     t.string   "do_office_no"
+    t.string   "social_facebook"
+    t.string   "social_twitter"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,6 +67,8 @@ ActiveRecord::Schema.define(version: 20150306190234) do
     t.string   "district_code"
     t.string   "assembly_district"
     t.integer  "senate_district"
+    t.string   "addl_district_tag1"
+    t.string   "addl_district_tag2"
     t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
