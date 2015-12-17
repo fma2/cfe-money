@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+
+
   $("body").hide(0).delay(100).fadeIn(2200);
 
   $('.read-more').click(function(e) {
@@ -90,4 +92,8 @@ function createDynamicTextBackground(data) {
   var attribute = document.createAttribute("data-bg");
   attribute.value = txt_rep;
   title.setAttributeNode(attribute);
+}
+
+function twitterLink() {
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 }
