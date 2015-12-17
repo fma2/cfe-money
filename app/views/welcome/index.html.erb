@@ -1,15 +1,43 @@
 <!-- Nav Bar -->
 <!-- <div class="nav">
 	<div id="background">
-		<a href="#more" class="btn btn-xs btn-dark page-scroll">learn</a>
-		<a href="#subtitle-row" class="btn btn-xs btn-dark page-scroll">search</a>
-		<a href="#social-buttons" class="btn btn-xs btn-dark page-scroll">share</a>
-		<a target="_blank" data-toggle="modal" data-target="#aboutModal" class="clickable btn btn-xs btn-dark">
-			<i class="fa fa-info"></i>
-		</a>
+		
 	</div>
 </div> -->
-<!-- <img src="assets/education-icons.svg"> -->
+<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+	<div class="container topnav">
+		<div class="navbar-header navbar-right">
+			<div class="navbar-inner">
+				<div class="container" style="width: auto;">
+					<ul class="nav pull-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#more" class="btn btn-xs btn-dark page-scroll">learn</a></li>
+								<li><a href="#subtitle-row" class="btn btn-xs btn-dark page-scroll">search</a></li>
+								<li><a href="#social-buttons" class="btn btn-xs btn-dark page-scroll">share</a></li>
+								<li class="divider"></li>				
+								<li><a target="_blank" data-toggle="modal" data-target="#aboutModal" class="clickable btn btn-xs btn-dark"><i class="fa fa-info"></i></a></li>
+							</ul>
+						</li>
+					</ul>
+					<div id="google_translate_element"></div>
+					<script type="text/javascript">
+					function googleTranslateElementInit() {
+						new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+					}
+					</script>
+					<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<div class="navbar topnav">
+
+</div>
+
 <!-- Header -->
 <header id="top" class="header cover">
 	<%= render :partial => 'header'  %>
