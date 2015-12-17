@@ -1,35 +1,6 @@
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">
-				<!-- Google translate -->
-				<div id="google_translate_element"></div>
-				<script type="text/javascript">
-				function googleTranslateElementInit() {
-					new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-				}
-				</script>
-				<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-			</a>
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-		</div>
-		<div id="navbar" class="navbar-collapse collapse" aria-expanded="false">
-			<ul class="nav navbar-nav text-right">
-				<li><a href="#">home</a></li>
-				<li><a target="_blank" data-toggle="modal" data-target="#aboutModal">about<!-- <i class="fa fa-info"></i> --></a></li>
-				<!-- <li><a href="#more" class="page-scroll">learn</a></li>
-			-->		
-			<li><a href="#subtitle-row" class="page-scroll">search</a></li>
-			<li><a href="#social-buttons" class="page-scroll">share</a></li>
-			<li class="divider"></li>				
-		</ul>
-	</div>
+ <%= render :partial => 'navigation'  %>
 </nav>
 
 <!-- Header -->
