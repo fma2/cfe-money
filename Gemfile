@@ -15,3 +15,4 @@ gem 'pg_search'
 gem 'unicorn'
 gem 'faraday'
 gem 'newrelic_rpm'
+
