@@ -11,21 +11,21 @@ class SchoolsController < ApplicationController
 		end
 	end
 
-	def random40
-		@json = Array.new
-		20.times do
-			offset = rand(School.count)
-			rand_record = School.offset(offset).first
-			@json << {
-				school: rand_record.school,
-				total_enrollment: rand_record.total_enrollment,
-				amount_owed: rand_record.amount_owed
-			}
-		end
-		respond_to do |format|
-			format.html
-			format.json { render json: @json }
-		end
-	end
+	# def random40
+	# 	@json = Array.new
+	# 	20.times do
+	# 		offset = rand(School.count)
+	# 		rand_record = School.offset(offset).first
+	# 		@json << {
+	# 			school: rand_record.school,
+	# 			total_enrollment: rand_record.total_enrollment,
+	# 			amount_owed: rand_record.amount_owed
+	# 		}
+	# 	end
+	# 	respond_to do |format|
+	# 		format.html
+	# 		format.json { render json: @json }
+	# 	end
+	# end
 	
 end
