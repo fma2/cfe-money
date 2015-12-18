@@ -62,6 +62,7 @@ $(".result-item a").click(function(e) {
 			console.log("Failed to load electoral district information");
 		})
 
+// '+Rails.application.secrets.sunlight_foundation_key+'
 		$.ajax({
 			dataType:'json',
 			url: 'http://openstates.org/api/v1//legislators/?state=ny&chamber=lower&active=true&district='+assembly+'&apikey='+Rails.application.secrets.sunlight_foundation_key+'',
