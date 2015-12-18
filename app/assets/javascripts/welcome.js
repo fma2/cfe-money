@@ -20,15 +20,15 @@ $( document ).ready(function() {
   })
 
   //AJAX call for dynamic text background data
-  $.ajax({
-    dataType: 'json',
-    url: '/random',
-    type: 'GET'
-  }).success(function(data) {
-    createDynamicTextBackground(data)
-  }).fail(function() {
-    console.log("Failed to load background text")
-  });
+  // $.ajax({
+  //   dataType: 'json',
+  //   url: '/random',
+  //   type: 'GET'
+  // }).success(function(data) {
+  //   createDynamicTextBackground(data)
+  // }).fail(function() {
+  //   console.log("Failed to load background text")
+  // });
 
 })
 
