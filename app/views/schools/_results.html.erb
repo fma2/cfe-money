@@ -2,24 +2,25 @@
 <ul class="list-group results-list" id="results-list">
 	<% @results.each do |item| %>
 	<div class="result-item clickable">
-		<a href="#results-section" class="page-scroll" data-school-id="<%= item.id  %>"data-dbn="<%= item.dbn%>" data-school="<%= item.school  %>" data-district="<%= item.district_name %>"data-enrollment=<%= item.total_enrollment %> data-owed=<%= item.amount_owed %> >
+		<a href="#results-section" class="page-scroll" data-school-id="<%= item.id  %>"data-dbn="<%= item.dbn%>" data-school="<%= item.school  %>" data-district="<%= item.district_name %>" data-assembly="<%= item.assembly_district  %>" data-senate="<%= item.senate_district %>" data-enrollment="<%= item.total_enrollment %>" data-owed="<%= item.amount_owed %>" >
 			<li class="list-group-item"><%= item.dbn%> <%= item.school %>  (<%= item.district_name %>)</li>
 		</a>
 	</div>
 	<% end %>
 </ul>
 
+
 <script type="text/javascript">
 
 $(function() {
-  $('a.page-scroll').bind('click', function(event) {
-    console.log("hi")
-    var $anchor = $(this);
-    $('html, body').stop().animate({
-      scrollTop: $($anchor.attr('href')).offset().top
-    }, 1500, 'easeInOutExpo');
-    event.preventDefault();
-  });
+	$('a.page-scroll').bind('click', function(event) {
+		console.log("hi")
+		var $anchor = $(this);
+		$('html, body').stop().animate({
+			scrollTop: $($anchor.attr('href')).offset().top
+		}, 1500, 'easeInOutExpo');
+		event.preventDefault();
+	});
 });
 
 $(".result-item a").click(function(e) {
@@ -33,6 +34,10 @@ $(".result-item a").click(function(e) {
 	var district = button.data('district');
 	var enrollment = button.data('enrollment');
 	var amount = button.data('owed');
+	var senate = (button.data('senate'));
+	var assembly = (button.data('assembly'));
+	console.log(assembly);
+
 	if (school !=undefined) {
 		var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
 		schoolInfo.find('.school-title').text(school.toProperCase() + " ");
@@ -46,12 +51,40 @@ $(".result-item a").click(function(e) {
 		schoolInfo.find('.per-student-amount').text(perStudentAmount);
 		schoolInfo.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='ProtectOurSchools, AllKidsNeed, WeCantWait'>Tweet</a>")
 
+
+		$.ajax({
+			dataType:'json',
+			url: 'http://openstates.org/api/v1//legislators/?state=ny&chamber=upper&active=true&district='+senate+'&apikey='+Rails.application.secrets.sunlight_foundation_key+'',
+			type: 'GET'
+		}).success(function(data){
+			var legislators = data;
+			var leg = legislators[0]
+			console.log(legislators)
+
+			schoolInfo.find('.legislators-section .leg-senate .leg-photo img').attr("src", leg["photo_url"]);
+			schoolInfo.find('.legislators-section .leg-senate .leg-info').text(leg["full_name"])
+		}).fail(function() {
+			console.log("Failed to load electoral district information");
+		})
+
+		$.ajax({
+			dataType:'json',
+			url: 'http://openstates.org/api/v1//legislators/?state=ny&chamber=lower&active=true&district='+assembly+'&apikey='+Rails.application.secrets.sunlight_foundation_key+'',
+			type: 'GET'
+		}).success(function(data){
+			var legislators = data;
+			var leg = legislators[0]
+			console.log(legislators)
+
+			schoolInfo.find('.legislators-section .leg-assembly .leg-photo img').attr("src", leg["photo_url"]);
+			schoolInfo.find('.legislators-section .leg-assembly .leg-info').text(leg["full_name"])
+		}).fail(function() {
+			console.log("Failed to load electoral district information");
+		})
+
 		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 
 		schoolInfo.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button'{count} data-size='large' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='ProtectOurSchools, AllKidsNeed, WeCantWait'>Tweet</a>")
-
 	}
 });
-
-
 </script>
