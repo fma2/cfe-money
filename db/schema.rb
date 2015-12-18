@@ -11,35 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306190234) do
+ActiveRecord::Schema.define(version: 20150227151749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "electoral_district_schools", force: true do |t|
-    t.integer  "electoral_district_id"
-    t.integer  "school_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "electoral_districts", force: true do |t|
-    t.string   "photo"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "full_name"
-    t.string   "email"
-    t.string   "house"
-    t.string   "district_no"
-    t.string   "district_name"
-    t.string   "website"
-    t.string   "albany_office_no"
-    t.string   "do_office_no"
-    t.string   "social_facebook"
-    t.string   "social_twitter"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "locations", force: true do |t|
     t.string   "name"
@@ -65,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150306190234) do
     t.string   "district_name"
     t.integer  "district_no"
     t.string   "district_code"
-    t.string   "assembly_district"
+    t.integer  "assembly_district"
     t.integer  "senate_district"
     t.string   "addl_district_tag1"
     t.string   "addl_district_tag2"
