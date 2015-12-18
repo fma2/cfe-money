@@ -39,8 +39,6 @@
 			url: '/electoral_districts/'+chamber+'/'+district+'',
 			type: 'GET'
 		}).success(function(data) {
-			console.log(data[0].amount_owed);
-			console.log('.'+chamber+''+district+'')
 			legSection.find('.'+chamber+''+district+'').append('<p>'+data[0].amount_owed+'</p><p>'+data[0].total_enrollment+'</p>')
 		}).fail(function(){
 			console.log("Could not get electoral districts' data");
