@@ -1,3 +1,30 @@
+<%= render :partial => 'welcome/navigation'  %>
+
+<section id="districts-section" class="districts-section cover">
+	<div class="container cover-body text-left">
+		<div class="jumbotron">
+			<h1>Get the facts about your school district and electoral district!</h1>
+		</div>
+		<div class="row school-districts">
+			<div class="col-xs-12">
+				<h4>by new york city school district</h4>
+				<div id="school-district-info">
+				</div>
+				<div id="school-district-buttons">
+				</div>
+				<div class="info-text"><p class="district-caption">Districts 1 to 32 = geographic school districts;  District 75 = special schools district.</p></div>
+			</div>
+		</div>
+		<hr>		
+		<div class="row">
+			<div class="col-xs-12 electoral-districts">
+				<h4>by electoral district</h4>
+			</div>
+		</div>
+	</div>
+</section>
+
+
 <script type="text/javascript">
  // AJAX call for district section information
 	$.ajax({
@@ -60,29 +87,3 @@
 	}
 
 </script>
-
-<%= render :partial => 'welcome/navigation'  %>
-
-<section id="districts-section" class="districts-section cover">
-	<div class="container cover-body text-left">
-		<div class="jumbotron">
-			<h1>Get the facts about your school district and electoral district!</h1>
-		</div>
-		<div class="row school-districts">
-			<div class="col-xs-12">
-				<h4>by new york city school district</h4>
-				<div id="school-district-info">
-				</div>
-				<div id="school-district-buttons">
-				</div>
-				<div class="info-text"><p class="district-caption">Districts 1 to 32 = geographic school districts;  District 75 = special schools district.</p></div>
-			</div>
-		</div>
-		<hr>		
-		<div class="row">
-			<div class="col-xs-12 electoral-districts">
-				<h4>by electoral district</h4>
-			</div>
-		</div>
-	</div>
-</section>
