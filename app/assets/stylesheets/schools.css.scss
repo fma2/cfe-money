@@ -52,6 +52,33 @@
   color: white;
 }
 
+
+#school-information {
+  .resources-list {
+
+    .resource-item {
+      padding-left: 10em;
+      padding-right: 10em;
+      
+      .resource-image {
+        text-align: right;
+      }
+
+      .resource-text {
+        text-align: left;
+        display:inline-block;
+      vertical-align:middle;
+      }
+      
+      img {
+        max-width: 40%;
+        right:0;
+      }
+
+    }
+  }  
+}
+
 .legislators-title {
   p {
   font-weight: 200;
