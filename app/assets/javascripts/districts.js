@@ -1,3 +1,19 @@
+
+function findLegTotals(chamber,district){
+  $.ajax({
+    dataType:'json',
+    url: '/electoral_districts/'+chamber+'/'+district+'',
+    type: 'GET'
+  }).success(function(data) {
+    // legSection.find('.'+chamber+''+district+'').append('<p>'+data[0].amount_owed+'</p><p>'+data[0].total_enrollment+'</p>')
+    var electoralDistrictInfo = $("#electoral-district-info #"+chamber+""+district+"");
+     createElectoralDistrictInformation(data[0],electoralDistrictInfo)
+  }).fail(function(){
+    console.log("Could not get electoral districts' data");
+  })
+}
+
+
 function createDistrictButtons(data,buttonsdiv) {
   for (k in data) {
     buttonsdiv.append('<a class="btn btn-custom" data-toggle="collapse" href="#district'+data[k].code+'" aria-expanded="false" aria-controls="collapseExample">'+data[k].district+'</a>')
