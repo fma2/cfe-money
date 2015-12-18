@@ -2,27 +2,23 @@
 <%= render :partial => 'navigation'  %>
 
 <!-- Header -->
-<%= render :partial => 'header'  %>
+<header id="top" class="header cover">
+	<%= render :partial => 'header'  %>
+</header>
 
 <!-- Search section -->
 <section id="search-section" class="search-section cover">
-	<div class="cover-body">
-		<%= render :partial => 'search_section'  %>
-	</div>
+	<%= render :partial => 'search_section'  %>
 </section>
 
 <!-- School search results -->
 <section id="results-section" class="results-section cover">
-	<div class="container cover-body">
-		<%= render :partial => 'school_info_section'  %>
-	</div>
+	<%= render :partial => 'school_info_section'  %>
 </section>
 
 <!-- Take action section -->
 <section id="take-action-section" class="take-action-section cover">
-	<div class="container cover-body">
-		<%= render :partial => 'take_action'  %>
-	</div>
+	<%= render :partial => 'take_action'  %>
 </section>
 
 <section id="cart-section" class="cover">
@@ -33,7 +29,5 @@
 
 <!-- Footer -->
 <footer>
-	<div class="container text-center">
-		<%= render :partial => 'footer' %>
-	</div>
+	<%= render :partial => 'footer' %>
 </footer>
