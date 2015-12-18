@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   match '/search/:loc_code' => 'schools#search', via: [:get], as: "search"
   get '/random' => 'schools#random40'
   get '/school_districts' => 'schools#districts'
+
+  get '/districts' => 'welcome#districts'
   get '/electoral_districts' => 'schools#electoral_districts'
+  
+  get '/electoral_districts2/:leg_chamber/:leg_district' => 'schools#electoral_districts2'
+
   get '/legislators/:school_id' => 'schools#legislators'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
