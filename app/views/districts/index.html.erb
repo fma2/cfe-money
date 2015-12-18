@@ -19,6 +19,11 @@
 		<div class="row">
 			<div class="col-xs-12 electoral-districts">
 				<h4>by electoral district</h4>
+				<div id="electoral-district-info">
+				</div>
+				<div id="electoral-district-buttons">
+				</div>
+				<div class="info-text"><p class="district-caption">AD = New York State Assembly District; SD = New York State Senate District</p></div>
 			</div>
 		</div>
 	</div>
@@ -46,14 +51,22 @@
 		type: 'GET'
 	}).success(function(data){
 		var legislators = data;
-		console.log(legislators.length)
+		// console.log(legislators.length)
 		legSection = $("#districts-section .electoral-districts")
+		var electoralDistrictButtons = $("#electoral-district-buttons");
+		createElectoralDistrictButtons(data,electoralDistrictButtons)
 		for (k in legislators) {
+			console.log(legislators[k])
 			var legChamber = legislators[k].chamber;
 			var legDistrict = legislators[k].district;
 			var legName = legislators[k].full_name;
-			legSection.append('<div class="'+legChamber+''+legDistrict+'"><p>'+legName+'</p></div>');
+			// legSection.append('<div class="'+legChamber+''+legDistrict+'"><p>'+legName+'</p></div>');
+
+			var electoralDistrictInfo = $("#electoral-district-info");
+			createElectedOfficialInformation(legislators[k], electoralDistrictInfo)
+			
 			findLegTotals(legChamber, legDistrict)
+
 		}
 	}).fail(function() {
 		console.log("Failed to load electoral district information");
@@ -80,7 +93,9 @@
 			url: '/electoral_districts/'+chamber+'/'+district+'',
 			type: 'GET'
 		}).success(function(data) {
-			legSection.find('.'+chamber+''+district+'').append('<p>'+data[0].amount_owed+'</p><p>'+data[0].total_enrollment+'</p>')
+			// legSection.find('.'+chamber+''+district+'').append('<p>'+data[0].amount_owed+'</p><p>'+data[0].total_enrollment+'</p>')
+			var electoralDistrictInfo = $("#electoral-district-info #"+chamber+""+district+"");
+			 createElectoralDistrictInformation(data[0],electoralDistrictInfo)
 		}).fail(function(){
 			console.log("Could not get electoral districts' data");
 		})
