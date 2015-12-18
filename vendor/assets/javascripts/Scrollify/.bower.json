@@ -1,0 +1,38 @@
+{
+  "name": "Scrollify",
+  "version": "0.1.11",
+  "homepage": "https://github.com/lukehaas/Scrollify",
+  "authors": [
+    "Luke Haas <lukehaas7@gmail.com>"
+  ],
+  "description": "A jQuery plugin that assists scrolling and smoothly snaps to sections.",
+  "main": "jquery.scrollify.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "scroll",
+    "snap"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.*"
+  },
+  "_release": "0.1.11",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.11",
+    "commit": "22b367521bbc66c50be7192d5b73c37d111329e9"
+  },
+  "_source": "git://github.com/lukehaas/Scrollify.git",
+  "_target": "~0.1.11",
+  "_originalSource": "Scrollify",
+  "_direct": true
+}
