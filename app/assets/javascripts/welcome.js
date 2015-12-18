@@ -2,6 +2,7 @@ $( document ).ready(function() {
 
 
   $("body").hide(0).delay(100).fadeIn(2200);
+  // $('body').addClass('stop-scrolling')
 
   $('.read-more').click(function(e) {
     $(this).hide();
@@ -39,6 +40,7 @@ $(function() {
     $('html, body').stop().animate({
       scrollTop: $($anchor.attr('href')).offset().top
     }, 1500, 'easeInOutExpo');
+    // $.scrollify.move("#");
     event.preventDefault();
   });
 });
@@ -68,3 +70,15 @@ function createDynamicTextBackground(data) {
 function twitterLink() {
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 }
+
+// $.scrollify({
+//   section : ".cover",
+//   sectionName : "section-name",
+//   easing: "easeInOutExpo",
+//   scrollSpeed: 1500,
+//   offset : 0,
+//   scrollbars: true,
+//   before:function() {},
+//   after:function() {},
+//   afterResize:function() {}
+// });
