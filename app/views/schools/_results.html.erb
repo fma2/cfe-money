@@ -14,7 +14,6 @@
 
 $(function() {
 	$('a.page-scroll').bind('click', function(event) {
-		console.log("hi")
 		var $anchor = $(this);
 		$('html, body').stop().animate({
 			scrollTop: $($anchor.attr('href')).offset().top
@@ -30,13 +29,11 @@ $(".result-item a").click(function(e) {
 	var schoolInfo = $('#school-information')
 	var button = $(this)
 	var school = button.data('school');
-	console.log(school);
 	var district = button.data('district');
 	var enrollment = button.data('enrollment');
 	var amount = button.data('owed');
 	var senate = (button.data('senate'));
 	var assembly = (button.data('assembly'));
-	console.log(assembly);
 
 	if (school !=undefined) {
 		var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
@@ -59,8 +56,6 @@ $(".result-item a").click(function(e) {
 		}).success(function(data){
 			var legislators = data;
 			var leg = legislators[0]
-			console.log(legislators)
-
 			schoolInfo.find('.legislators-section .leg-senate .leg-photo img').attr("src", leg["photo_url"]);
 			schoolInfo.find('.legislators-section .leg-senate .leg-info').text(leg["full_name"])
 		}).fail(function() {
@@ -74,7 +69,6 @@ $(".result-item a").click(function(e) {
 		}).success(function(data){
 			var legislators = data;
 			var leg = legislators[0]
-			console.log(legislators)
 
 			schoolInfo.find('.legislators-section .leg-assembly .leg-photo img').attr("src", leg["photo_url"]);
 			schoolInfo.find('.legislators-section .leg-assembly .leg-info').text(leg["full_name"])
