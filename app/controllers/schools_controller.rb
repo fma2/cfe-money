@@ -132,6 +132,37 @@ class SchoolsController < ApplicationController
 		end
 	end
 
+	def electoral_districts2
+		leg_chamber = params[:leg_chamber]
+		leg_district = params[:leg_district]
+		schools_in_district = Array.new
+		if leg_chamber == "upper"
+			schools_in_district = School.where(senate_district: leg_district)
+		elsif leg_chamber == "lower"
+			schools_in_district = School.where(assembly_district: leg_district)
+		end
+		# p schools_in_district[0][:total_enrollment]
+		# School.total_enrollment_sum(schools_in_district)
+		schools_list = schools_in_district.map do |school|
+				school.school
+			end
+
+		@json = Array.new
+		@json << {
+				total_enrollment: School.total_enrollment_sum(schools_in_district),
+				amount_owed: School.total_owed_sum(schools_in_district),
+				schools: schools_list.sort
+		}
+		respond_to do |format|
+			format.html
+			format.json { render json: @json }
+		end
+	end
+
+	def electoral_districts3
+
+	end
+
 	def legislators
 		school = School.find(params[:school_id])
 		legislators = school.electoral_districts		
