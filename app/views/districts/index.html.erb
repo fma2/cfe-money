@@ -1,0 +1,76 @@
+<script type="text/javascript">
+ // AJAX call for district section information
+	$.ajax({
+		dataType: 'json',
+		url: '/school_districts',
+		type: 'GET'
+	}).success(function(data) {
+		var schoolDistrictButtons = $('#school-district-buttons');
+		var schoolDistrictInfo =  $('#school-district-info');
+		createDistrictButtons(data, schoolDistrictButtons);
+		createSchoolDistrictInformation(data, schoolDistrictInfo)
+	}).fail(function() {
+		console.log("Failed to load school district information");
+	}); 
+
+	$.ajax({
+		dataType:'json',
+		url: 'http://openstates.org/api/v1//legislators/?state=ny&active=true&'+Rails.application.secrets.sunlight_foundation_key+'',
+		type: 'GET'
+	}).success(function(data){
+		var legislators = data;
+		console.log(legislators.length)
+		legSection = $("#districts-section .electoral-districts")
+		for (k in legislators) {
+			var legChamber = legislators[k].chamber;
+			var legDistrict = legislators[k].district;
+			var legName = legislators[k].full_name;
+			legSection.append('<div class="'+legChamber+''+legDistrict+'"><p>'+legName+'</p></div>');
+			findLegTotals(legChamber, legDistrict)
+		}
+	}).fail(function() {
+		console.log("Failed to load electoral district information");
+	})
+
+
+	function findLegTotals(chamber,district){
+		$.ajax({
+			dataType:'json',
+			url: '/electoral_districts/'+chamber+'/'+district+'',
+			type: 'GET'
+		}).success(function(data) {
+			console.log(data[0].amount_owed);
+			console.log('.'+chamber+''+district+'')
+			legSection.find('.'+chamber+''+district+'').append('<p>'+data[0].amount_owed+'</p><p>'+data[0].total_enrollment+'</p>')
+		}).fail(function(){
+			console.log("Could not get electoral districts' data");
+		})
+	}
+
+</script>
+
+<%= render :partial => 'welcome/navigation'  %>
+
+<section id="districts-section" class="districts-section cover">
+	<div class="container cover-body text-left">
+		<div class="jumbotron">
+			<h1>Get the facts about your school district and electoral district!</h1>
+		</div>
+		<div class="row school-districts">
+			<div class="col-xs-12">
+				<h4>by new york city school district</h4>
+				<div id="school-district-info">
+				</div>
+				<div id="school-district-buttons">
+				</div>
+				<div class="info-text"><p class="district-caption">Districts 1 to 32 = geographic school districts;  District 75 = special schools district.</p></div>
+			</div>
+		</div>
+		<hr>		
+		<div class="row">
+			<div class="col-xs-12 electoral-districts">
+				<h4>by electoral district</h4>
+			</div>
+		</div>
+	</div>
+</section>
