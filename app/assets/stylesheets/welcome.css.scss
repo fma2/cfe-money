@@ -22,56 +22,56 @@
   opacity: 0.8;
   }*/
 
-  body {
-    padding-top:70px;
+body {
+  padding-top:70px;
+}
+
+@media (max-width: 2000px){
+  .navbar-header {
+    float: none;
   }
-
-  @media (max-width: 2000px){
-    .navbar-header {
-      float: none;
-    }
-    .navbar-left,.navbar-right {
-      float: none !important;
-    }
-    .navbar-toggle {
-      display: block;
-    }
-    .navbar-collapse {
-      /*border-top: 1px solid transparent;*/
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-    .navbar-fixed-top {
-      top: 0;
-      border-width: 0 0 1px;
-    }
-    .navbar-collapse.collapse {
-      display: none!important;
-    }
-    .navbar-nav {
-      float: none!important;
-      margin-top: 7.5px;
-    }
-    .navbar-nav>li {
-      float: none;
-    }
-    .navbar-nav>li>a {
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-    .collapse.in{
-      display:block !important;
-    }
+  .navbar-left,.navbar-right {
+    float: none !important;
   }
+  .navbar-toggle {
+    display: block;
+  }
+  .navbar-collapse {
+    /*border-top: 1px solid transparent;*/
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+    display: none!important;
+  }
+  .navbar-nav {
+    float: none!important;
+    margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+    float: none;
+  }
+  .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .collapse.in{
+    display:block !important;
+  }
+}
 
-  /* Header */
+/* Header */
 
-  .header {
-   padding-top: 75px;
-   color: #4C4C4C;
-   position: relative;
-   color: $palette-color5;
-   /*background: url("http://d9hhrg4mnvzow.cloudfront.net/action.uft.org/passion-and-promise/6ce5124e-backtoschool-header-bg.jpg") no-repeat bottom center scroll;*/
-   /*background-color: #000;*/
+.header {
+  padding-top: 75px;
+  color: #4C4C4C;
+  position: relative;
+  color: $palette-color5;
+  /*background: url("http://d9hhrg4mnvzow.cloudfront.net/action.uft.org/passion-and-promise/6ce5124e-backtoschool-header-bg.jpg") no-repeat bottom center scroll;*/
+  /*background-color: #000;*/
   /*-webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -146,190 +146,157 @@ span.get-started-text{
   color: $palette-color5;
 }
 
-/*School Section*/
 
-/* More Information Section */
+/* Footer */
 
-/*.more-info {
-  color: $subtitle-font-color;
-  padding-top: 200px;
-  padding-bottom: 200px;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  
-  .description-text {
-    a {
-      color: $link-font-color;
-    }
-    a:hover{
-      color:  $link-hover-font-color;
-      text-decoration:none;
-    }
-    .btn-custom {
-      width: 100%;
-    }
-    .source-text {
-      text-align:right;
-    }
-    p {
-      font-weight:300;
-    }
+footer {
+  padding: 50px 0;
+  p {
+    margin: 0;
+
   }
-  }*/
-
-
-  /* Footer */
-
-  footer {
-    padding: 50px 0;
-    p {
-      margin: 0;
-
-    }
-    a {
-      color: $link-font-color;
-    }
-    a:hover{
-      color:  $link-hover-font-color;
-      text-decoration:none;
-    }
-    #social-buttons {
-      .facebook-share-button {
-        vertical-align: middle;
-      }
-      .twitter-share-button {
-        width: 60px !important;
-      } 
-    }
+  a {
+    color: $link-font-color;
   }
-
-
-
-  /* Media Queries */
-
-  /* Smartphones (portrait and landscape) ----------- */
-
-  /* iPhone 2G-4S */
-  @media only screen 
-  and (min-device-width : 320px) 
-  and (max-device-width : 480px) { 
-    .header {
-      h1 {
-        font-size: 1.7em;
-      }
-
-      #subtitle-row h4.subtitle-text1{
-        font-size:95%;
-      }
-      #location-tabs-row {
-        height:80px;
-      }
-    }
-    .nav-tabs > li, .nav-pills > li {
-      h4 {
-        font-size: 0.75em;
-      } 
-    }
-    .more-info {
-      padding-top:100px;
-
-      .info-text{
-        font-size: 1em;
-      }
-      .info-number{
-        font-size: 2em;
-      }
-      .description-title {
-        font-size: 1.2em; 
-      }
-      .description-text p {
-        font-size:0.95em;
-      }
-      
-    }
-    .well-content{
-      font-size:2em;
-    }
+  a:hover{
+    color:  $link-hover-font-color;
+    text-decoration:none;
   }
-
-  /* iPhone 5 & 5S */
-  @media only screen 
-  and (min-device-width : 320px) 
-  and (max-device-width : 568px) { 
-    .header {
-      h1 {
-        font-size: 2em;
-      }
+  #social-buttons {
+    .facebook-share-button {
+      vertical-align: middle;
     }
+    .twitter-share-button {
+      width: 60px !important;
+    } 
   }
+}
 
-  /* iPhone 6 */
-  @media only screen 
-  and (min-device-width : 375px) 
-  and (max-device-width : 667px) { 
-    .header {
-      h1{
-        font-size: 3.2em;
-      }
-      #subtitle-row h4.subtitle-text1{
-        font-size:130%;
-      }
+
+
+/* Media Queries */
+
+/* Smartphones (portrait and landscape) ----------- */
+
+/* iPhone 2G-4S */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) { 
+  .header {
+    h1 {
+      font-size: 1.7em;
     }
-    .nav-tabs > li, .nav-pills > li {
-      h4 {
-        font-size: 1em;
-      } 
+
+    #subtitle-row h4.subtitle-text1{
+      font-size:95%;
     }
     #location-tabs-row {
-      height: 75px;
-    }
-    .more-info {
-      padding-top:100px;
-
-      .info-text{
-        font-size: 1em;
-      }
-      .info-number{
-        font-size: 2em;
-      }
-      .description-title {
-        font-size: 2em; 
-      }
-    }
-    .well-content{
-      font-size:2em;
+      height:80px;
     }
   }
+  .nav-tabs > li, .nav-pills > li {
+    h4 {
+      font-size: 0.75em;
+    } 
+  }
+  .more-info {
+    padding-top:100px;
 
-  /* iPhone 6 Plus */
-  @media only screen 
-  and (min-device-width : 414px) 
-  and (max-device-width : 736px) { }
+    .info-text{
+      font-size: 1em;
+    }
+    .info-number{
+      font-size: 2em;
+    }
+    .description-title {
+      font-size: 1.2em; 
+    }
+    .description-text p {
+      font-size:0.95em;
+    }
+    
+  }
+  .well-content{
+    font-size:2em;
+  }
+}
 
-
-  /* iPads (portrait and landscape) ----------- */
-  @media only screen 
-  and (min-device-width : 768px) 
-  and (max-device-width : 1024px) {
-    .header .title{
-      font-size: 1.5em;
-      font-weight: 700;
+/* iPhone 5 & 5S */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) { 
+  .header {
+    h1 {
+      font-size: 2em;
     }
   }
+}
 
-  @media(min-width:767px) {
-    .totals-row {
-      padding-top: 200px;
+/* iPhone 6 */
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) { 
+  .header {
+    h1{
+      font-size: 3.2em;
     }
-    .more-info {
-      padding-top: 200px;
-      padding-bottom: 250px;
-    }
-    .results-list {
-      height: 250px;
+    #subtitle-row h4.subtitle-text1{
+      font-size:130%;
     }
   }
+  .nav-tabs > li, .nav-pills > li {
+    h4 {
+      font-size: 1em;
+    } 
+  }
+  #location-tabs-row {
+    height: 75px;
+  }
+  .more-info {
+    padding-top:100px;
 
-  /*@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {}*/
+    .info-text{
+      font-size: 1em;
+    }
+    .info-number{
+      font-size: 2em;
+    }
+    .description-title {
+      font-size: 2em; 
+    }
+  }
+  .well-content{
+    font-size:2em;
+  }
+}
+
+/* iPhone 6 Plus */
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) { }
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+  .header .title{
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+}
+
+@media(min-width:767px) {
+  .totals-row {
+    padding-top: 200px;
+  }
+  .more-info {
+    padding-top: 200px;
+    padding-bottom: 250px;
+  }
+  .results-list {
+    height: 250px;
+  }
+}
+
+/*@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {}*/
