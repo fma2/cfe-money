@@ -15,4 +15,5 @@ gem 'pg_search'
 gem 'unicorn'
 gem 'faraday'
 gem 'newrelic_rpm'
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 
