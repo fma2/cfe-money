@@ -23,7 +23,11 @@
   }*/
 
 body {
-  padding-top:70px;
+  /*padding-top:70px;*/
+}
+
+.navbar {
+  margin-bottom:0px;
 }
 
 @media (max-width: 2000px){
@@ -113,6 +117,31 @@ span.get-started-text{
 
 /*Action Section*/
 
+#take-action-section {
+  .leg-photo{
+    height:100px;
+    width:100px;
+    position:relative;    
+    border-radius:100%;
+    overflow:hidden;
+    img {
+      position:absolute;
+      left:-50%; 
+      right:-50%; top:0;
+      margin:auto;
+      height:100%; 
+      width:auto;
+    }
+  }
+  .leg-info {
+    p {
+      line-height: 0.75em;
+    }
+  }
+  .leg-upper, .leg-lower {
+    padding-top: 1.5em;
+  }
+}
 
 /* Search Section */
 
