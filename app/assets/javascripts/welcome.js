@@ -9,6 +9,7 @@ $( document ).ready(function() {
   });
 
   $("#results-section .school-section").css("display", "none");
+  $("#take-action-section .legislators-section").css("display", "none");
 
   $('.loc-tabs li:nth-child(1)').addClass('active'); // selects RoS tab when page loads
   $('.tab-content .tab-pane:nth-child(1)').addClass('in');
