@@ -32,6 +32,8 @@ function prepareSchoolInformation(button){
 	console.log('clicked');
 	var schoolInfo = $('#school-information')
 	var takeAction = $('#take-action-section')
+	var cartSection = $('#cart');
+
 	var school = button.data('school');
 	var district = button.data('district');
 	var enrollment = button.data('enrollment');
@@ -44,16 +46,26 @@ function prepareSchoolInformation(button){
 		schoolInfo.find('.school-title').text(school.toProperCase() + " ");
 		// takeAction.find('.school-title').text(""+school.toProperCase()+"'s");
 		schoolInfo.find('.school-title-district').text("(" + district.toProperCase() + ")")
+
+		cartSection.find('.school-title').text(school.toProperCase() + " ");
+		cartSection.find('.school-title-district').text("(" + district.toProperCase() + ")")
+
 		if (formattedAmt=="0.00") {
 			schoolInfo.find('.amount-number').text("budget data not available");
+			cartSection.find('.amount-number').text("budget data not available");
 		} else {
 			schoolInfo.find('.amount-number').text("$" + formattedAmt);
+			cartSection.find('.amount-number').text("$" + formattedAmt);
+
 		}
 
 		displayResourceAmount(amount, schoolInfo);
 
 		var perStudentAmount = parseFloat(amount / enrollment).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 		schoolInfo.find('.per-student-amount').text(perStudentAmount);
+		cartSection.find('.per-student-amount').text(perStudentAmount);
+
+
 		schoolInfo.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='ProtectOurSchools, AllKidsNeed, WeCantWait'>Tweet</a>")
 
 		$("#take-action-section .legislators-section").css("display", "inline");
