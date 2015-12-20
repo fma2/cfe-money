@@ -31,6 +31,15 @@ $( document ).ready(function() {
           }
           ); 
 
+  $("#cart-items #item").click(function() {
+    event.preventDefault();
+    event.stopPropagation();
+    var cost = $(this).data('cost');
+    var item = $(this).data('item');
+    updateAmountLeftToSpend(cost);
+    addToCart(item);
+  })
+
   //AJAX call for dynamic text background data
   // $.ajax({
   //   dataType: 'json',
@@ -44,8 +53,38 @@ $( document ).ready(function() {
 
 })
 
+function updateAmountLeftToSpend(cost) {
+  var cartSection = $("#cart")
+  var amountLeft = cartSection.find('#amount-left-to-spend').data("amount-number");
+  console.log(amountLeft);
+  
+  var updatedAmount = amountLeft - cost;
+  cartSection.find('#amount-left-to-spend').data("amount-number", updatedAmount);
+  console.log(amountLeft);
 
+  var formattedAmt = parseFloat(updatedAmount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');  
+  cartSection.find('#amount-left-to-spend').text("$" + formattedAmt);
 
+}
+
+function addToCart(item) {
+  var addedItems = $("#cart").find("#added-items");
+  var numberofItems = addedItems.children().length;
+  var number = 1;
+  if (numberofItems != 0) {
+    if ($("#added-items > p[data-item-name="+item+"]").length > 0) {
+      var itemInCart = addedItems.find("p[data-item-name="+item+"]");
+      var currentCount = itemInCart.data("item-count");
+      var newCount = currentCount + 1
+      itemInCart.data("item-count", newCount)
+      itemInCart.html('<p data-item-name='+item+' data-item-count='+newCount+'><span id="number-of-items">'+newCount+' </span>'+item+'</p>')
+    } else {
+      addedItems.append('<p data-item-name='+item+' data-item-count='+number+'><span id="number-of-items">'+number+' </span>'+item+'</p>')
+    }
+  } else {
+    addedItems.append('<p data-item-name='+item+' data-item-count='+number+'><span id="number-of-items">'+number+' </span>'+item+'</p>')
+  }
+}
 
 
 
