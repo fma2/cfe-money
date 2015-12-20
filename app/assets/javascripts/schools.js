@@ -44,6 +44,8 @@ function prepareSchoolInformation(button){
 	if (school !=undefined) {
 		var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
 		schoolInfo.find('.school-title').text(school.toProperCase() + " ");
+		schoolInfo.attr("data-school-info", {schoolId: button.data('school-id'), locId: button.data('loc')} );
+		schoolInfo.find('#share-school a').attr("href", "/schools/"+button.data('loc')+"/"+button.data('school-id')+"")
 		// takeAction.find('.school-title').text(""+school.toProperCase()+"'s");
 		schoolInfo.find('.school-title-district').text("(" + district.toProperCase() + ")")
 
