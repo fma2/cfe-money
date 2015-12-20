@@ -56,6 +56,7 @@ function prepareSchoolInformation(button){
 		} else {
 			schoolInfo.find('.amount-number').text("$" + formattedAmt);
 			cartSection.find('.amount-number').text("$" + formattedAmt);
+			cartSection.find('.amount-number').attr("data-amount-number", amount);
 
 		}
 
