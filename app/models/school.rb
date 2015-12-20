@@ -3,8 +3,8 @@ class School < ActiveRecord::Base
 	
 	belongs_to :location
 
-	has_many :electoral_district_schools
-	has_many :electoral_districts, through: :electoral_district_schools
+	# has_many :electoral_district_schools
+	# has_many :electoral_districts, through: :electoral_district_schools
 	
 	pg_search_scope :search_nyc_schools, 
 									:against => [[:district_code, 'B'],[:district_name, 'C'], [:school, 'A']], 
