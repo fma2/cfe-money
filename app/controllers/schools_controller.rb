@@ -11,6 +11,10 @@ class SchoolsController < ApplicationController
 		end
 	end
 
+	def show
+		@school = School.find(params["school_id"])
+	end
+
 	# def random40
 	# 	@json = Array.new
 	# 	20.times do
