@@ -1,0 +1,80 @@
+<section class="cover">
+	<div class="container cover-body">
+		<div class="school-section" id="school-information">
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<h1 class="schoolInfoLabel"><span class="school-title"><%= @school.school.titlecase %></span><span class="school-title-dbn"></span><span class="school-title-district"> <%= @school.district_name %></span></h1>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col-xs-12 col-md-6">
+					<h2 class="amount-text">Total amount owed: <span class="amount-number">$<%= @school.amount_owed.round(2) %></span></h2>
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<h2 class="per-student-number">Per student: <span class="per-student-amount">$<%= (@school.amount_owed/@school.total_enrollment).round(2) %></span></h2>	
+				</div>
+			</div>
+			<div class="row text-center resources-list">
+				<div class="col-xs-12">
+					<h3>Students at <span class="school-title"><%= @school.school.titlecase %></span> are missing out on:</h3>
+					<div class="row resource-item resource-teacher">
+						<div class="col-xs-6 resource-image">
+							<%= image_tag('brain.svg')  %>
+						</div>
+						<div class="col-xs-6 resource-text">
+							<h4>Hiring at least <%= ((@school.amount_owed/3)/54329).round %> classroom teacher/s</h4>
+						</div>
+					</div>
+					<div class="row resource-item resource-arts">
+						<div class="col-xs-6 resource-image">
+							<%= image_tag('online.svg')  %>
+						</div>
+						<div class="col-xs-6 resource-text">
+							<h4>Providing an arts program for at least <%= ((@school.amount_owed/3)/75000).round %> year/s</h4>
+						</div>
+					</div>
+					<div class="row resource-item resource-library">
+						<div class="col-xs-6 resource-image">
+							<%= image_tag('book.svg')  %>
+						</div>
+						<div class="col-xs-6 resource-text">
+							<h4>Maintaining the library for at least <%= ((@school.amount_owed/3)/77000).round %> year/s</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col-xs-12" id="share-school">
+					<a onclick="takeScrnShot();">Share</a>
+				</div>
+
+				<div class="col-xs-12 col-md-6 twitter-link">
+				</div>
+				<div class="col-xs-12 col-md-6 facebook-link">
+				</div>
+			</div>
+		</div>	
+	</div>
+</section>
+
+<script src="https://github.com/niklasvh/html2canvas/releases/download/0.5.0-alpha1/html2canvas.js"></script>
+<script type="text/javascript">
+	// $.getScript("https://platform.twitter.com/widgets.js")
+	function takeScrnShot() {
+		html2canvas(document.getElementById("school-information"), {
+			onrendered: function(canvas) {
+				// document.body.appendChild(canvas);
+				// var dataURL = canvas.toDataURL();
+
+				console.log(dataURL);
+				console.log(canvas)
+
+				var meta = document.createElement('meta');
+				meta.name = "twitter:image:src";
+				meta.content = dataURL;
+				document.getElementsByTagName('head')[0].appendChild(meta);
+
+			}
+		});
+	}
+	</script>
