@@ -5,6 +5,7 @@
 	</div>
 	<% end %>
 	<div id="results1"></div>
+	
 	<script type="text/javascript">
 	$("#search_text1").keyup(function(event) {
 		$.get('/search/<%= location %>?search='+ $(this).val());
