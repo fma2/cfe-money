@@ -1,14 +1,17 @@
 $( document ).ready(function() {
 
-
   $("body").hide(0).delay(100).fadeIn(2200);
   // $('body').addClass('stop-scrolling')
 
-  $('.read-more').click(function(e) {
-    $(this).hide();
-  });
+  // $('.read-more').click(function(e) {
+  //   $(this).hide();
+  // });
 
-  $("#results-section .school-section").css("display", "none");
+  $("#school-info-section").css("display", "none");
+  $("#take-action-section").css("display", "none");
+  $("#cart").css("display", "none");
+  
+  $("#school-info-section .school-section").css("display", "none");
   $("#take-action-section .legislators-section").css("display", "none");
 
   $('.loc-tabs li:nth-child(1)').addClass('active'); // selects RoS tab when page loads
@@ -23,7 +26,7 @@ $( document ).ready(function() {
 
   $("[rel='tooltip']").tooltip();
   $('.thumbnail').hover(
-  function(){
+    function(){
             $(this).find('.caption').slideDown(250); //.fadeIn(250)
           },
           function(){
@@ -63,12 +66,12 @@ function updateAmountLeftToSpend(cost, item, name) {
   if (updatedAmount > 0) {
    cartSection.find('#amount-left-to-spend').data("amount-number", updatedAmount);
    var formattedAmt = parseFloat(updatedAmount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');  
-    cartSection.find('#amount-left-to-spend').text("$" + formattedAmt);
-    updateCart(item, name);
-  } else {
-    cartSection.find("#purchased-items").prepend("<div class='alert alert-info fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Oh snap! </strong>You don't have enough available to spend on that item.</div>");
-    window.setTimeout(function() { $(".alert").alert('close'); }, 2000);
-  }
+   cartSection.find('#amount-left-to-spend').text("$" + formattedAmt);
+   updateCart(item, name);
+ } else {
+  cartSection.find("#purchased-items").prepend("<div class='alert alert-info fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Oh snap! </strong>You don't have enough available to spend on that item.</div>");
+  window.setTimeout(function() { $(".alert").alert('close'); }, 2000);
+}
 
 }
 
