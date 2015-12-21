@@ -21,9 +21,12 @@ var library = 77000;
 function showSchoolInformation() {
 	$(".result-item a").click(function(e){
 		$(".warning-text").css("display", "none");
-		$("#results-section .school-section").css("display", "inline");
+		$("#school-info-section .school-section").css("display", "inline");
+		$("#take-action-section").css("display", "table");
+		$("#cart").css("display", "table")
 		
 		var button = $(this);
+		console.log(button);
 		prepareSchoolInformation(button);
 	})
 }
@@ -31,6 +34,7 @@ function showSchoolInformation() {
 function prepareSchoolInformation(button){
 	console.log('clicked');
 	var schoolInfo = $('#school-information')
+	console.log(schoolInfo);
 	var takeAction = $('#take-action-section')
 	var cartSection = $('#cart');
 
@@ -44,8 +48,8 @@ function prepareSchoolInformation(button){
 	if (school !=undefined) {
 		var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
 		schoolInfo.find('.school-title').text(school.toProperCase() + " ");
-		schoolInfo.attr("data-school-info", {schoolId: button.data('school-id'), locId: button.data('loc')} );
-		schoolInfo.find('#share-school a').attr("href", "/schools/"+button.data('loc')+"/"+button.data('school-id')+"")
+		schoolInfo.attr("data-school-info", [button.data('school-id'), button.data('loc')] );
+		$("#school-info-section").find('#share-school a').attr("href", "/schools/"+button.data('loc')+"/"+button.data('school-id')+"");
 		// takeAction.find('.school-title').text(""+school.toProperCase()+"'s");
 		schoolInfo.find('.school-title-district').text("(" + district.toProperCase() + ")")
 
@@ -131,6 +135,6 @@ function displayResourceAmount(amount, targetDiv) {
 
 	targetDiv.find('.resource-teacher .resource-text h4').text('Hiring at least '+num_teacher+' classroom teacher/s')
 	targetDiv.find('.resource-arts .resource-text h4').text('Providing an arts program for at least '+num_arts_programs+' years/')
-	targetDiv.find('.resource-library .resource-text h4').text('Maintaining the library for at least '+num_library+' year/s')
+	targetDiv.find('.resource-library .resource-text h4').text('Maintaining a library for at least '+num_library+' year/s')
 
 }
