@@ -32,6 +32,10 @@ p,
   color:$highlight-text-color;
 }
 
+.row {
+  margin-left:0;
+  margin-right:0;
+}
 *, *::after, *::before {
   /*padding: 0;*/
   /*margin: 0;*/
@@ -48,19 +52,32 @@ img {
   max-width: 100%;
 }
 
+.navbar-default, 
+#google_translate_element .goog-te-gadget-simple, 
+#google_translate_element span a,
+.navbar-default .navbar-toggle .icon-bar
 .header {
   background-color: $palette-color1;
+  color: $palette-color6;
 }
-
-.search-section {
-	background-color: $palette-color1;
-}
-
-.results-section {
+.school-info-section {
   background-color: $palette-color1;
 }
 .take-action-section {
-  background: $palette-color4;
+  background: $palette-color1;
+}
+
+#aboutModal {
+  z-index: 99999;
+}
+
+#aboutModal .modal-title{
+  font-size: 1.5em;
+  color: white;
+}
+
+#next-steps {
+  padding-top:2em;
 }
 
 .cover {
@@ -120,8 +137,8 @@ img {
 .btn-circle:hover,
 .btn-circle:focus {
   outline: 0;
-  color: $palette-color2;
-  border: 2px solid $palette-color2;
+  color: $palette-color3;
+  border: 2px solid $palette-color5;
   background: rgba(255,255,255,.1);
 }
 
@@ -143,6 +160,9 @@ img {
   -moz-animation-timing-function: linear;
 }
 
+.padding-0{
+  padding: 0;
+}
 
 /*.stop-scrolling {
   height: 100%;
