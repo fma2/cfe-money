@@ -22,107 +22,220 @@
   opacity: 0.8;
   }*/
 
-body {
-  /*padding-top:70px;*/
-}
 
-.navbar {
-  margin-bottom:0px;
-}
+  .container-fluid {
+    padding-right:0;
+    padding-left:20px;
+  }
+  .navbar {
+    margin-bottom:0px;
+  }
 
-@media (max-width: 2000px){
-  .navbar-header {
-    float: none;
+  @media (max-width: 2000px){
+    .navbar-header {
+      float: none;
+    }
+    .navbar-left,.navbar-right {
+      float: none !important;
+    }
+    .navbar-toggle {
+      display: block;
+    }
+    .navbar-collapse {
+      /*border-top: 1px solid transparent;*/
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+      display: none!important;
+    }
+    .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+      float: none;
+    }
+    .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .collapse.in{
+      display:block !important;
+    }
   }
-  .navbar-left,.navbar-right {
-    float: none !important;
+
+  .navbar-default {
+    border-color: transparent;
   }
-  .navbar-toggle {
-    display: block;
-  }
-  .navbar-collapse {
-    /*border-top: 1px solid transparent;*/
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-  .navbar-fixed-top {
-    top: 0;
-    border-width: 0 0 1px;
-  }
-  .navbar-collapse.collapse {
-    display: none!important;
-  }
+
   .navbar-nav {
-    float: none!important;
-    margin-top: 7.5px;
+    background-color: transparent;
+    margin: 0px -15px;
   }
-  .navbar-nav>li {
-    float: none;
-  }
-  .navbar-nav>li>a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .collapse.in{
-    display:block !important;
-  }
-}
 
-/* Header */
+  .navbar-default .navbar-toggle {
+    border:transparent;
+  }
+
+  .navbar-default .navbar-nav>li>a {
+    color: $palette-color6;
+  }
+
+  #google_translate_element {
+    span {
+      font-family: $main-font;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      a:hover{
+        color: $link-hover-font-color;
+        text-decoration: none;  
+      }
+    }
+    span[style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(187, 187, 187);"] {
+      display:none;
+    }
+    span[style="color: rgb(155, 155, 155);"] {
+      color: $palette-color1;
+      display:none;
+    }
+    .goog-te-gadget img {
+      display:none;
+    }  
+    .goog-te-gadget-simple {
+      border:transparent;
+    }
+  }
+
+
+
+  /* Header */
 
 .header {
-  /*padding-top: 75px;
-  color: #4C4C4C;
-  position: relative;
-  color: $palette-color5;*/
-  /*background: url("http://d9hhrg4mnvzow.cloudfront.net/action.uft.org/passion-and-promise/6ce5124e-backtoschool-header-bg.jpg") no-repeat bottom center scroll;*/
-  /*background-color: #000;*/
-  /*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;*/
+  .container {
+  padding-left: 0;
+  padding-right:0;
+  }
+  .title-row {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
 
-  .header-body {
+   .header-body {
     display:block;    
   }
 
-  /*h1 {
-    font-weight: 300;
-    text-align:center;
-    text-transform: uppercase;
-    font-size: 4em;
-  }
-  
-  #subtitle-row {
-    h4.subtitle-text2 {
-      color: $palette-color5;
+  .title-text{
+    height: 100%;
+    right: 0;
+    text-align: left;
+    .title1 h1 {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size:7rem;
+      color: rgba(0, 0, 0, 0); 
+      -webkit-text-stroke: 1px $palette-color8;
     }
-    h4.subtitle-text1, h4.subtitle-text2{
-      font-size: 2em;
-      font-weight:100;*/
-      /*text-align: justify;*/
-/*      position:relative;
-      top:20%;
-
-      span.subtitle-text-1a{
-        font-weight: 500;
-      }
-    } 
-  }*/
+    .title2 h4{
+      font-size: 3rem;
+    }
+    .subtitle-text1a {
+      color: $palette-color2;
+    }
+    .subtitle-text2 {
+      color: $palette-color4;
+    }
+  } 
+  .title-image {
+    img {
+      width:100%;
+      height: 100%;
+      height: 600px;
+      margin-left:0;
+      /*position: absolute;*/
+      right: 0;
+    }
+  }
 }
 
-span.get-started-text{
-  font-weight: 300;
-  color: $highlight-text-color;
+@media (min-width: 1200px) {
+  .header .container {
+    width: 100%;
+  }
+}
+
+/* Search Schools Section */
+#search-section {
+  text-align: left;
+  #location-tabs-row {
+    padding-top: 2.5em;
+  }
+}
+
+.search-bar-and-results-section {
+  height: 275px
+}
+
+#search_text1, #search_text2 {
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: $main-font;
+  z-index:1;
+}
+
+.results-list {
+  height: 400px;
+  overflow: auto;
+  text-align: left
+}
+
+.nav-tabs > li, .nav-pills > li {
+  float:none !important;
+  display:inline-block !important;
+  *display:inline; /* ie7 fix */
+  zoom:1; /* hasLayout ie7 trigger */
+  a {
+    color: $link-font-color;
+  }
+}
+.nav-tabs, .nav-pills {
+  padding-top:1em;
+  /*text-align:center;*/
+  position:relative;
+  z-index:1;
+}
+
+.nav-tabs>li.active>a {
+  background-color:  $pale-gray;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+  background-color: $pale-gray;
+  color: $palette-color5;
+}
+
+.school-list-item{ 
+  display: block;
 }
 
 /*Action Section*/
 
 #take-action-section {
+  .row {
+    min-height:95px;
+  }
   .leg-photo{
-    height:100px;
-    width:100px;
+    height:4em;
+    width:4em;
     position:relative;    
-    border-radius:100%;
+    /*border-radius:100%;*/
     overflow:hidden;
     img {
       position:absolute;
@@ -141,64 +254,69 @@ span.get-started-text{
   .leg-upper, .leg-lower {
     padding-top: 1.5em;
   }
-}
-
-/* Search Section */
-
-#location-tabs-row {
-	height: 100px;
-}
-
-.nav-tabs > li, .nav-pills > li {
-  float:none !important;
-  display:inline-block !important;
-  *display:inline; /* ie7 fix */
-  zoom:1; /* hasLayout ie7 trigger */
-  a {
-    color: $link-font-color;
+  h1 {
+    /*color: rgba(0, 0, 0, 0); */
+    /*-webkit-text-stroke: 1px $palette-color4;*/
+    color: $palette-color4;
+    font-size: 4rem;
+    text-transform: uppercase;
+    padding-bottom: 1.4em;
+    font-weight: 600;
   }
-}
-.nav-tabs, .nav-pills {
-  text-align:center;
-  position:relative;
-  z-index:1;
-}
+  h2 {
+    padding-top:1px;
+    /*color: rgba(0, 0, 0, 0); */
+    /*-webkit-text-stroke: 1px $palette-color8;*/
+    color: $palette-color1;
+    font-size: 4rem;
+    border-radius: 50%;
+    height: 6rem;
+    width: 6rem;
+    background-color: $palette-color8;
+    border: 3px solid $palette-color8;
+    margin-left:0.83em;
+  }
+  .action-items {
+    padding-bottom: 2em;
+  }
+  .action-text {
+    margin-top:0.83em;
+    margin-left: -5%;
+  }
 
-.nav-tabs>li.active>a {
-  background-color:  $pale-gray;
-  border: 1px solid #ddd;
-  border-bottom-color: transparent;
-}
-
-.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
-  background-color: $pale-gray;
-  color: $palette-color5;
+  #next-steps{
+    background-color: $palette-color2;
+    color: $palette-color1;
+    padding-bottom: 1em;
+    .btn-circle{
+      border: 2px solid $palette-color1;
+      color: $palette-color1;
+    }
+  }
 }
 
 /*Cart section*/
 
 #cart {
   .thumbnail {
-      position:relative;
-      overflow:hidden;
+    position:relative;
+    overflow:hidden;
   }
-   
+
   .caption {
-      position:absolute;
-      top:0;
-      right:0;
-      background:rgba(90, 90, 90, 0.75);
-      width:100%;
-      height:100%;
-      padding:2%;
-      display: none;
-      text-align: left;
-      color:#fff !important;
-      z-index:2;
+    position:absolute;
+    top:0;
+    right:0;
+    background:rgba(90, 90, 90, 0.75);
+    width:100%;
+    height:100%;
+    padding:2%;
+    display: none;
+    text-align: left;
+    color:#fff !important;
+    z-index:2;
   }
 }
-
-
 
 /* Footer */
 
@@ -348,7 +466,7 @@ and (max-device-width : 1024px) {
     padding-bottom: 250px;
   }
   .results-list {
-    height: 250px;
+    /*height: 250px;*/
   }
 }
 
