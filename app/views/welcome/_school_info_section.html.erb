@@ -1,21 +1,28 @@
 <div class="container cover-body">
 	<div class="row text-center school-search-result intro-text">
-		<h1 class="warning-text">Return to the top to search for a school</h1>
-		<div class="school-section" id="school-information">
+		<div class="col-xs-12">
+			<a href="#search-section" class="btn btn-circle page-scroll warning-text">
+				<i class="fa fa-angle-double-up animated"></i>
+			</a>
+			<h1 class="warning-text">Looks like no schools were found.  Return to the top try again.</h1>
+		</div>
+	</div>
+	<div class="row school-section" id="school-information">
+		<div class="col-xs-12 col-sm-6 school-details">
 			<div class="row">
-				<div class="col-xs-12 text-center">
+				<div class="col-xs-12">
 					<h1 class="schoolInfoLabel"><span class="school-title"></span><span class="school-title-dbn"></span><span class="school-title-district"></span></h1>
 				</div>
-			</div>
-			<div class="row text-center">
-				<div class="col-xs-12 col-md-6">
-					<h2 class="amount-text">Total amount owed:<span class="amount-number"></span></h2>
+				<div class="col-xs-12">
+					<h2 class="amount-text">Total amount owed:<br><span class="amount-number"></span></h2>
 				</div>
-				<div class="col-xs-12 col-md-6">
-					<h2 class="per-student-number">Per student: <span class="per-student-amount"></span></h2>	
+				<div class="col-xs-12">
+					<h2 class="per-student-number">Per student: <br><span class="per-student-amount"></span></h2>	
 				</div>
 			</div>
-			<div class="row text-center resources-list">
+		</div>
+		<div class="col-xs-12 col-sm-6 resources-list">
+			<div class="row">
 				<div class="col-xs-12">
 					<h3>Students at <span class="school-title"></span> are missing out on:</h3>
 					<div class="row resource-item resource-teacher">
@@ -36,7 +43,7 @@
 					</div>
 					<div class="row resource-item resource-library">
 						<div class="col-xs-6 resource-image">
-							<%= image_tag('book.svg')  %>							
+							<%= image_tag('book.svg')  %>				
 						</div>
 						<div class="col-xs-6 resource-text">
 							<h4></h4>
@@ -44,42 +51,20 @@
 					</div>
 				</div>
 			</div>
-			<div class="row text-center">
-				<div class="col-xs-12">
-					<h3>Think that our students and schools deserve better?</h3>
-					<h3>See what you can do to take action</h3>
-					<a href="#take-action-section" class="btn btn-circle page-scroll">
-						<i class="fa fa-angle-double-down animated"></i>
-					</a>
-				</div>
-			</div>
-			<div class="row text-center">
-				<div class="col-xs-12" id="share-school">
-					<a target="_blank">Share</a>
-				</div>
-				
-					<!-- <div class="col-xs-12 col-md-6 twitter-link">
-				</div> -->
-				<!-- <div class="col-xs-12 col-md-6 facebook-link"> -->
-				<!-- </div> -->
-			</div>
-
-			<div class="row legislators-title">
-				<div class="col-xs-12">
-					<!-- <p>contact your legislators and ask them what they're doing to get money back for our schools.</p> -->
-					<br>
-				</div>
-				<br>
-			</div>
 		</div>
 	</div>
-</div>
-
-<script>
-	// $.getScript("https://platform.twitter.com/widgets.js")
-	</script>
-<!-- <div class="modal-footer">
-	<div class="twitter-link">
+	<div class="row school-section" >
+		<div class="col-xs-12" id="next-steps">
+			<h3>Think that our students and schools deserve better?</h3>
+			<h3>See what you can do to take action</h3>
+			<a href="#take-action-section" class="btn btn-circle page-scroll">
+				<i class="fa fa-angle-double-down animated"></i>
+			</a>
+		</div>
 	</div>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-</div> -->
+	<!-- <div class="row">
+		<div class="col-xs-12" id="share-school">
+			<a target="_blank">Share</a>
+		</div>
+	</div> -->
+</div>
