@@ -254,14 +254,8 @@
   .leg-upper, .leg-lower {
     padding-top: 1.5em;
   }
-  h1 {
-    /*color: rgba(0, 0, 0, 0); */
-    /*-webkit-text-stroke: 1px $palette-color4;*/
-    color: $palette-color4;
-    font-size: 4rem;
-    text-transform: uppercase;
-    padding-bottom: 1.4em;
-    font-weight: 600;
+  h1.section-title {
+    color: $palette-color4; 
   }
   h2 {
     padding-top:1px;
@@ -298,6 +292,16 @@
 /*Cart section*/
 
 #cart {
+  text-align: left;
+
+  h1.section-title {
+    color: $palette-color8; 
+  }
+
+  .details-section {
+    /*background-color: $palette-color7*/
+  }
+
   .thumbnail {
     position:relative;
     overflow:hidden;
@@ -342,6 +346,7 @@ footer {
     } 
   }
 }
+
 
 
 
