@@ -7,6 +7,7 @@
 	<div id="results2"></div>
 	<script type="text/javascript">
 	$("#search_text2").keyup(function(event) {
+		$("#school-info-section").css("display", "table");
 		$.get('/search/<%= location %>?search='+ $(this).val());
 	});
 	</script>
