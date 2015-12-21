@@ -1,45 +1,11 @@
 @import 'variables.css.scss';
 @import 'base.css.scss';
 
-/* Search Schools Section */
-#search_text1, #search_text2 {
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.5);
-  font-family: $main-font;
-  z-index:1;
-}
-
-.search-bar-and-results-section {
-  height: 275px
-}
-
-.results-list {
-  height: 150px;
-  overflow: auto;
-
-  a {
-    color: #003300;
-  }
-  a:hover{
-    color:  $link-hover-font-color;
-    text-decoration:none;
-  }
-}
-
 /* School information section */
 
-/*h1.schoolInfoLabel {
-  background-color: #003300;
-  color: black;  
-}*/
-
-
-#aboutModal {
-  z-index: 99999;
-}
 
 #school-information .school-title, .school-title-dbn, .school-title-district{
-  color: black;
+  /*color: black;*/
 }
 
 .amount-number,
@@ -47,27 +13,66 @@
   /*font-size:3.5em;*/
 }
 
-#aboutModal .modal-title{
-  font-size: 1.5em;
-  color: white;
-}
-
-
 #school-information {
-  .resources-list {
+  overflow:hidden;
+  position:relative;
+  width:100%;
 
+  .school-details{
+    background-color: $palette-color7;
+    /*height: 100%;*/
+    height: 650px;
+    right: 0;
+    text-align: left;
+    padding: 10em 0;
+    h1.schoolInfoLabel {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size:4rem;
+      text-align: left;
+      color: $palette-color8; 
+      /*-webkit-text-stroke: 1px $palette-color8;*/
+    }
+    h2 {
+      font-size: 3rem;
+      span.amount-number, span.per-student-amount {
+        color: $palette-color2;
+      }
+    }
+    
+
+  }
+
+  .resources-list {
+    overflow:hide;
+    background-color:$palette-color5;
+    color: $palette-color1;
+    /*height: 100%;*/
+    height: 650px;
+    right: 0;
+    text-align: left;
+    padding: 10em 0;
+
+    h3 {
+      font-size:1.1em;
+      text-transform: uppercase;
+    }
     .resource-item {
-      padding-left: 5em;
-      padding-right: 5em;
+      /*padding-left: 5em;
+      padding-right: 5em;*/
       
       .resource-image {
-        text-align: right;
+        text-align: left;
       }
 
       .resource-text {
         text-align: left;
         display:inline-block;
-      vertical-align:middle;
+        vertical-align:middle;
+      }
+      .col-xs-6.resource-text {
+        margin-left:-150px;
+        padding-top:20px;
       }
       
       img {
@@ -132,9 +137,7 @@
   }
 }
 
-.school-list-item{ 
-  display: block;
-}
+
 
 /* Media Queries */
 
