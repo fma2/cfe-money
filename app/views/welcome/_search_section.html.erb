@@ -1,10 +1,11 @@
-<div class="container">
+<div class="container" id="search-section">
 	<div class="row" id="location-tabs-row">
+		<hr>
 		<div class="col-xs-12 col-md-12 col-lg-12">
 			<h4 class="subtitle-text2">
-				<span class="highlight-title get-started-text">Select a location and search to get started.</span>
+				<span class="col-xs-12 highlight-title get-started-text">Select a location <span style="color:#ff606e">&</span> search to get started.</span>
 			</h4>
-			<div role="tabpanel" class="subtitle-buttons">
+			<div role="tabpanel" class="col-xs-12 subtitle-buttons">
 				<ul class="nav nav-tabs nav-pills loc-tabs" role="tablist">
 					<% @locations.each do |l|  %>
 					<li role="presentation">
@@ -20,10 +21,10 @@
 		</div>
 	</div>
 </div>
-<div class="container">
+<div class="container" id="search-bar-section">
 	<div class="row" id="search-bar-row">
 		<div class="col-xs-12 col-md-12 col-lg-12">
-			<div class="tab-content">
+			<div class="col-xs-12 tab-content">
 				<% @locations.each_with_index do |l, i|  %>
 				<div role="tabpanel" class="tab-pane fade" id="<%= l.loc_code %>">
 					<%= render :partial => "/locations/#{l.loc_code}_index", :locals => {:location => l.loc_code, :location_name => l.name, :totals => @totals[i][l.loc_code] }  %>
