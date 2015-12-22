@@ -1,22 +1,17 @@
 $( document ).ready(function() {
 
   $("body").hide(0).delay(100).fadeIn(2200);
-  // $('body').addClass('stop-scrolling')
-
   // $('.read-more').click(function(e) {
   //   $(this).hide();
   // });
 
-  $("#school-info-section").css("visibility", "hidden")
-  // .css("display", "none");
-  $("#take-action-section").css("display", "none");
-  $("#cart").css("display", "none");
-  
-  $("#school-info-section .school-section").css("visibility", "hidden");
-  $("#take-action-section .legislators-section").css("display", "none");
+  var divsToHide = ["#school-info-section", "#school-section", "#take-action-section", "#legislators-section", "#cart"]
 
+  for (k in divsToHide) {
+    hideDiv(divsToHide[k])
+  }
 
-  $('.loc-tabs li:nth-child(1)').addClass('active'); // selects RoS tab when page loads
+  $('.loc-tabs li:nth-child(1)').addClass('active'); // select NYC tab when page opens
   $('.tab-content .tab-pane:nth-child(1)').addClass('in');
   $('.tab-content .tab-pane:nth-child(1)').addClass('active');
 
@@ -28,13 +23,13 @@ $( document ).ready(function() {
 
   $("[rel='tooltip']").tooltip();
   $('.thumbnail').hover(
-    function(){
-            $(this).find('.caption').slideDown(250); //.fadeIn(250)
-          },
-          function(){
-            $(this).find('.caption').slideUp(250); //.fadeOut(205)
-          }
-          ); 
+      function(){
+        $(this).find('.caption').slideDown(250);
+      },
+      function(){
+        $(this).find('.caption').slideUp(250);
+      }
+    ); 
 
   $("#cart-items #item").click(function() {
     event.preventDefault();
@@ -59,22 +54,31 @@ $( document ).ready(function() {
 
 })
 
-// function 
+function toggleVisibility(id) {
+  var e = document.getElementById(id);
+  if(e.style.display == 'visible')
+    e.style.visibility = 'hidden';
+  else
+    e.style.visibility = 'visible';
+}
+
+function hideDiv(id) {
+  $(id).css("visibility", "hidden")
+} 
 
 function updateAmountLeftToSpend(cost, item, name) {
   var cartSection = $("#cart")
   var amountLeft = cartSection.find('#amount-left-to-spend').data("amount-number");  
   var updatedAmount = amountLeft - cost;
   if (updatedAmount > 0) {
-   cartSection.find('#amount-left-to-spend').data("amount-number", updatedAmount);
-   var formattedAmt = parseFloat(updatedAmount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');  
-   cartSection.find('#amount-left-to-spend').text("$" + formattedAmt);
-   updateCart(item, name);
- } else {
-  cartSection.find("#purchased-items").prepend("<div class='alert alert-info fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Oh snap! </strong>You don't have enough available to spend on that item.</div>");
-  window.setTimeout(function() { $(".alert").alert('close'); }, 2000);
-}
-
+    cartSection.find('#amount-left-to-spend').data("amount-number", updatedAmount);
+    var formattedAmt = parseFloat(updatedAmount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');  
+    cartSection.find('#amount-left-to-spend').text("$" + formattedAmt);
+    updateCart(item, name);
+  } else {
+    cartSection.find("#purchased-items").prepend("<div class='alert alert-info fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Oh snap! </strong>You don't have enough available to spend on that item.</div>");
+    window.setTimeout(function() { $(".alert").alert('close'); }, 2000);
+  }
 }
 
 
