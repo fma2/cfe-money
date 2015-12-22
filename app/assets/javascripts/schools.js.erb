@@ -95,10 +95,12 @@ function findSchoolLegInformation(chamber, district, targetDiv) {
 		console.log("SUNLIGHT_FOUNDATION_API_KEY");
 		var x = <%= Rails.application.secrets.sunlight_foundation_api_key %>
 		console.log(x);
+		var y = <%= ENV['SUNLIGHT_FOUNDATION_API_KEY'] %>
+		console.log(y)
 
 	$.ajax({
 		dataType:'json',
-		url: 'http://openstates.org/api/v1//legislators/?state=ny&chamber='+chamber+'&active=true&district='+district+'&apikey='+x+'',
+		url: 'http://openstates.org/api/v1//legislators/?state=ny&chamber='+chamber+'&active=true&district='+district+'&apikey='+y+'',
 		type: 'GET'
 	}).success(function(data){
 		var legislators = data;
