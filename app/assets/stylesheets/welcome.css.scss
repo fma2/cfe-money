@@ -389,11 +389,16 @@
 
 @media(min-width: 768px) {
   #take-action-section {
+    h1.section-title {
+      font-size: 4.5rem;
+    }
     h2 {
-      font-size: 2.75rem;
+      font-size: 4rem;
+      height: 5.5rem;
+      width: 5.5rem;
     }
     h3 {
-      font-family: 2.25rem;
+      font-size: 2rem;
     }
     .row.action-item {
       width:70%;
