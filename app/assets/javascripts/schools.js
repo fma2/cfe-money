@@ -20,8 +20,8 @@ var library = 77000;
 
 function showSchoolInformation() {
 	$(".result-item a").click(function(e){
-		$(".warning-text").css("display", "none");
-		$("#school-info-section .school-section").show();
+		$(".warning-text").css("visibility", "hidden");
+		$("#school-info-section .school-section").css("visibility", "visible");
 		$("#take-action-section").css("display", "table");
 		$("#cart").css("display", "table")
 		
