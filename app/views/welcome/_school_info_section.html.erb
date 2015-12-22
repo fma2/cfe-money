@@ -4,11 +4,11 @@
 			<a href="#search-section" class="btn btn-circle page-scroll warning-text">
 				<i class="fa fa-angle-double-up animated"></i>
 			</a>
-			<h1 class="warning-text">Looks like no schools were found.  Return to the top try again.</h1>
+			<h1 class="warning-text">Looks like no schools were found.  Return to the top to try again.</h1>
 		</div>
 	</div>
-	<div class="row school-section" id="school-information">
-		<div class="col-xs-12 col-sm-6 school-details">
+	<div class="row equal school-section" id="school-information">
+		<div class="col-xs-12 col-sm-6 school-details" style="display:flex">
 			<div class="row">
 				<div class="col-xs-12">
 					<h1 class="schoolInfoLabel"><span class="school-title"></span><span class="school-title-dbn"></span><span class="school-title-district"></span></h1>
@@ -24,28 +24,32 @@
 		<div class="col-xs-12 col-sm-6 resources-list">
 			<div class="row">
 				<div class="col-xs-12">
-					<h3>Students at <span class="school-title"></span> are missing out on:</h3>
+					<div class="row">
+						<div class="col-xs-12">
+							<h3>Students at <span class="school-title"></span> are missing out on:</h3>
+						</div>
+					</div>
 					<div class="row resource-item resource-teacher">
-						<div class="col-xs-6 resource-image">
+						<div class="col-xs-3 resource-image">
 							<%= image_tag('brain.svg')  %>
 						</div>
-						<div class="col-xs-6 resource-text">
+						<div class="col-xs-9 resource-text">
 							<h4></h4>
 						</div>
 					</div>
 					<div class="row resource-item resource-arts">
-						<div class="col-xs-6 resource-image">
+						<div class="col-xs-3 resource-image">
 							<%= image_tag('online.svg')  %>							
 						</div>
-						<div class="col-xs-6 resource-text">
+						<div class="col-xs-9 resource-text">
 							<h4></h4>
 						</div>
 					</div>
 					<div class="row resource-item resource-library">
-						<div class="col-xs-6 resource-image">
+						<div class="col-xs-3 resource-image">
 							<%= image_tag('book.svg')  %>				
 						</div>
-						<div class="col-xs-6 resource-text">
+						<div class="col-xs-9 resource-text">
 							<h4></h4>
 						</div>
 					</div>
@@ -53,6 +57,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<div class="row school-section" >
 		<div class="col-xs-12" id="next-steps">
 			<h3>Think that our students and schools deserve better?</h3>
