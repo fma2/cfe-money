@@ -1,14 +1,14 @@
 <div class="search-bar-and-results-section">
 	<%= form_tag(search_path(location), method: "get", onsubmit: "return false") do %>
 	<div class="input-group" >
-		<%= text_field_tag("search_text1", nil, placeholder: "search a #{location_name} school by school name or by district number (e.g. D3 or District 3)", size: 250, class:'form-control') %>
+		<%= text_field_tag("search_text1", nil, placeholder: "search a #{location_name} school by school name or by district number (e.g. D3 or District 3)", size: 250, class:'form-control input-lg') %>
 	</div>
 	<% end %>
 	<div id="results1"></div>
 	
 	<script type="text/javascript">
 	$("#search_text1").keyup(function(event) {
-		$("#school-info-section").css("display", "table");
+		$("#school-info-section").css("visibility", "visible");
 		$.get('/search/<%= location %>?search='+ $(this).val());
 	});
 	</script>
