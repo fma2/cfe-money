@@ -1,0 +1,8 @@
+development:
+  secret_key: <%= ENV["SUNLIGHT_FOUNDATION_API_KEY"] %>
+
+test:
+  secret_key: <%= ENV["SUNLIGHT_FOUNDATION_API_KEY"] %>
+
+production:
+  secret_key: <%= ENV["SUNLIGHT_FOUNDATION_API_KEY"] %>
