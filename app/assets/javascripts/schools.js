@@ -22,8 +22,10 @@ function showSchoolInformation() {
 	$(".result-item a").click(function(e){
 		$(".warning-text").css("visibility", "hidden");
 		$("#school-info-section .school-section").css("visibility", "visible");
-		$("#take-action-section").css("display", "table");
-		$("#cart").css("display", "table")
+		$("#take-action-section").css("visibility", "visible");
+		$("#cart").css("visibility", "visible");
+
+		$("#legislators-section .leg-info").empty()
 		
 		var button = $(this);
 		console.log(button);
@@ -75,11 +77,12 @@ function prepareSchoolInformation(button){
 
 		schoolInfo.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='ProtectOurSchools, AllKidsNeed, WeCantWait'>Tweet</a>")
 
-		$("#take-action-section .legislators-section").css("display", "inline");
+		toggleVisibility("legislators-section")
+	
 		findSchoolLegInformation("upper", senate, takeAction);
 		findSchoolLegInformation("lower", assembly, takeAction);
 
-		twitterLink();
+		// twitterLink();
 
 		schoolInfo.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button'{count} data-size='large' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='ProtectOurSchools, AllKidsNeed, WeCantWait'>Tweet</a>");
 	}
@@ -104,14 +107,16 @@ function findSchoolLegInformation(chamber, district, targetDiv) {
 
 function displaySchoolLegInformation(chamber, legislator, targetDiv) {
 	console.log(legislator);
+	var chamberCorrectedCase = legislator["chamber"]
 
+	console.log(chamberCorrectedCase);
 	targetDiv.find('.legislators-section .leg-'+chamber+' .leg-photo img').attr("src", legislator["photo_url"]);
 	var legInfoSection = '.legislators-section .leg-'+chamber+' .leg-info';
 	targetDiv.find(legInfoSection).append('<p>'+legislator["full_name"]+'</p>');
-	targetDiv.find(legInfoSection).append('<p>Chamber: '+legislator["chamber"]+'</p>');
+	targetDiv.find(legInfoSection).append('<p>Chamber: '+chamberCorrectedCase+'</p>');
 	targetDiv.find(legInfoSection).append('<p>District: '+legislator["district"]+'</p>');
-	targetDiv.find(legInfoSection).append('<p>'+legislator["email"]+'</p>');
-	targetDiv.find(legInfoSection).append('<p>'+legislator.offices[0]["phone"]+'</p>');
+	targetDiv.find(legInfoSection).append('<span class="btn btn-default"><a href="mailto:'+legislator["email"]+'" target="_blank">Email</a></span>');
+	targetDiv.find(legInfoSection).append('<span class="btn btn-default"><a href="tel:'+legislator.offices[0]["phone"]+'">Call</a></span>');
 
 
 }
