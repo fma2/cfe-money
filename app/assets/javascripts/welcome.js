@@ -5,7 +5,7 @@ $( document ).ready(function() {
   //   $(this).hide();
   // });
 
-  var divsToHide = ["#school-info-section", "#school-section", "#take-action-section", "#legislators-section", "#cart"]
+  var divsToHide = ["#school-info-section", "#school-info-section .school-section", "#take-action-section", "#legislators-section", "#cart"]
 
   for (k in divsToHide) {
     hideDiv(divsToHide[k])
@@ -62,8 +62,8 @@ function toggleVisibility(id) {
     e.style.visibility = 'visible';
 }
 
-function hideDiv(id) {
-  $(id).css("visibility", "hidden")
+function hideDiv(selector) {
+  $(selector).css("visibility", "hidden")
 } 
 
 function updateAmountLeftToSpend(cost, item, name) {
