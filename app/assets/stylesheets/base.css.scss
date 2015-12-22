@@ -196,10 +196,15 @@ img {
 
 .section-title{
   text-align:center; 
-  font-size: 4rem;
   text-transform: uppercase;
-  padding: 1.4em 0;
+  padding: 1.4rem 0;
   font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 4rem;
+  }
 }
 
 .padding-0{
