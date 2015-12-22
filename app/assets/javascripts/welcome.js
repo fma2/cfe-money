@@ -7,12 +7,14 @@ $( document ).ready(function() {
   //   $(this).hide();
   // });
 
-  $("#school-info-section").css("display", "none");
+  $("#school-info-section").css("visibility", "hidden")
+  // .css("display", "none");
   $("#take-action-section").css("display", "none");
   $("#cart").css("display", "none");
   
-  $("#school-info-section .school-section").css("display", "none");
+  $("#school-info-section .school-section").css("visibility", "hidden");
   $("#take-action-section .legislators-section").css("display", "none");
+
 
   $('.loc-tabs li:nth-child(1)').addClass('active'); // selects RoS tab when page loads
   $('.tab-content .tab-pane:nth-child(1)').addClass('in');
