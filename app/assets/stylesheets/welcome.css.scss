@@ -35,6 +35,7 @@
 @media (max-width: 2000px){
   .navbar-header {
     float: none;
+    width: 100%;
   }
   .navbar-left,.navbar-right {
     float: none !important;
@@ -313,63 +314,86 @@
 /*Action Section*/
 
 #take-action-section {
-  .row {
-    min-height:95px;
-  }
-  .leg-photo{
-    height:4em;
-    width:4em;
-    position:relative;    
-    /*border-radius:100%;*/
-    overflow:hidden;
-    img {
-      position:absolute;
-      left:-50%; 
-      right:-50%; top:0;
-      margin:auto;
-      height:100%; 
-      width:auto;
-    }
-  }
-  .leg-info {
-    p {
-      line-height: 0.75em;
-    }
-  }
-  .leg-upper, .leg-lower {
-    padding-top: 1.5em;
+  .row.action-item {
+    display:flex;
+    align-items: center;
+    justify-content: center;
   }
   h1.section-title {
     color: $palette-color4; 
   }
   h2 {
     padding-top:1px;
-    /*color: rgba(0, 0, 0, 0); */
-    /*-webkit-text-stroke: 1px $palette-color8;*/
     color: $palette-color1;
-    font-size: 4rem;
     border-radius: 50%;
-    height: 6rem;
-    width: 6rem;
+    font-size: 2.5rem;
+    height: 3rem;
+    width: 3.45rem;
     background-color: $palette-color8;
     border: 3px solid $palette-color8;
-    margin-left:0.83em;
+    display: table;
+  }
+  h3 {
+    font-size: 1.5rem;
+
   }
   .action-items {
-    padding-bottom: 2em;
+    padding-bottom: 4rem;
   }
-  .action-text {
-    margin-top:0.83em;
-    margin-left: -5%;
+  .leg-photo{
+    padding-left: 0;
+    padding-right:0;
+    height:9rem; 
+    width:9rem;
+    overflow:hidden;
+    border-radius: 6px;
+    img {
+      right:-50%; top:0;
+      margin:auto;
+    }
   }
 
+  .leg-info {
+    text-align: left;
+    padding-right:0;
+
+    p {
+      margin-bottom:0;
+    }
+  }
+  .leg-upper, .leg-lower {
+    padding-top: 1.5em;
+    padding-right:0;
+
+    display:flex;
+    align-items:center;
+    justify-content: center;
+  }
+
+  .btn {
+    padding:3px 6px;
+  }
   #next-steps{
     background-color: $palette-color2;
     color: $palette-color1;
-    padding-bottom: 1em;
+    padding-bottom: 3rem;
     .btn-circle{
       border: 2px solid $palette-color1;
       color: $palette-color1;
+    }
+    .btn-circle:hover {
+      color: $palette-color3;
+    }
+  }
+}
+
+@media(min-width: 768px) {
+  #take-action-section {
+    h2 {
+      font-size: 2.75rem;
+    }
+    h3 {
+      font-family: 2.25rem;
     }
   }
 }
