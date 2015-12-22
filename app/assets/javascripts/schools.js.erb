@@ -92,13 +92,9 @@ function prepareSchoolInformation(button){
 
 // '+ENV['SUNLIGHT_FOUNDATION_API_KEY']+'
 function findSchoolLegInformation(chamber, district, targetDiv) {
-		// console.log("SUNLIGHT_FOUNDATION_API_KEY");
-		// var y = <%= ENV['SUNLIGHT_FOUNDATION_API_KEY'] %>
-		// console.log(y)
-
 	$.ajax({
 		dataType:'json',
-		url: 'http://openstates.org/api/v1//legislators/?state=ny&chamber='+chamber+'&active=true&district='+district+'&apikey='+<%= ENV['SUNLIGHT_FOUNDATION_API_KEY'] %>+'',
+		url: 'http://openstates.org/api/v1//legislators/?state=ny&chamber='+chamber+'&active=true&district='+district+'&apikey=<%= SUNLIGHTFOUNDATION_CONFIG['secret_key'] %>',
 		type: 'GET'
 	}).success(function(data){
 		var legislators = data;
