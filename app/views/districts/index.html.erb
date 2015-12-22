@@ -47,7 +47,7 @@
 
 	$.ajax({
 		dataType:'json',
-		url: 'http://openstates.org/api/v1//legislators/?state=ny&active=true&apikey='+ENV['SUNLIGHT_FOUNDATION_API_KEY']+'',
+		url: 'http://openstates.org/api/v1//legislators/?state=ny&active=true&apikey=<%= ENV['SUNLIGHT_FOUNDATION_API_KEY'] %>',
 		type: 'GET'
 	}).success(function(data){
 		var legislators = data;
