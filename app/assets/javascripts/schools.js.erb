@@ -93,10 +93,10 @@ function prepareSchoolInformation(button){
 // '+ENV['SUNLIGHT_FOUNDATION_API_KEY']+'
 function findSchoolLegInformation(chamber, district, targetDiv) {
 		console.log("SUNLIGHT_FOUNDATION_API_KEY");
-		var x = <%= Rails.application.secrets.sunlight_foundation_api_key %>
-		console.log(x);
 		var y = <%= ENV['SUNLIGHT_FOUNDATION_API_KEY'] %>
 		console.log(y)
+		var x = <%= Rails.application.secrets.sunlight_foundation_api_key %>
+		console.log(x);
 
 	$.ajax({
 		dataType:'json',
