@@ -21,7 +21,7 @@ var library = 77000;
 function showSchoolInformation() {
 	$(".result-item a").click(function(e){
 		$(".warning-text").css("display", "none");
-		$("#school-info-section .school-section").css("display", "inline");
+		$("#school-info-section .school-section").show();
 		$("#take-action-section").css("display", "table");
 		$("#cart").css("display", "table")
 		
