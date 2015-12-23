@@ -76,10 +76,10 @@ p {
 }
 
 a {
-  color: $palette-color5
+  color: $link-font-color
 }
 a:hover {
-  color: $palette-color4;
+  color: $link-hover-font-color;
 }
 
 img {
@@ -91,14 +91,14 @@ img {
 #google_translate_element span a,
 .navbar-default .navbar-toggle,
 .header {
-  background-color: $palette-color1;
-  color: $palette-color6;
+  background-color: $palette-white;
+  color: $palette-black;
 }
 .school-info-section {
-  background-color: $palette-color1;
+  background-color: $palette-white;
 }
 .take-action-section {
-  background: $palette-color1;
+  background: $palette-white;
 }
 
 .cover {
@@ -153,15 +153,12 @@ img {
 }
 
 .btn-circle {
-  width: 70px;
-  height: 70px;
   margin-top: 15px;
   padding: 7px 16px;
-  border: 2px solid $palette-color6;
-  border-radius: 100%!important;
   font-size: 40px;
-  color: $palette-color6;
+  color: $palette-orangered;
   background: 0 0;
+  border-radius: 50%;
   -webkit-transition: background .3s ease-in-out;
   -moz-transition: background .3s ease-in-out;
   transition: background .3s ease-in-out;
@@ -170,9 +167,8 @@ img {
 .btn-circle:hover,
 .btn-circle:focus {
   outline: 0;
-  color: $palette-color3;
-  border: 2px solid $palette-color5;
-  background: rgba(255,255,255,.1);
+  color: $palette-gray2;
+  
 }
 
 .btn-circle i.animated {
@@ -199,6 +195,7 @@ img {
   text-transform: uppercase;
   padding: 1.4rem 0;
   font-weight: 600;
+  color: $palette-blue5;
 }
 
 @media (min-width: 768px) {

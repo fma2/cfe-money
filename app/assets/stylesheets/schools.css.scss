@@ -5,7 +5,7 @@
 
 #school-information {
   .school-details{
-    background-color: $palette-color7;
+    background-color: $palette-blue6;
     text-align: left;
     align-items: center;
     justify-content: center;
@@ -15,18 +15,21 @@
       font-weight: 600;
       text-transform: uppercase;
       text-align: left;
-      color: $palette-color8; 
+      color: $palette-white; 
+    }
+    h2.amount-text, h2.per-student-number{
+      color: $palette-blue1;
     }
     h2 {
       span.amount-number, span.per-student-amount {
-        color: $palette-color2;
+        color: $palette-white;
       }
     }    
   }
 
   .resources-list {
-    background-color:$palette-color5;
-    color: $palette-color1;
+    /*background-color:$palette-blue4;*/
+    color: $palette-black;
     text-align: left;
     align-items: center;
     justify-content: center;

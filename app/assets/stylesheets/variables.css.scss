@@ -4,31 +4,51 @@
 
 /* Variables */
 
-/*Colors*/
-$black: #000;
-$lighter-dark-green: #335C33;
-$dark-green: #003300;
-$light-gray: #E6EBE6;
-$gray: #B8B8B8;
-$white: #fff;
-$pale-gray: #dddfd4;
-$pale-yellow: #fae596;
-$turquoise: #3fb0ac;
-$dark-turquoise: #173e43;
-$orange-red: #ff606e;
+/*blue palette - http://www.colorcombos.com/color-schemes/17/ColorCombo17.html*/
+$sapphire:#333399;
+$dodger-blue: #3399FF;
+$mariner: #3366CC;
+$blue: #0030FF;
+$perwinkle: #D6DFFF;
+$malibu: #7B9AFF;
 $bright-blue: #00ddd8;
 $purple-blue: #517398;
 $midnight-blue: #262c3a;
+/*other colors*/
+$black: #000;
+$dark-green: #003300;
+$light-gray: #E6EBE6;
+$gray: gray;
+$white: #fff;
+$pale-gray: #dddfd4;
+$turquoise: #3fb0ac;
+$orange-red: #ff606e;
+
+
+
 
 /*Palette*/
-$palette-color1: $white;
-$palette-color2: $orange-red;
-$palette-color3: $bright-blue;
-$palette-color4: $purple-blue;
-$palette-color5: $midnight-blue;
-$palette-color6: $black;
-$palette-color7: $pale-gray;
-$palette-color8: $turquoise;
+/*Blues*/
+$palette-blue1: $perwinkle;
+$palette-blue2: $malibu;
+$palette-blue3: $bright-blue;
+$palette-blue4: $blue;
+$palette-blue5: $dodger-blue;
+$palette-blue6: $mariner;
+$palette-blue7: $sapphire;
+$palette-blue8: $purple-blue;
+$palette-blue9: $midnight-blue;
+$bootstrap-blue: #337ab7;
+
+/*Grays*/
+$palette-white: $white;
+$palette-black: $black;
+$palette-gray1: $light-gray;
+$palette-gray2: $pale-gray;
+$palette-gray3: $gray;
+
+/*Other*/
+$palette-orangered: $orange-red;
 
 
 /*Typography*/
@@ -39,13 +59,6 @@ $highlight-text-color: $black;
 
 
 /*Links*/
-$link-font-color: $palette-color5;
-$link-hover-font-color: $palette-color4;
-
-
-
-/*Navigation*/
-$navbar-background-color: $light-gray;
-$navbar-font-color: $gray;
-$subtitle-font-color: #808080;
+$link-font-color: $palette-blue9;
+$link-hover-font-color: $palette-blue8;
 
