@@ -36,11 +36,11 @@ h3 {
 }
 
 h4 {
-  font-size: 1.75rem;
+  font-size: 1.85rem;
 }
 
 h5 {
-  font-size: 1.5em;
+  font-size: 1.75rem;
 }
 
 h6 {
@@ -189,6 +189,10 @@ img {
   -moz-animation-timing-function: linear;
 }
 
+section .container {
+  padding-left:0;
+  padding-right:0;
+}
 
 .section-title{
   text-align:center; 

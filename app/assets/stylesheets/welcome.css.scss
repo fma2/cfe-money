@@ -201,6 +201,11 @@
   text-align: left;
   width: 100%;
 
+  li {
+    h5 {
+      font-size: 1.75rem;
+    }
+  }
   #location-tabs-row {
     padding-top: 2.5em;
   }
@@ -325,11 +330,11 @@
     justify-content: center;
   }
   h1.section-title {
-    color: $palette-blue5;
+    color: $bootstrap-blue;
   }
   h2 {
     padding-top:1px;
-    color: $palette-blue7;
+    color: $palette-blue9;
     /*border-radius: 50%;*/
     /*font-size: 2.5rem;*/
     /*height: 3rem;*/
@@ -424,6 +429,16 @@
 
 #cart {
   text-align: left;
+
+  .col-xs-12.title-col {
+    padding-left:0;
+    padding-right:0;
+    }
+  h1.section-title {
+    color: $palette-black;
+    /*background: $palette-blue6;*/
+    width: 100%;
+  }
 
   .details-section {
     /*background-color: $palette-blue5*/
