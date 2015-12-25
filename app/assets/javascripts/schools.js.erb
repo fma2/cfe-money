@@ -52,11 +52,10 @@ function prepareSchoolInformation(button){
 		schoolInfo.find('.school-title').text(school.toProperCase() + " ");
 		schoolInfo.attr("data-school-info", [button.data('school-id'), button.data('loc')] );
 		$("#school-info-section").find('#share-school a').attr("href", "/schools/"+button.data('loc')+"/"+button.data('school-id')+"");
-		// takeAction.find('.school-title').text(""+school.toProperCase()+"'s");
+	
 		schoolInfo.find('.school-title-district').text("(" + district.toProperCase() + ")")
 
 		cartSection.find('.school-title').text(school.toProperCase() + " ");
-		// cartSection.find('.school-title-district').text("(" + district.toProperCase() + ")")
 
 		if (formattedAmt=="0.00") {
 			schoolInfo.find('.amount-number').text("budget data not available");
@@ -90,7 +89,6 @@ function prepareSchoolInformation(button){
 
 // School legislators js
 
-// '+ENV['SUNLIGHT_FOUNDATION_API_KEY']+'
 function findSchoolLegInformation(chamber, district, targetDiv) {
 	$.ajax({
 		dataType:'json',

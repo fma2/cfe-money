@@ -1,9 +1,6 @@
 $( document ).ready(function() {
 
   $("body").hide(0).delay(100).fadeIn(2200);
-  // $('.read-more').click(function(e) {
-  //   $(this).hide();
-  // });
 
   var divsToHide = ["#school-info-section", "#school-info-section .school-section", "#take-action-section", "#legislators-section", "#cart"]
 

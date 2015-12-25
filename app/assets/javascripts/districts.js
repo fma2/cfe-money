@@ -5,8 +5,7 @@ function findLegTotals(chamber,district){
     url: '/electoral_districts/'+chamber+'/'+district+'',
     type: 'GET'
   }).success(function(data) {
-    // legSection.find('.'+chamber+''+district+'').append('<p>'+data[0].amount_owed+'</p><p>'+data[0].total_enrollment+'</p>')
-    var electoralDistrictInfo = $("#electoral-district-info #"+chamber+""+district+"");
+       var electoralDistrictInfo = $("#electoral-district-info #"+chamber+""+district+"");
      createElectoralDistrictInformation(data[0],electoralDistrictInfo)
   }).fail(function(){
     console.log("Could not get electoral districts' data");
