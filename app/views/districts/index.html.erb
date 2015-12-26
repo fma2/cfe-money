@@ -65,8 +65,8 @@
 			var electoralDistrictInfo = $("#electoral-district-info");
 			createElectedOfficialInformation(legislators[k], electoralDistrictInfo)
 			
-			findLegTotals(legChamber, legDistrict)
-
+			findLegTotals(legChamber, legDistrict);
+			return;
 		}
 	}).fail(function() {
 		console.log("Failed to load electoral district information");
