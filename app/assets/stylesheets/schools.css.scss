@@ -28,7 +28,6 @@
   }
 
   .resources-list {
-    /*background-color:$palette-blue4;*/
     color: $palette-black;
     text-align: left;
     align-items: center;
@@ -87,120 +86,5 @@
   text-align:center;
   }
 }
-
-/*.legislator-information {
-  img {
-    height: 71px;
-    width: 55px;*/
-    /*width:304; height:236;*/
-    /*height:71px;
-    background-color:#FFFFFF;
-    margin-top:20px;
-    border: solid 1px #CCC; -moz-box-shadow: 1px 1px 5px #999; -webkit-box-shadow: 1px 1px 5px #999; box-shadow: 1px 1px 5px #999;
-  }
-  
-  .leg-photo {
-    float: right;
-
-  }
-
-  .leg-email, 
-  .leg-website, 
-  .leg-albanyno {*/
-    /*line-height: 10px;*/
-    /*line-height: 70%;*/
-    /*font-size: 1em;*/
-  /*}*/
-
-  /*.leg-name {*/
-    /*font-size: 2em;*/
-  /*}*/
-
-  /*.leg-house,
-  .leg-district {*/
-    /*line-height: 12px;*/
-    /*line-height: 80%;*/
-    /*font-size: 1.5em;*/
-  /*}*/
-
-/*  .leg-district {
-    padding-bottom: 10px;
-  }
-
-  h3 {
-    font-weight: 200;
-  }
-  h4 {
-  }
-}*/
-
-
-
-/* Media Queries */
-
-/* Smartphones (portrait and landscape) ----------- */
-/*@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-  #schoolModal {
-    .modal-title, .modal-title-dbn, .modal-title-district {
-      font-size: 1.1em;
-    }
-    .amount-number, .enrollment-number{
-      font-size: 2em;
-    }
-  }
-  .results-list{
-    height:200px;
-  }*/
-/*
-  #search_text1, #search_text2 {
-    font-size: 8.5px;
-  } */
-
-/*  .legislator-information {
-    .leg-email, 
-    .leg-website, 
-    .leg-albanyno {
-      line-height: 60%;
-      font-size: 85%;
-    }
-
-    .leg-name {
-      font-size: 90%;
-    }
-
-    .leg-house,
-    .leg-district {
-      line-height: 70%;
-      font-size: 90%;
-    }
-
-    .leg-district {
-      padding-bottom: 10px;
-    }
-
-    h3 {
-      font-weight: 200;
-    }
-  }
-  .well-legislator-information{
-     .well-leg-photo {
-      float: right;
-    }
-  }
-*/
-/*}*/
-
-/* iPads (portrait and landscape) ----------- */
-/*@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
-  .results-list{
-    height:270px;
-  }
-}
-*/
-
 
 

@@ -1,6 +1,17 @@
 @import 'variables.css.scss';
 @import 'base.css.scss';
 
+
+/*1. Nav bar
+2. Header
+3. Search schools section
+4. Take action section
+5. Cart section
+6. Footer
+*/
+
+
+
 /* Navbar */
 /*
 #background::after {
@@ -86,7 +97,6 @@
 .navbar-default .navbar-toggle {
   border:transparent;
   .icon-bar {
-    height: 1.5px;
     background-color: $palette-black;
   }
 }
@@ -133,8 +143,6 @@
 
 .header {
   padding-top:0;
-  /*width: 100%;*/
-
   .container {
     padding-left: 0;
     padding-right:0;
@@ -237,7 +245,6 @@
 }
 
 #search-bar-section {
-  /*width: 100%;*/
   .search-bar-row{
     width: 100%;
   }
@@ -265,7 +272,6 @@
 
   }
   input {
-    /*background: #EFEEEE;*/
     border:$palette-blue9;
     border: 1px solid rgba(38,44,58, .4);
   }
@@ -335,12 +341,6 @@
   h2 {
     padding-top:1px;
     color: $palette-blue9;
-    /*border-radius: 50%;*/
-    /*font-size: 2.5rem;*/
-    /*height: 3rem;*/
-    /*width: 3.45rem;*/
-    /*background-color: $palette-blue6;*/
-    /*border: 3px solid $palette-blue6;*/
     display: table;
     -webkit-text-stroke: .75px;
     font-weight: 600;
@@ -436,12 +436,10 @@
     }
   h1.section-title {
     color: $palette-black;
-    /*background: $palette-blue6;*/
     width: 100%;
   }
 
   .details-section {
-    /*background-color: $palette-blue5*/
   }
 
   .thumbnail {
@@ -490,136 +488,7 @@ footer {
 }
 
 
-
 /*for method for listing schools in district*/
 .school-list-item{ 
   display: block;
 }
-
-
-/* Media Queries */
-
-/* Smartphones (portrait and landscape) ----------- */
-
-/* iPhone 2G-4S */
-/*@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) { 
-  .header {
-    h1 {
-      font-size: 1.7em;
-    }
-
-    #subtitle-row h4.subtitle-text1{
-      font-size:95%;
-    }
-    #location-tabs-row {
-      height:80px;
-    }
-  }
-  .nav-tabs > li, .nav-pills > li {
-    h4 {
-      font-size: 0.75em;
-    } 
-  }
-  .more-info {
-    padding-top:100px;
-
-    .info-text{
-      font-size: 1em;
-    }
-    .info-number{
-      font-size: 2em;
-    }
-    .description-title {
-      font-size: 1.2em; 
-    }
-    .description-text p {
-      font-size:0.95em;
-    }
-    
-  }
-  .well-content{
-    font-size:2em;
-  }
-}*/
-
-/* iPhone 5 & 5S */
-/*@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 568px) { 
-  .header {
-    h1 {
-      font-size: 2em;
-    }
-  }
-}*/
-
-/* iPhone 6 */
-/*@media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 667px) { 
-  .header {
-    h1{
-      font-size: 3.2em;
-    }
-    #subtitle-row h4.subtitle-text1{
-      font-size:130%;
-    }
-  }
-  .nav-tabs > li, .nav-pills > li {
-    h4 {
-      font-size: 1em;
-    } 
-  }
-  #location-tabs-row {
-    height: 75px;
-  }
-  .more-info {
-    padding-top:100px;
-
-    .info-text{
-      font-size: 1em;
-    }
-    .info-number{
-      font-size: 2em;
-    }
-    .description-title {
-      font-size: 2em; 
-    }
-  }
-  .well-content{
-    font-size:2em;
-  }
-}*/
-
-/* iPhone 6 Plus */
-/*@media only screen 
-and (min-device-width : 414px) 
-and (max-device-width : 736px) { }*/
-
-
-/* iPads (portrait and landscape) ----------- */
-/*@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
-  .header .title{
-    font-size: 1.5em;
-    font-weight: 700;
-  }
-}*/
-
-/*@media(min-width:767px) {
-  .totals-row {
-    padding-top: 200px;
-  }
-  .more-info {
-    padding-top: 200px;
-    padding-bottom: 250px;
-  }*/
-  /*.results-list {*/
-    /*height: 250px;*/
-/*  }
-}*/
-
-/*@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {}*/
