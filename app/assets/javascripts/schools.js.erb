@@ -2,7 +2,8 @@ $(document).on("click", '.result-item a', function(){
 		// show and clean up divs
 		$("#legislators-section .leg-info").empty();
 		$(function() {
-			hideDiv('.warning-text')
+			hideDiv('.warning-text');
+			$("#legislators-section").show();
 			for (k in divsToToggle) {
 				showDiv(divsToToggle[k]);
 			}

@@ -3,7 +3,7 @@ var defaultLocationTab = 1; // set default location tab
 var teacher = 54329; // resource costs
 var arts_program = 75000;
 var library = 77000;
-var divsToToggle = ["#school-info-section", "#school-info-section .school-section", "#take-action-section", "#legislators-section", "#cart"]
+var divsToToggle = ["#school-info-section", "#school-info-section .school-section", "#take-action-section", "#cart"]
 
 // Document ready function
 $(document).ready(function() {
@@ -24,6 +24,8 @@ function homeReset(){
   // initial hide of divs below header
   $(function(){
     $(".visible-results").hide();
+    $("#legislators-section").hide();
+    showDiv("#two .equal")
     for (k in divsToToggle) {
       hideDiv(divsToToggle[k])
     }
