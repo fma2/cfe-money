@@ -1,45 +1,23 @@
-// not sure where the 2 items below  are used in site
-function listSchools(arr) {
-	var schoolslist = ""
-	for (i=0; i<arr.length; i++) {
-		schoolslist += "<span class='school-list-item'>"+arr[i]+"</span>"
-	}
-	return schoolslist;
-}
+$(document).on("click", '.result-item a', function(){
+		// show and clean up divs
+		$("#legislators-section .leg-info").empty();
+		$(function() {
+			hideDiv('.warning-text')
+			for (k in divsToToggle) {
+				showDiv(divsToToggle[k]);
+			}
+		});
 
-String.prototype.toProperCase = function () {
-	return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-};
-
-
-//resource costs
-var teacher = 54329;
-var arts_program = 75000;
-var library = 77000;
-
-
-function showSchoolInformation() {
-	$(".result-item a").click(function(e){
-		$(".warning-text").css("visibility", "hidden");
-		$("#school-info-section .school-section").css("visibility", "visible");
-		$("#take-action-section").css("visibility", "visible");
-		$("#cart").css("visibility", "visible");
-
-		$("#legislators-section .leg-info").empty()
-		
+		// prepare and render school info 
 		var button = $(this);
-		console.log(button);
 		prepareSchoolInformation(button);
-	})
-}
+	}
+)
 
 function prepareSchoolInformation(button){
-	console.log('clicked');
 	var schoolInfo = $('#school-information')
-	console.log(schoolInfo);
 	var takeAction = $('#take-action-section')
 	var cartSection = $('#cart');
-
 	var school = button.data('school');
 	var district = button.data('district');
 	var enrollment = button.data('enrollment');
@@ -48,47 +26,36 @@ function prepareSchoolInformation(button){
 	var assembly = button.data('assembly');
 
 	if (school !=undefined) {
-		var formattedAmt = parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
+		var formattedAmt = '$'+formatAmount(amount)+'';
+
 		schoolInfo.find('.school-title').text(school.toProperCase() + " ");
+		
 		schoolInfo.attr("data-school-info", [button.data('school-id'), button.data('loc')] );
 		$("#school-info-section").find('#share-school a').attr("href", "/schools/"+button.data('loc')+"/"+button.data('school-id')+"");
-	
+
 		schoolInfo.find('.school-title-district').text("(" + district.toProperCase() + ")")
 
 		cartSection.find('.school-title').text(school.toProperCase() + " ");
 
 		if (formattedAmt=="0.00") {
-			schoolInfo.find('.amount-number').text("budget data not available");
-			cartSection.find('.amount-number').text("budget data not available");
+			$('.amount-number').text("budget data not available");
 		} else {
-			schoolInfo.find('.amount-number').text("$" + formattedAmt);
-			cartSection.find('.amount-number').text("$" + formattedAmt);
+			$('.amount-number').text(formattedAmt);
 			cartSection.find('.amount-number').attr("data-amount-number", amount);
-
 		}
-
 		displayResourceAmount(amount, schoolInfo);
-
 		var perStudentAmount = parseFloat(amount / enrollment).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 		schoolInfo.find('.per-student-amount').text(perStudentAmount);
-		// cartSection.find('.per-student-amount').text(perStudentAmount);
-
-
 		schoolInfo.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='ProtectOurSchools, AllKidsNeed, WeCantWait'>Tweet</a>")
 
-		toggleVisibility("legislators-section")
-	
 		findSchoolLegInformation("upper", senate, takeAction);
 		findSchoolLegInformation("lower", assembly, takeAction);
-
-		// twitterLink();
 
 		schoolInfo.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button'{count} data-size='large' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='ProtectOurSchools, AllKidsNeed, WeCantWait'>Tweet</a>");
 	}
 };
 
 // School legislators js
-
 function findSchoolLegInformation(chamber, district, targetDiv) {
 	$.ajax({
 		dataType:'json',
@@ -104,26 +71,44 @@ function findSchoolLegInformation(chamber, district, targetDiv) {
 	})
 }
 
-
-
 function displaySchoolLegInformation(chamber, legislator, targetDiv) {
-	console.log(legislator);
 	var chamberCorrectedCase = legislator["chamber"]
-
-	console.log(chamberCorrectedCase);
 	targetDiv.find('.legislators-section .leg-'+chamber+' .leg-photo img').attr("src", legislator["photo_url"]);
-	var legInfoSection = '.legislators-section .leg-'+chamber+' .leg-info';
-	targetDiv.find(legInfoSection).append('<p>'+legislator["full_name"]+'</p>');
-	targetDiv.find(legInfoSection).append('<p>Chamber: '+chamberCorrectedCase+'</p>');
-	targetDiv.find(legInfoSection).append('<p>District: '+legislator["district"]+'</p>');
-	targetDiv.find(legInfoSection).append('<span class="btn btn-default"><a href="mailto:'+legislator["email"]+'" target="_blank">Email</a></span>');
-	targetDiv.find(legInfoSection).append('<span class="btn btn-default"><a href="tel:'+legislator.offices[0]["phone"]+'">Call</a></span>');
+	var legInfoSection = $('.legislators-section .leg-'+chamber+' .leg-info');
+	var legName = document.createTextNode(legislator["full_name"]);
+	var legChamber = document.createTextNode('Chamber: '+chamberCorrectedCase+'');
+	var legDistrict = document.createTextNode('District: '+legislator["district"]+'');
+	var legEmail= 'mailto:'+legislator["email"]+'';
+	var legPhone = 'tel:'+legislator.offices[0]["phone"]+'';
+	createLegSnippet(legInfoSection, "p", [legName, legChamber, legDistrict], "")
+	createLegSnippet(legInfoSection, "span", [legEmail], "Email");
+	createLegSnippet(legInfoSection, "span", [legPhone], "Call");
+}
 
-
+function createLegSnippet(targetDiv, elem, textNodes, title) {
+	for (k in textNodes) {
+		if (elem === "p") {
+			var node = document.createElement(elem);
+			node.appendChild(textNodes[k]);
+			targetDiv.append(node);
+		} else {
+			var span = document.createElement(elem);
+			span.classList.add("btn");
+			span.classList.add("btn-default")
+			var a = document.createElement("a");
+			a.setAttribute("href", textNodes[k]);
+			a.setAttribute("target", "_blank")
+			if (title != null) {
+				var text = document.createTextNode(title);
+				a.appendChild(text);
+			}
+			span.appendChild(a);
+			targetDiv.append(span);
+		}
+	}
 }
 
 // School resources
-
 function calculateResourceAmount(cost, fundsAvailable){
 	return Math.round(fundsAvailable / cost);
 }
@@ -142,5 +127,4 @@ function displayResourceAmount(amount, targetDiv) {
 	targetDiv.find('.resource-teacher .resource-text h4').text('Hiring at least '+num_teacher+' classroom teacher/s')
 	targetDiv.find('.resource-arts .resource-text h4').text('Providing an arts program for at least '+num_arts_programs+' years/')
 	targetDiv.find('.resource-library .resource-text h4').text('Maintaining a library for at least '+num_library+' year/s')
-
 }
