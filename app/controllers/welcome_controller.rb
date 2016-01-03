@@ -1,20 +1,29 @@
 class WelcomeController < ApplicationController
+	# protect_from_forgery except: :index
 	def index
-		@locations = Location.all
-		@totals = Array.new
-		Location.all.each do |l |
-			total_owed = School.total_owed_sum(l.schools)
-			total_enrollment = School.total_enrollment_sum(l.schools)
-			@totals << {
-				l.loc_code => {
-					id: l.id,
-					location_name: l.name,
-					total_owed: total_owed,
-					total_enrollment: total_enrollment,
-					amount_per_student: School.amount_per_student(total_owed, total_enrollment)
-				} 
-			}	
+		# p params
+		# if params["loc_code"] != nil
+		# 	p params["loc_code"]
+		# 	@location = Location.find_by(loc_code: params["loc_code"])
+		# 	if @location.loc_code == "nyc"
+		# 		@schools = School.in_nyc_location.search_nyc_schools(params["search"])
+		# 		render 'search1.js.erb'
+		# 	else
+		# 		@schools = School.in_ros_location.search_ros_schools(params["search"])
+		# 		render 'search2.js.erb'
+		# 	end
+		# end
+		# @schools
+
+		if params["search_text1"] != nil
+			p "hi"
+			# @location = params["loc_code"]
+			# if params["search_text1"] != nil
+			# 	@school = params["search_text1"]
+			# else 
+			# 	@school = params["search_text2"]
+			# end
 		end
-		@totals
+		@locations = Location.all
 	end
 end

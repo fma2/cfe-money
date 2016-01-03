@@ -12,6 +12,8 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<h1 class="schoolInfoLabel"><span class="school-title"></span><span class="school-title-dbn"></span><span class="school-title-district"></span></h1>
+					<%= hidden_field_tag 'school_name', @school_name %>
+					<%= hidden_field_tag 'location_code', @location_code %>
 				</div>
 				<div class="col-xs-12">
 					<h2 class="amount-text">Total amount owed:<br><span class="amount-number"></span></h2>

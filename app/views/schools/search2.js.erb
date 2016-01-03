@@ -1,1 +1,2 @@
 $('#results2').html('<%= escape_javascript(render('results')) %>');
+document.title = "<%= escape_javascript("How much NYS owes #{params[:search].to_s.titleize}") %>";

@@ -1,19 +1,39 @@
 $(document).on("click", '.result-item a', function(){
-		// show and clean up divs
-		$("#legislators-section .leg-info").empty();
-		$(function() {
-			hideDiv('.warning-text');
-			$("#legislators-section").show();
-			for (k in divsToToggle) {
-				showDiv(divsToToggle[k]);
-			}
-		});
+	// show and clean up divs
+	$("#legislators-section .leg-info").empty();
+	showSchoolInfoDivs();
 
-		// prepare and render school info 
-		var button = $(this);
-		prepareSchoolInformation(button);
+	// prepare and render school info 
+	var button = $(this);
+	prepareSchoolInformation(button);
+
+	// update val in search bar according to what is selected
+	if (button.data("loc") == 1) {
+		$("#search_text1").val(button.data('school'));
+		history.replaceState(null,document.title, $("#schools_search1").attr("action") + "?" + $("#schools_search1").serialize());
+		$(window).bind("popstate", function() {
+			$.getScript(location.href);
+		});
+	} else {
+		$("#search_text2").val(button.data('school'));
+		history.replaceState(null,document.title, $("#schools_search2").attr("action") + "?" + $("#schools_search2").serialize());
 	}
-)
+
+	// update page title and URL
+	document.title = "How much NYS owes "+button.data('school')+"";
+		
+
+})
+
+function showSchoolInfoDivs(){
+	$(function() {
+		hideDiv('.warning-text');
+		$("#legislators-section").show();
+		for (k in divsToToggle) {
+			showDiv(divsToToggle[k]);
+		}
+	});
+}
 
 function prepareSchoolInformation(button){
 	var schoolInfo = $('#school-information')
@@ -32,6 +52,7 @@ function prepareSchoolInformation(button){
 		schoolInfo.find('.school-title').text(school.toProperCase() + " ");
 		
 		schoolInfo.attr("data-school-info", [button.data('school-id'), button.data('loc')] );
+
 		$("#school-info-section").find('#share-school a').attr("href", "/schools/"+button.data('loc')+"/"+button.data('school-id')+"");
 
 		schoolInfo.find('.school-title-district').text("(" + district.toProperCase() + ")")
