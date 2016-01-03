@@ -8,7 +8,7 @@
 	
 	<script type="text/javascript">
 	$("#search_text1").keyup(function(event) {
-		$("#school-info-section").css("visibility", "visible");
+		$(".visible-results").show();
 		$.get('/search/<%= location %>?search='+ $(this).val());
 	});
 	</script>
