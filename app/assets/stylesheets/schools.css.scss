@@ -4,6 +4,9 @@
 /* School information section */
 
 #school-information {
+  .warning-text {
+    visibility: visible;
+  }
   .school-details{
     background-color: $palette-blue6;
     text-align: left;
