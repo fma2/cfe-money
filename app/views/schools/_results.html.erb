@@ -2,26 +2,25 @@
 <ul class="list-group results-list" id="results-list">
 	<% @results.each do |item| %>
 	<div class="result-item clickable">
-		<a href="#school-info-section" class="page-scroll" data-loc="<%= item.location_id%>" data-school-id="<%= item.id  %>" data-dbn="<%= item.dbn%>" data-school="<%= item.school  %>" data-district="<%= item.district_name %>" data-assembly="<%= item.assembly_district  %>" data-senate="<%= item.senate_district %>" data-enrollment="<%= item.total_enrollment %>" data-owed="<%= item.amount_owed %>" >
+		<a href="#one" 
+			class="page-scroll" 
+			data-loc="<%= item.location_id%>" 
+			data-school-id="<%= item.id  %>" 
+			data-dbn="<%= item.dbn%>" 
+			data-school="<%= item.school %>" 
+			data-district="<%= item.district_name %>" 
+			data-assembly="<%= item.assembly_district  %>" 
+			data-senate="<%= item.senate_district %>" 
+			data-enrollment="<%= item.total_enrollment %>" 
+			data-owed="<%= item.amount_owed %>" >
 			<li class="list-group-item"><%= item.dbn%> <%= item.school %>  (<%= item.district_name %>)</li>
 		</a>
 	</div>
 	<% end %>
 </ul>
 
-
 <script type="text/javascript">
-
-$(function() {
-	$('a.page-scroll').bind('click', function(event) {
-		var $anchor = $(this);
-		$('html, body').stop().animate({
-			scrollTop: $($anchor.attr('href')).offset().top
-		}, 1500, 'easeInOutExpo');
-		event.preventDefault();
-	});
-});
-
-showSchoolInformation();
-
+$(function(){
+	addSmoothScroll('.result-item a.page-scroll');
+})
 </script>
