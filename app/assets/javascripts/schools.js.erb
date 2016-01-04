@@ -74,39 +74,35 @@ function prepareSchoolInformation(button){
 		var url = window.location.href;
 
 		var twitterLinkElem = takeAction.find('.twitter-link');
-		var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, url);
-		twitterLinkElem.attr("href", twitterLink);
 		twitterLinkElem.attr("target", "_blank");
 
-		var facebookLinkElem = takeAction.find('.fb-share-button.fb_iframe_widget');
-		console.log(facebookLinkElem.data("href"));
-		facebookLinkElem.data("href", url);
-		console.log(facebookLinkElem.data("href"));
+		$.ajax({
+			dataType: 'json',
+			url: '/bitly/new',
+			type: 'GET',
+			data: {url: url},
+		}).success(function(data){
+			console.log(data[0])
+			var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, data[0]);
+			twitterLinkElem.attr("href", twitterLink);
 
-		facebookLinkElem.attr("target", "_blank");
+		}).fail(function(){
+			console.log("Failed to retrieve shortened url")
+			var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, "http://www.cfemoneyowednys.org");
+			twitterLinkElem.attr("href", twitterLink);
+		})
+		
 	}
 };
 
 function buildTwitterLink(school, amount, url){
 	var root = "https://twitter.com/intent/tweet";
-	var text = "NYS owes "+school+" "+amount+". How much is your school owed?"
-	var hashtags = "";
+	var text = "NY State owes "+school+" "+amount+". How much is your school owed?"
+	var hashtags = "AllKidsNeed";
 	var via = ""
-	var u = '<%= Bitly.client.shorten("http://cfemoneyowednys.org").short_url %>'
-	console.log(u)
-	// $.ajax({
-	// 	dataType: 'json',
-	// 	url: '/bitly/new',
-	// 	type: 'GET',
-	// 	data: {url: url},
-	// }).success(function(data){
-
-	// 	console.log(data)
-	// }).fail(function(){
-
-	// 	console.log("Failed to retrieve shortened url")
-	// })
-	return root + "?text="+ text + "&url=" + u
+	// var u = '<%= Bitly.client.shorten("http://cfemoneyowednys.org").short_url %>'
+	// console.log(u)
+	return root + "?text="+ text + "&url=" + url + "&hashtags=" + hashtags
 }
 
 // School legislators js
