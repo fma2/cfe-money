@@ -67,14 +67,25 @@ function prepareSchoolInformation(button){
 		displayResourceAmount(amount, schoolInfo);
 		var perStudentAmount = parseFloat(amount / enrollment).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 		schoolInfo.find('.per-student-amount').text(perStudentAmount);
-		schoolInfo.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='ProtectOurSchools, AllKidsNeed, WeCantWait'>Tweet</a>")
 
 		findSchoolLegInformation("upper", senate, takeAction);
 		findSchoolLegInformation("lower", assembly, takeAction);
-
-		schoolInfo.find('.twitter-link').html("<a href='https://twitter.com/share' class='twitter-share-button'{count} data-size='large' data-url='http://www.cfemoneyowednys.org/' data-text='NYS & @nygovcuomo owe "+school+" $"+formattedAmt+" - ' data-count='none' data-hashtags='ProtectOurSchools, AllKidsNeed, WeCantWait'>Tweet</a>");
+		
+		var twitterLinkElem = $('#take-action-section').find('.twitter-link');
+		var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt)
+		twitterLinkElem.attr("href", twitterLink);
+		twitterLinkElem.attr("target", "_blank")
 	}
 };
+
+function buildTwitterLink(school, amount){
+	var root = "https://twitter.com/share";
+	var text = ""+school+" is owed "+amount+". Help take action to end the injustice."
+	var url = window.location.href;
+	console.log(url);
+	var hashtags = "";
+	return root + "?text="+ text + "&url=" + url
+}
 
 // School legislators js
 function findSchoolLegInformation(chamber, district, targetDiv) {
