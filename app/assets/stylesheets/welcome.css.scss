@@ -331,12 +331,21 @@
 /*Action Section*/
 
 #take-action-section {
-  .row.action-item {
+/*  .row.action-item {
     display:flex;
     align-items: center;
     justify-content: center;
-  }
+  }*/
 
+/*  .facebook-link a#u_0_1 {
+    color: $palette-white !important;
+    text-decoration: none;
+    font: $main-font;
+  }*/
+  .action-item {
+    padding-top: 1.5rem;
+    padding-bottom:1.5rem;
+  }
   .title-col, .action-items{
     color: $palette-white;
     background: $bootstrap-blue;
