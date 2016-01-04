@@ -82,12 +82,12 @@ function prepareSchoolInformation(button){
 			type: 'GET',
 			data: {url: url},
 		}).success(function(data){
-			console.log(data[0])
+			console.log(url);
+			console.log(data[0]);
 			var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, data[0]);
 			twitterLinkElem.attr("href", twitterLink);
-
 		}).fail(function(){
-			console.log("Failed to retrieve shortened url")
+			console.log("Failed to retrieve shortened url");
 			var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, "http://www.cfemoneyowednys.org");
 			twitterLinkElem.attr("href", twitterLink);
 		})
@@ -100,8 +100,6 @@ function buildTwitterLink(school, amount, url){
 	var text = "NY State owes "+school+" "+amount+". How much is your school owed?"
 	var hashtags = "AllKidsNeed";
 	var via = ""
-	// var u = '<%= Bitly.client.shorten("http://cfemoneyowednys.org").short_url %>'
-	// console.log(u)
 	return root + "?text="+ text + "&url=" + url + "&hashtags=" + hashtags
 }
 
