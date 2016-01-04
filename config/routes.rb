@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   match '/search/:loc_code' => 'schools#search', via: [:get], as: "search" 
 
   # misc
+  get '/bitly/new' => 'bitly#new'
   # get '/random' => 'schools#random40'
 
   
