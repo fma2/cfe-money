@@ -3,7 +3,7 @@ var defaultLocationTab = 1; // set default location tab
 var teacher = 54329; // resource costs
 var arts_program = 75000;
 var library = 77000;
-var divsToToggle = ["#school-info-section", "#school-info-section .school-section", "#take-action-section", "#cart"]
+var divsToToggle = ["#school-info-section", "#school-info-section .school-section", "#cart"]
 
 $(document).ready(ready);
 // $(document).on('page:load', ready);
@@ -33,10 +33,10 @@ function ready(){
     $(function(){
       $(".visible-results").hide();
       showDiv("#two .equal")
+      $("#legislators-section").hide();
       for (k in divsToToggle) {
         hideDiv(divsToToggle[k]);
       }
-      $("#legislators-section").hide();
       setActiveSearchTab(1); // select NYC tab when page open
     })
   } else {
