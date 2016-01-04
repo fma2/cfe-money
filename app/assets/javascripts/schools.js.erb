@@ -71,20 +71,29 @@ function prepareSchoolInformation(button){
 		findSchoolLegInformation("upper", senate, takeAction);
 		findSchoolLegInformation("lower", assembly, takeAction);
 		
-		var twitterLinkElem = $('#take-action-section').find('.twitter-link');
-		var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt)
+		var url = window.location.href;
+
+		var twitterLinkElem = takeAction.find('.twitter-link');
+		var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, url);
 		twitterLinkElem.attr("href", twitterLink);
-		twitterLinkElem.attr("target", "_blank")
+		twitterLinkElem.attr("target", "_blank");
+
+		var facebookLinkElem = takeAction.find('.fb-share-button.fb_iframe_widget');
+		console.log(facebookLinkElem.data("href"));
+		facebookLinkElem.data("href", url);
+		console.log(facebookLinkElem.data("href"));
+
+		facebookLinkElem.attr("target", "_blank");
 	}
 };
 
-function buildTwitterLink(school, amount){
+function buildTwitterLink(school, amount, url){
 	var root = "https://twitter.com/share";
 	var text = ""+school+" is owed "+amount+". Help take action to end the injustice."
-	var url = window.location.href;
 	console.log(url);
 	var hashtags = "";
-	return root + "?text="+ text + "&url=" + url
+	var via = ""
+	return root + "?text="+ text + "&url=" + encodeURIComponent(url)
 }
 
 // School legislators js
