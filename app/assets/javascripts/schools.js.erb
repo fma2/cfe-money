@@ -88,9 +88,8 @@ function prepareSchoolInformation(button){
 };
 
 function buildTwitterLink(school, amount, url){
-	var root = "https://twitter.com/share";
-	var text = ""+school+" is owed "+amount+". Help take action to end the injustice."
-	console.log(url);
+	var root = "https://twitter.com/intent/tweet";
+	var text = "NYS owes "+school+" "+amount+". How much is your school owed?"
 	var hashtags = "";
 	var via = ""
 	return root + "?text="+ text + "&url=" + url
