@@ -5,40 +5,38 @@ var arts_program = 75000;
 var library = 77000;
 var divsToToggle = ["#school-info-section", "#school-info-section .school-section", "#take-action-section", "#cart"]
 
-// Document ready function
-$(document).ready(function() {
-  homeReset();
-})
+$(document).ready(ready);
+// $(document).on('page:load', ready);
 
-function homeReset(){
-
+function ready(){
   // set animation, add default listeners
-  $(function(){
-    // fade page in
-    $("body").hide(0).delay(100).fadeIn(2200);
+  // fade page in
+  $("body").hide(0).delay(100).fadeIn(2200);
 
-    // animate search bar
-    $('#search_text2, #search_text1').on("click", function( e ) { 
-      $("body, html").animate({ 
-        scrollTop: $('.loc-tabs').offset().top 
-      }, 600);
-    }) 
-    addSmoothScroll('a.page-scroll'); // add smoothScroll
-    addCartItemsListeners(); // add cart event listeners
-    animateCartButtons(); // animate captions for cart items     
-  })
+  // animate search bar
+  $('#search_text2, #search_text1').on("click", function( e ) { 
+    $("body, html").animate({ 
+      scrollTop: $('.loc-tabs').offset().top 
+    }, 600);
+  }) 
+  addSmoothScroll('a.page-scroll'); // add smoothScroll
+  addCartItemsListeners(); // add cart event listeners
+  animateCartButtons(); // animate captions for cart items     
 
-  // render page
-  if ($("#school_name").val() === "") {
+  // render page if-else
+  var schoolName = $("#school_name").val();
+  console.log(schoolName);
+  if (schoolName == "" || schoolName == undefined) {
     console.log ("nothing here")
+
     // initial hide of divs below header
     $(function(){
       $(".visible-results").hide();
-      $("#legislators-section").hide();
       showDiv("#two .equal")
       for (k in divsToToggle) {
         hideDiv(divsToToggle[k]);
       }
+      $("#legislators-section").hide();
       setActiveSearchTab(1); // select NYC tab when page open
     })
   } else {
@@ -49,10 +47,12 @@ function homeReset(){
         setActiveSearchTab(1); // select NYC tab when page open
         $("#search_text1").val(schoolName);
         $.get('/search/nyc?search='+ schoolName);
-      } else {
+        document.title = "How much NYS owes "+schoolName.toProperCase()+"";
+      } else if ($("#location_code").val() === "ros")  {
         setActiveSearchTab(2); // select NYC tab when page open
         $("#search_text2").val(schoolName);
         $.get('/search/ros?search='+ schoolName);
+        document.title = "How much NYS owes "+schoolName.toProperCase()+"";
       }
       showSchoolInfoDivs();
       $(window).load(function () {

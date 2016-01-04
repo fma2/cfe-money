@@ -1,7 +1,6 @@
 class SchoolsController < ApplicationController
 	def search
-		
-		if params["search"] == nil
+		if params["search_text1"] != nil || params["search_text2"] != nil
 			@location_code = params["loc_code"]
 			@locations = Location.all
 			if @location_code == "nyc" 

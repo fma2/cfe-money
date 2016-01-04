@@ -17,12 +17,11 @@ $(document).on("click", '.result-item a', function(){
 	} else {
 		$("#search_text2").val(button.data('school'));
 		history.replaceState(null,document.title, $("#schools_search2").attr("action") + "?" + $("#schools_search2").serialize());
+		$(window).bind("popstate", function() {
+			$.getScript(location.href);
+		});
 	}
-
-	// update page title and URL
-	document.title = "How much NYS owes "+button.data('school')+"";
-		
-
+	document.title = "How much NYS owes "+button.data('school').toProperCase()+"";
 })
 
 function showSchoolInfoDivs(){
