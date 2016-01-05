@@ -5,8 +5,7 @@ $(document).on("click", '.result-item a', function(){
 
 	// prepare and render school info 
 	var button = $(this);
-	prepareSchoolInformation(button);
-
+	
 	// update val in search bar according to what is selected
 	if (button.data("loc") == 1) {
 		$("#search_text1").val(button.data('school'));
@@ -22,6 +21,8 @@ $(document).on("click", '.result-item a', function(){
 		});
 	}
 	document.title = "How much NYS owes "+button.data('school').toProperCase()+"";
+
+	prepareSchoolInformation(button);
 })
 
 function showSchoolInfoDivs(){
@@ -71,7 +72,7 @@ function prepareSchoolInformation(button){
 		findSchoolLegInformation("upper", senate, takeAction);
 		findSchoolLegInformation("lower", assembly, takeAction);
 		
-		var url = location.href;
+		var url = window.location.href;
 
 		var twitterLinkElem = takeAction.find('.twitter-link');
 		twitterLinkElem.attr("target", "_blank");
