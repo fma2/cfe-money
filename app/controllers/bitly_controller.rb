@@ -7,5 +7,4 @@ class BitlyController < ApplicationController
 			format.json { render json: @json }
 		end
 	end
-
 end
