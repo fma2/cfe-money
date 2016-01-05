@@ -87,13 +87,15 @@ function prepareSchoolInformation(button){
 			console.log(data[0]);
 			var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, data[0]);
 			var facebookLink = buildFacebookLink(data[0]);
+			console.log(facebookLink);
 			twitterLinkElem.attr("href", encodeURI(twitterLink));
 			facebookLinkElem.attr("href", encodeURI(facebookLink));
 
 		}).fail(function(){
 			console.log("Failed to retrieve shortened url");
 			var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, "http://www.cfemoneyowednys.org");
-						var facebookLink = buildFacebookLink(data[0])
+			var facebookLink = buildFacebookLink(data[0])
+			console.log(facebookLink);
 			twitterLinkElem.attr("href", encodeURI(twitterLink));
 			facebookLinkElem.attr("href", encodeURI(facebookLink));
 
