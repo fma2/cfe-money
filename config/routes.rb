@@ -2,9 +2,12 @@ Rails.application.routes.draw do
 
   # pages routes
   root 'welcome#index'
-  get '/about' => 'welcome#about'
+  get '/why' => 'welcome#why'
+  get '/how' => 'welcome#how'
+  get '/resources' => 'welcome#resources'
   get '/districts' => 'districts#index'
-  get '/schools/:location/:school_id' => 'schools#show'
+  
+  # get '/schools/:location/:school_id' => 'schools#show'
 
   # routes for ajax calls
   get '/school_districts' => 'districts#school_districts'
