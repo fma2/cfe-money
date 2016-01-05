@@ -510,18 +510,10 @@ footer {
   display: block;
 }
 
-/*About page*/
-#about-section {
-  .cover-body {
-    vertical-align: top !important;
-  }
-  p {
-    font-size: 1.4rem;
-  }
-}
 
-/*How page*/
-#how-page.container {
+
+/*Why and how pages*/
+#how-page.container, #why-page.container, #resources-page.container {
   padding:0;
   padding-right: 6rem;
   margin:0 1rem;
@@ -545,17 +537,31 @@ footer {
 }
 
 @media (max-width:767px) {
-  #how-page.container {
+  #how-page.container, #why-page.container, #resources-page.container {
     padding-right:0;
     .list-group {
-      /*text-align: center;*/
     }
     .list-group-item {
       display: inline-block;
-      /*text-align: center;*/
     }
     .col-md-9 {
       padding:0;
+    }
+  }
+}
+
+@media (min-width:458px) and (max-width:767px){
+  #how-page.container, #why-page.container, #resources-page.container {
+    #back-link{
+      display:none;
+    }
+  }
+}
+
+@media (max-width:455px) {
+  #how-page.container, #why-page.container, #resources-page.container {
+    #sub-navigation .lead, #sub-navigation .list-group {
+      display:none;
     }
   }
 }
