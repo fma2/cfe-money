@@ -75,7 +75,7 @@ function prepareSchoolInformation(button){
 		var url = window.location.href;
 
 		var twitterLinkElem = takeAction.find('.twitter-link');
-		twitterLinkElem.attr("target", "_blank");
+		var facebookLinkElem = takeAction.find('.facebook-link');
 
 		$.ajax({
 			dataType: 'json',
@@ -85,12 +85,16 @@ function prepareSchoolInformation(button){
 		}).success(function(data){
 			console.log(url);
 			console.log(data[0]);
-			var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, data[0]);
-			twitterLinkElem.attr("href", twitterLink);
+			var link = buildTwitterLink(school.toProperCase(), formattedAmt, data[0]);
+			twitterLinkElem.attr("href", encodeURI(link));
+			facebookLinkElem.attr("href", encodeURI(link));
+
 		}).fail(function(){
 			console.log("Failed to retrieve shortened url");
-			var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, "http://www.cfemoneyowednys.org");
-			twitterLinkElem.attr("href", twitterLink);
+			var link = buildTwitterLink(school.toProperCase(), formattedAmt, "http://www.cfemoneyowednys.org");
+			twitterLinkElem.attr("href", encodeURI(link));
+			facebookLinkElem.attr("href", encodeURI(link));
+
 		})
 		
 	}
@@ -102,6 +106,11 @@ function buildTwitterLink(school, amount, url){
 	var hashtags = "AllKidsNeed";
 	var via = ""
 	return root + "?text="+ text + "&url=" + url + "&hashtags=" + hashtags
+}
+
+function buildFacebookLink(url) {
+	var root = "https://www.facebook.com/sharer/sharer.php?u="
+	return root + url
 }
 
 // School legislators js
