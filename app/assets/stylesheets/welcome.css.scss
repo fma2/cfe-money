@@ -519,3 +519,43 @@ footer {
     font-size: 1.4rem;
   }
 }
+
+/*How page*/
+#how-page.container {
+  padding:0;
+  padding-right: 6rem;
+  margin:0 1rem;
+  /*width: 80%;*/
+
+  #sub-navigation {
+    margin-top: 3rem;
+  }
+  .lead {
+    font-size: 1.75rem;
+    margin-bottom:0.25rem;
+
+    span {
+      border-bottom: solid 1px black;
+    }
+  }
+  .list-group-item {
+    border:none;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width:767px) {
+  #how-page.container {
+    padding-right:0;
+    .list-group {
+      /*text-align: center;*/
+    }
+    .list-group-item {
+      display: inline-block;
+      /*text-align: center;*/
+    }
+    .col-md-9 {
+      padding:0;
+    }
+  }
+}
