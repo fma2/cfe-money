@@ -8,6 +8,7 @@
 4. Take action section
 5. Cart section
 6. Footer
+7. About page
 */
 
 
@@ -507,4 +508,14 @@ footer {
 /*for method for listing schools in district*/
 .school-list-item{ 
   display: block;
+}
+
+/*About page*/
+#about-section {
+  .cover-body {
+    vertical-align: top !important;
+  }
+  p {
+    font-size: 1.4rem;
+  }
 }

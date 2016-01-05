@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   # pages routes
   root 'welcome#index'
+  get '/about' => 'welcome#about'
   get '/districts' => 'districts#index'
   get '/schools/:location/:school_id' => 'schools#show'
 
