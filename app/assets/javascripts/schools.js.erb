@@ -71,42 +71,43 @@ function prepareSchoolInformation(button){
 
 		findSchoolLegInformation("upper", senate, takeAction);
 		findSchoolLegInformation("lower", assembly, takeAction);
-		
-		var url = window.location.href;
 
-		var twitterLinkElem = takeAction.find('.twitter-link');
-		var facebookLinkElem = takeAction.find('.facebook-link');
-
-		$.ajax({
-			dataType: 'json',
-			url: '/bitly/new',
-			type: 'GET',
-			data: {url: url},
-		}).success(function(data){
-			console.log(url);
-			console.log(data[0]);
-			var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, data[0]);
-			var facebookLink = buildFacebookLink(data[0]);
-			console.log(facebookLink);
-			twitterLinkElem.attr("href", encodeURI(twitterLink));
-			facebookLinkElem.attr("href", encodeURI(facebookLink));
-
-		}).fail(function(){
-			console.log("Failed to retrieve shortened url");
-			var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, "http://www.cfemoneyowednys.org");
-			var facebookLink = buildFacebookLink(data[0])
-			console.log(facebookLink);
-			twitterLinkElem.attr("href", encodeURI(twitterLink));
-			facebookLinkElem.attr("href", encodeURI(facebookLink));
-
-		})
-		
+		var url = window.location.href;	
+		createSocialLinks(school, formattedAmt, url)
 	}
 };
 
+
+//Social links
+function createSocialLinks(school, amount, url) {
+	var takeAction = $('#take-action-section')
+	var twitterLinkElem = takeAction.find('.twitter-link');
+	var facebookLinkElem = takeAction.find('.facebook-link');
+
+	$.ajax({
+		dataType: 'json',
+		url: '/bitly/new',
+		type: 'GET',
+		data: {url: url},
+	}).success(function(data){
+		console.log(url);
+		console.log(data[0]);
+		var twitterLink = buildTwitterLink(school.toProperCase(), amount, data[0]);
+		var facebookLink = buildFacebookLink(data[0]);
+		console.log(facebookLink);
+		twitterLinkElem.attr("href", encodeURI(twitterLink));
+		facebookLinkElem.attr("href", encodeURI(facebookLink));
+
+	}).fail(function(){
+		console.log("Failed to retrieve shortened url");
+		var twitterLink = buildTwitterLink(school.toProperCase(), amount, "http://www.cfemoneyowednys.org");
+		twitterLinkElem.attr("href", encodeURI(twitterLink));
+	})
+}
+
 function buildTwitterLink(school, amount, url){
 	var root = "https://twitter.com/intent/tweet";
-	var text = "NY State owes "+school+" "+amount+". How much is your school owed?"
+	var text = "NY State owes "+school+" "+amount+". Learn more & find out how much your school is owed."
 	var hashtags = "AllKidsNeed";
 	var via = ""
 	return root + "?text="+ text + "&url=" + url + "&hashtags=" + hashtags
