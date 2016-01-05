@@ -85,15 +85,17 @@ function prepareSchoolInformation(button){
 		}).success(function(data){
 			console.log(url);
 			console.log(data[0]);
-			var link = buildTwitterLink(school.toProperCase(), formattedAmt, data[0]);
-			twitterLinkElem.attr("href", encodeURI(link));
-			facebookLinkElem.attr("href", encodeURI(link));
+			var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, data[0]);
+			var facebookLink = buildFacebookLink(data[0]);
+			twitterLinkElem.attr("href", encodeURI(twitterLink));
+			facebookLinkElem.attr("href", encodeURI(facebookLink));
 
 		}).fail(function(){
 			console.log("Failed to retrieve shortened url");
-			var link = buildTwitterLink(school.toProperCase(), formattedAmt, "http://www.cfemoneyowednys.org");
-			twitterLinkElem.attr("href", encodeURI(link));
-			facebookLinkElem.attr("href", encodeURI(link));
+			var twitterLink = buildTwitterLink(school.toProperCase(), formattedAmt, "http://www.cfemoneyowednys.org");
+						var facebookLink = buildFacebookLink(data[0])
+			twitterLinkElem.attr("href", encodeURI(twitterLink));
+			facebookLinkElem.attr("href", encodeURI(facebookLink));
 
 		})
 		
