@@ -1,71 +1,66 @@
-<div class="container" id="resources-page">
-	<div class="row">
-		<div id="sub-navigation" class="col-md-3">
-			<p class="lead"><span>Jump to a topic:<span></p>
-			<div class="list-group">
-				<a href="#nyc-districts" class="list-group-item page-scroll">Numbers by geographic district</a>
-				<a href="#legislative-districts" class="list-group-item page-scroll">Numbers by electoral district</a>
-				<a href="#other-resrouces" class="list-group-item page-scroll">Other resources</a>
-				<hr>
-			</div>
-			<a href="/" id="back-link" class="list-group-item"><i class="fa fa-arrow-circle-left"></i> Back</a>
-		</div>
-		<div class="col-md-9">
-			<div class="row">
-				<div class="col-md-12">
-					<div id="nyc-districts">
-						<h2>Numbers by New York City geographic district</h2>
-						<div class="row school-districts">
-							<div class="col-xs-12">
-								<!-- <h4>by new york city school district</h4> -->
-								<div id="school-district-info">
-								</div>
-								<div id="school-district-buttons">
-								</div>
-								<div class="info-text"><p class="district-caption">Districts 1 to 32 = geographic school districts;  District 75 = special schools district.</p></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div id="legislative-districts">
-						<h2>Numbers by New York State electoral district</h2>
-						<div class="row">
-							<div class="col-xs-12 electoral-districts">
-								<!-- <h4>by electoral district</h4> -->
-								<div id="electoral-district-info">
-								</div>
-								<div id="electoral-district-buttons">
-								</div>
-								<div class="info-text"><p class="district-caption">AD = New York State Assembly District; SD = New York State Senate District</p></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div id="other-resources">
-						<h2>Other resources</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+ <div class="container" id="resources-page">
+ 	<div class="row">
+ 		<div id="sub-navigation" class="col-md-3">
+ 			<p class="lead"><span>Jump to a topic:<span></p>
+ 			<div class="list-group">
+ 				<a href="#nyc-districts" class="list-group-item page-scroll">Numbers by geographic district</a>
+ 				<a href="#legislative-districts" class="list-group-item page-scroll">Numbers by electoral district</a>
+ 				<a href="#other-resrouces" class="list-group-item page-scroll">Other resources</a>
+ 				<hr>
+ 			</div>
+ 			<a href="/" id="back-link" class="list-group-item"><i class="fa fa-arrow-circle-left"></i> Back</a>
+ 		</div>
+ 		<div class="col-md-9">
+ 			<div class="row">
+ 				<div class="col-md-12">
+ 					<div id="nyc-districts">
+ 						<h2>Numbers by New York City geographic district</h2>
+ 						<h4>Select a district to reveal how much it is owed.</h4>
+ 						<div class="row school-districts">
+ 							<div class="col-xs-12">
+ 								<div class="accordion" id="school-districts-accordion">
+ 								</div>
+ 							</div>
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="col-md-12">
+ 					<div id="legislative-districts">
+ 						<h2>Numbers by New York State electoral district</h2>
+ 						<div class="row">
+ 							<div class="col-xs-12 electoral-districts">
+ 								<!-- <h4>by electoral district</h4> -->
+ 								<div id="electoral-district-info">
+ 								</div>
+ 								<div id="electoral-district-buttons">
+ 								</div>
+ 								<div class="info-text"><p class="district-caption">AD = New York State Assembly District; SD = New York State Senate District</p></div>
+ 							</div>
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="col-md-12">
+ 					<div id="other-resources">
+ 						<h2>Other resources</h2>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ </div>
 
-<script type="text/javascript">
+ <script type="text/javascript">
 // AJAX call for district section information
 $.ajax({
 	dataType: 'json',
 	url: '/school_districts',
 	type: 'GET'
 }).success(function(data) {
-	var schoolDistrictButtons = $('#school-district-buttons');
-	var schoolDistrictInfo =  $('#school-district-info');
-	createDistrictButtons(data, schoolDistrictButtons);
+	var schoolDistrictInfo = $('#school-districts-accordion');
 	createSchoolDistrictInformation(data, schoolDistrictInfo)
 }).fail(function() {
 	console.log("Failed to load school district information");

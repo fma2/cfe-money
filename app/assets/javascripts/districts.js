@@ -5,19 +5,13 @@ function findLegTotals(chamber,district){
     url: '/electoral_districts/'+chamber+'/'+district+'',
     type: 'GET'
   }).success(function(data) {
-       var electoralDistrictInfo = $("#electoral-district-info #"+chamber+""+district+"");
-     createElectoralDistrictInformation(data[0],electoralDistrictInfo)
+    var electoralDistrictInfo = $("#electoral-district-info #"+chamber+""+district+"");
+    createElectoralDistrictInformation(data[0],electoralDistrictInfo)
   }).fail(function(){
     console.log("Could not get electoral districts' data");
   })
 }
 
-
-function createDistrictButtons(data,buttonsdiv) {
-  for (k in data) {
-    buttonsdiv.append('<a class="btn btn-custom" data-toggle="collapse" href="#district'+data[k].code+'" aria-expanded="false" aria-controls="collapseExample">'+data[k].district+'</a>')
-  }
-}
 
 function createElectoralDistrictButtons(data,buttonsdiv) {
   for (k in data) {
@@ -36,8 +30,14 @@ function createElectoralDistrictButtons(data,buttonsdiv) {
 
 function createSchoolDistrictInformation(data,infodiv) {
   for (k in data) {
-    infodiv.append('<div class="collapse" id="district'+data[k].code+'">' +
-      '<div class="well">'+
+    infodiv.append('<div class="accordion-group">' +
+      '<div class="accordion-heading">' +
+      '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#district'+data[k].code+'">' +
+      '<button type="button" class="btn btn-primary btn-block">'+data[k].district+'</button>' +
+      '</a>' +
+      '</div>' +
+      '<div id="district'+data[k].code+'" class="accordion-body collapse">' +
+      '<div class="accordion-inner">' +
       '<div class="row">'+
       '<div class="col-md-8">' +
       '<h5 class="well-title">total amount owed to '+data[k].district+' </h5>'+
@@ -47,9 +47,10 @@ function createSchoolDistrictInformation(data,infodiv) {
       '<h5 class="well-title">total number students</h5>' +
       '<h3 class="well-content highlight-title">'+data[k].total_enrollment+'</h3>' +
       '</div>'+
-      '</div>'+        
       '</div>'+
-      '</div>') 
+      '</div>' +
+      '</div>' +
+      '</div>')
   }
 }
 
@@ -119,7 +120,7 @@ function createElectedOfficialInformation(data,infodiv) {
       '</div>'+
       '</div>'+
       '</div>') 
-  }
+}
 }
 
 function createElectoralDistrictInformation(data, infodiv) {
