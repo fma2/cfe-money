@@ -178,9 +178,15 @@ section .container {
 
 .whitespace {
   display: table;
-  height: 40%;
+  height: 20em;
   width: 100%;
 }
+
+/*.visible-results section.white-space {
+  display: table;
+  height: 20em;
+  width: 100%;
+}*/
 
 @media(min-width:768px) {
   .cover {
