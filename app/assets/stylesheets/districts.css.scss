@@ -82,9 +82,7 @@
 
   .well-leg-house,
   .well-leg-district {
-    /*line-height: 12px;*/
     line-height: 80%;
-    /*font-size: 1.5em;*/
   }
 
   .well-leg-district {
@@ -99,4 +97,10 @@
   column-count: 2;
 }
 .well-schools-list-title {
+}
+
+@media (max-width:767px) {
+  .well-content {
+    font-size: 2em;
+  }
 }

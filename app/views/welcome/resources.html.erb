@@ -5,7 +5,7 @@
  			<div class="list-group">
  				<a href="#nyc-districts" class="list-group-item page-scroll">Numbers by geographic district</a>
  				<a href="#legislative-districts" class="list-group-item page-scroll">Numbers by electoral district</a>
- 				<a href="#other-resrouces" class="list-group-item page-scroll">Other resources</a>
+ 				<!-- <a href="#other-resources" class="list-group-item page-scroll">Other resources</a> -->
  				<hr>
  			</div>
  			<a href="/" id="back-link" class="list-group-item"><i class="fa fa-arrow-circle-left"></i> Back</a>
@@ -29,6 +29,14 @@
  				<div class="col-md-12">
  					<div id="legislative-districts">
  						<h2>Numbers by New York State electoral district</h2>
+ 						<h4>Select a district to reveal how much it is owed.</h4>
+ 						<div class="row electoral-districts">
+ 							<div class="col-xs-12">
+ 								<div class="accordion" id="electoral-districts-accordion">
+ 								</div>
+ 							</div>
+ 						</div>
+
  						<div class="row">
  							<div class="col-xs-12 electoral-districts">
  								<!-- <h4>by electoral district</h4> -->
@@ -36,19 +44,20 @@
  								</div>
  								<div id="electoral-district-buttons">
  								</div>
- 								<div class="info-text"><p class="district-caption">AD = New York State Assembly District; SD = New York State Senate District</p></div>
+ 								
  							</div>
  						</div>
+ 						<p class="">AD = New York State Assembly District; SD = New York State Senate District</p>
  					</div>
  				</div>
  			</div>
- 			<div class="row">
+ 	<!-- 		<div class="row">
  				<div class="col-md-12">
  					<div id="other-resources">
  						<h2>Other resources</h2>
  					</div>
  				</div>
- 			</div>
+ 			</div> -->
  		</div>
  	</div>
  </div>
@@ -72,22 +81,23 @@ $.ajax({
 	type: 'GET'
 }).success(function(data){
 	var legislators = data;
+	// console.log(data);
 	// console.log(legislators.length)
 	legSection = $("#districts-section .electoral-districts")
 	var electoralDistrictButtons = $("#electoral-district-buttons");
 	createElectoralDistrictButtons(data,electoralDistrictButtons)
 	for (k in legislators) {
-		console.log(legislators[k])
+		// console.log(legislators[k])
 		var legChamber = legislators[k].chamber;
 		var legDistrict = legislators[k].district;
 		var legName = legislators[k].full_name;
 		// legSection.append('<div class="'+legChamber+''+legDistrict+'"><p>'+legName+'</p></div>');
 
-		var electoralDistrictInfo = $("#electoral-district-info");
+		var electoralDistrictInfo = $("#electoral-districts-accordion");
 		createElectedOfficialInformation(legislators[k], electoralDistrictInfo)
 		
 		findLegTotals(legChamber, legDistrict);
-		return;
+		// return;
 	}
 }).fail(function() {
 	console.log("Failed to load electoral district information");
