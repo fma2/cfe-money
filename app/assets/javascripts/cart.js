@@ -27,11 +27,13 @@ function updateAmountLeftToSpend(cost, item, name) {
   var updatedAmount = amountLeft - cost;
   if (updatedAmount > 0) {
     cartSection.find('#amount-left-to-spend').data("amount-number", updatedAmount);
+    cartSection.find('#amount-left-to-spend').css("color", "#ff606e");
+
     var formattedAmt = parseFloat(updatedAmount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');  
     cartSection.find('#amount-left-to-spend').text("$" + formattedAmt);
     updateCart(item, name);
   } else {
-    cartSection.find("#purchased-items").prepend("<div class='alert alert-info fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Oh snap! </strong>You don't have enough available to spend on that item.</div>");
+    cartSection.find(".details-section").prepend("<div class='alert alert-info fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Oh snap! </strong>You don't have enough available to spend on that item.</div>");
     window.setTimeout(function() { $(".alert").alert('close'); }, 2000);
   }
 }

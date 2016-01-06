@@ -103,44 +103,7 @@
       margin-bottom:0.5rem;
     }
   }
-  #cart {
-    h1.section-title{
-      font-size: 2.25rem;
-      padding:0;
 
-    }
-    h3 {
-      font-size: 1.5rem;
-    }
-    .cart-items {
-      .thumb {
-        padding:0;
-        .img-responsive {
-          max-width: 50%;
-        }
-        .caption h4 {
-          margin:0;
-          font-size:1rem;
-        }
-        .caption p {
-          font-size: .75rem;
-        }
-      }
-      
-    }
-    #purchased-items {
-      h4 {
-        font-size: 1.35rem;
-      }
-      p {
-        font-size: 1.25rem;
-      }
-
-    }
-    h4.amount-text, h4.amount-left-text {
-      font-size: 1.65rem;
-    }
-  }
 }
 
 @media (min-width: 768px){

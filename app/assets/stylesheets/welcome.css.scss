@@ -498,12 +498,21 @@
     width: 100%;
   }
 
+  #added-items {
+    padding-top: 10px;
+  }
   .details-section {
   }
 
   .thumbnail {
     position:relative;
     overflow:hidden;
+  }
+  .cart-items {
+    padding-top: 1.5rem;
+    .col-xs-12.col-sm-6.cart-images {
+      padding-top:15px;
+    }
   }
 
   .caption {
@@ -518,6 +527,60 @@
     text-align: left;
     color:#fff !important;
     z-index:2;
+  }
+
+  .subtitle-hide {
+    display: none;
+    padding-bottom:1.5rem;
+  }
+}
+
+@media (max-width:767px) {
+  #cart {
+    .subtitle-hide{
+      display:block;
+    }
+    .details-section .school-section {
+      display:none;
+    }
+    h1.section-title{
+      font-size: 2.25rem;
+      padding:0;
+
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+    .cart-items {
+      padding-top: 1.5rem;
+
+      .thumb {
+        padding:0;
+        .img-responsive {
+          max-width: 50%;
+        }
+        .caption h4 {
+          margin:0;
+          font-size:1rem;
+        }
+        .caption p {
+          font-size: .75rem;
+        }
+      }
+      
+    }
+    #purchased-items {
+      h4 {
+        font-size: 1.35rem;
+      }
+      p {
+        font-size: 1.25rem;
+      }
+
+    }
+    h4.amount-text, h4.amount-left-text {
+      font-size: 1.35rem;
+    }
   }
 }
 
@@ -602,7 +665,7 @@ footer {
     .col-md-9 {
       padding:0;
     }
-        .mobile-note {
+    .mobile-note {
       display:inline;
     }
   }

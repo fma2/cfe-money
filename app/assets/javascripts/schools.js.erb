@@ -57,7 +57,8 @@ function prepareSchoolInformation(button){
 
 		schoolInfo.find('.school-title-district').text("(" + district.toProperCase() + ")")
 
-		cartSection.find('.school-title').text(school.toProperCase() + " ");
+		var title = "THIS IS THE AMOUNT OWED TO "+school+"";
+		cartSection.find('#cart a.school-tooltip').attr("title", title);
 
 		if (formattedAmt=="0.00") {
 			$('.amount-number').text("budget data not available");
