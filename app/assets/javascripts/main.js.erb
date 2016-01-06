@@ -19,6 +19,11 @@ function ready(){
       scrollTop: $('.loc-tabs').offset().top 
     }, 600);
   }) 
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
   addSmoothScroll('a.page-scroll'); // add smoothScroll
   addCartItemsListeners(); // add cart event listeners
   animateCartButtons(); // animate captions for cart items     
@@ -68,7 +73,7 @@ function ready(){
 
     })
 
-  }
+}
 }
 
 function addSmoothScroll(div) {
