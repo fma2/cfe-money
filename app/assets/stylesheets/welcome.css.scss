@@ -344,44 +344,24 @@
 /*Action Section*/
 
 #take-action-section {
-/*  .row.action-item {
-    display:flex;
+  .action-num, .action-text {
     align-items: center;
-    justify-content: center;
-  }*/
-
-/*  .facebook-link a#u_0_1 {
-    color: $palette-white !important;
-    text-decoration: none;
-    font: $main-font;
-  }*/
+    /*justify-content: center;*/
+  }
   .action-item {
     padding-top: 1.5rem;
     padding-bottom:1.5rem;
   }
   .title-col, .action-items{
-    color: $palette-white;
-    background: $bootstrap-blue;
     display:block
   }
   h1.section-title {
-    color: $palette-white;
-  }
-  h3 {
-/*    padding-top:1px;
     color: $palette-blue9;
-    display: table;
-    -webkit-text-stroke: .75px;
-    font-weight: 600;
-    img {
-      color: #f00;
-       -webkit-filter: invert(1);*/
-   /*filter: invert(1);*/
-    /*}*/
   }
   h3 {
     font-size: 1.75rem;
-
+    margin-top: 0;
+    margin-bottom:0;
   }
   .action-items {
     padding-bottom: 4rem;
@@ -444,12 +424,62 @@
       width: 5.5rem;
     }
     h3 {
+      margin-top: 0;
+      margin-bottom:0;
       font-size: 2rem;
     }
     .row.action-item {
       width:70%;
       margin-left: auto;
       margin-right: auto;
+    }
+  }
+}
+
+@media(min-width: 1350px) {
+  #take-action-section{
+    .img-responsive {
+      max-width: 50%;
+    }
+  }
+}
+
+@media (max-width:767px) {
+  #take-action-section {
+    h1.section-title{
+      font-size: 2.25rem;
+    }
+    .action-item {
+      padding-top:1rem !important;
+      padding-bottom:1rem !important;
+      h3 {
+        font-size: 1.4rem;
+        a {
+          color:$palette-blue5;
+        }
+        a:hover {
+          color: $palette-blue6;
+        }
+      }
+    }
+    .leg-lower, .leg-upper {
+      padding-top:2rem;
+    }
+    .leg-info {
+      p {
+        font-size: 1rem;
+      }
+      .btn {
+        padding:.2rem;
+        a {
+          font-size: 1rem;
+        }
+      } 
+    }
+    #legislators-section {
+      .img-responsive {
+        max-width: 60%;
+      }
     }
   }
 }
@@ -530,6 +560,9 @@ footer {
   padding-right: 6rem;
   margin:0 1rem;
   /*width: 80%;*/
+  h2 {
+    color: $palette-blue5;
+  }
 
   #sub-navigation {
     margin-top: 3rem;
@@ -545,6 +578,12 @@ footer {
   .list-group-item {
     border:none;
     padding: 0.5rem;
+  }
+  .btn-primary {
+    color: $palette-black;
+    background-color: $palette-white;
+    border-color: transparent;
+    text-align: left;
   }
 }
 
