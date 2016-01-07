@@ -27,7 +27,7 @@ p,
 .btn,
 .modal,
 .nav,
-.tool-tip
+.tooltip-inner
  {
   font-family: $main-font;
   font-weight: 700;
@@ -244,6 +244,12 @@ section .container {
   background-color: $palette-white;
   color: $palette-black;
   padding-bottom: 2rem;
+  padding-top:2rem;
+  h3{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2rem;
+  }
   .btn-circle{
     color: $palette-orangered;
     margin-top: 4px;
@@ -254,4 +260,16 @@ section .container {
   }
 }
 
+.tooltip-inner {
+  color: $palette-black;
+  background-color: $palette-white;
+  border: solid $palette-gray1;
+}
+@media (max-width:767px) {
+  #next-steps{
+    h3 {
+      font-size: 1.75rem;
+    }
+  }
+}
 

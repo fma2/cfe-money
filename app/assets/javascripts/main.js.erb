@@ -22,6 +22,8 @@ function ready(){
 
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
+    $('#search_text1').tooltip({'delay': {'show':500, 'hide':'100'},'trigger':'hover', 'placement':'top', 'title': 'Use school names when available. For district search, type the word “district” plus the name or number. Click on the school in the dropdown menu to select it.'});
+    $('#search_text2').tooltip({'delay': {'show':500, 'hide':'100'},'trigger':'hover', 'placement':'top', 'title': 'For district search, type the word “district” plus the name or number. Click on the school in the dropdown menu to select it.'});
   })
 
   addSmoothScroll('a.page-scroll'); // add smoothScroll

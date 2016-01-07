@@ -154,6 +154,10 @@
     padding-left: 0;
     padding-right:0;
   }
+  .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
+    height: 46px;
+    opacity: 0.4;
+  }
   .header-body {
     display:block; 
     width: 100%;
@@ -244,6 +248,10 @@
     padding-top:1em;
     position:relative;
     z-index:1;
+  }
+
+  .nav-tabs>li>a {
+    border: 1px solid $palette-gray1;
   }
 
   .nav-tabs>li.active>a {
@@ -531,6 +539,18 @@
     display: none;
     padding-bottom:1.5rem;
   }
+  #next-steps {
+    padding-top:3rem;
+    .btn-default:hover {
+      text-decoration:none;
+      background-color: $palette-orangered;
+      a {
+        color: white;
+      }
+    }
+
+  }
+  
 }
 
 @media (max-width:767px) {
