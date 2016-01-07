@@ -544,13 +544,11 @@
     padding-top:3rem;
     .btn-default:hover {
       background-color: $palette-orangered;
-      a {
-        color: white;
-        text-decoration:none;
-
-      }
+      color:white;
     }
-
+    a:hover {
+      /*text-decoration:none;*/
+    }
   }
   
 }
@@ -609,7 +607,7 @@
   display: block;
 }
 
-/*Last section*/
+/*Last section-- NOT CURRENTLY BEING USED*/ 
 section.last {
   width: 100%;
   padding: 0 7%;
