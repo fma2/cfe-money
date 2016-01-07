@@ -542,10 +542,11 @@
   #next-steps {
     padding-top:3rem;
     .btn-default:hover {
-      text-decoration:none;
       background-color: $palette-orangered;
       a {
         color: white;
+        text-decoration:none;
+
       }
     }
 
