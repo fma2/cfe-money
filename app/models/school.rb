@@ -4,7 +4,7 @@ class School < ActiveRecord::Base
 	belongs_to :location
 	
 	pg_search_scope :search_nyc_schools, 
-									:against => [[:district_code, 'B'],[:district_name, 'C'], [:school, 'A']], 
+									:against => [[:addl_district_tag2, 'B'],[:district_name, 'C'], [:school, 'A']], 
 									:using => {
                     :tsearch => {:prefix => true},
                   }
@@ -12,7 +12,7 @@ class School < ActiveRecord::Base
   	)}
 
 	pg_search_scope :search_ros_schools, 
-									:against => [[:district_code, 'B'],[:district_name, 'C'], [:school, 'A']],
+									:against => [[:district_name, 'B'],[:district_code, 'C'], [:school, 'A']],
 									:using => {
                     :tsearch => {:prefix => true},
                   }
