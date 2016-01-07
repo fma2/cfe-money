@@ -1,5 +1,5 @@
 function addCartItemsListeners(){
-  $("#cart-items #item").click(function() {
+  $("#cart-items #item").click(function(event) {
     event.preventDefault();
     event.stopPropagation();
     var cost = $(this).data('cost');
