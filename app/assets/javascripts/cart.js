@@ -25,6 +25,7 @@ function updateAmountLeftToSpend(cost, item, name) {
   var cartSection = $("#cart")
   var amountLeft = cartSection.find('#amount-left-to-spend').data("amount-number");  
   var updatedAmount = amountLeft - cost;
+  $("#purchased-items").css("display", "block")
   if (updatedAmount > 0) {
     cartSection.find('#amount-left-to-spend').data("amount-number", updatedAmount);
     cartSection.find('#amount-left-to-spend').css("color", "#ff606e");
