@@ -132,6 +132,7 @@ function findSchoolLegInformation(chamber, district, targetDiv) {
 		return;
 	}).fail(function() {
 		console.log("Failed to load electoral district information");
+		$("#legislators-section").show();
 	})
 }
 
