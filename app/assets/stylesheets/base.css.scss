@@ -240,9 +240,18 @@ section .container {
   color: white;
 }
 
-#next-steps {
-  text-align: center;
-  padding-top:2em;
+#next-steps{
+  background-color: $palette-white;
+  color: $palette-black;
+  padding-bottom: 2rem;
+  .btn-circle{
+    color: $palette-orangered;
+    margin-top: 4px;
+    padding:0;
+  }
+  .btn-circle:hover {
+    color: $palette-gray2;
+  }
 }
 
 
