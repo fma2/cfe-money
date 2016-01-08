@@ -70,9 +70,12 @@ p {
 
 a {
   color: $link-font-color;
+  text-decoration: none;
 }
 a:hover {
   color: $link-hover-font-color;
+  text-decoration: none;
+  
 }
 
 footer {
