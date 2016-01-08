@@ -119,9 +119,15 @@
  				<div class="col-md-12">
  					<div id="legislative-districts">
  						<h2>Numbers by New York State electoral district</h2>
- 						<h4>Select a district to reveal how much it is owed.</h4>
+ 						<h4>Search and select an electoral district to reveal how much it is owed.</h4>
+ 						<div class="input-group">
+ 							<input type="search" class="form-control" id="filter-legislator" placeholder="Type a district number or legislator last name" aria-describedby="basic-addon2"> 
+ 							<span class="input-group-btn"> <button class="btn btn-default" type="button"><span  class="glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
+ 						</div>
  						<div class="row electoral-districts">
  							<div class="col-xs-12">
+ 								<!-- <h5>Search by district number or legislator last name: <input type="text" id="txt_name"/></h5> -->
+ 								
  								<div class="accordion" id="electoral-districts-accordion">
  								</div>
  							</div>
@@ -196,5 +202,22 @@ $.ajax({
 }).fail(function() {
 	console.log("Failed to load electoral district information");
 })
+
+$(document).ready(function(){
+	$("#filter-legislator").keyup(function(){
+		var bla = $('#filter-legislator').val();
+		$( ".leg-button" ).each(function(){
+			var x = $(this)
+			console.log(x);
+			var htxt=$(this).text();
+			if (htxt.indexOf(bla) > -1) {
+				$(this).show();
+			} else {
+				$(this).hide();
+			}
+		});
+	});
+});
+
 
 </script>

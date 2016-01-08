@@ -133,7 +133,7 @@ function createElectedOfficialInformation(data,infodiv) {
       '<div class="accordion-group">' +
         '<div class="accordion-heading">' +
           '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#'+data.chamber+''+data.district+'">' +
-            '<button type="button" class="btn btn-primary btn-block"><i class="fa fa-angle-right"></i> '+chamber+''+data.district+' - '+data.last_name+'</button>' +
+            '<button type="button" class="btn btn-primary btn-block leg-button"><i class="fa fa-angle-right"></i> '+chamber+''+data.district+' - '+data.last_name+'</button>' +
           '</a>' +
         '</div>' +
 
