@@ -61,8 +61,6 @@
 .well-legislator-information {
   img {
     height: 71px;
-    width: 55px;
-    /*width:304; height:236;*/
     height:71px;
     background-color:#FFFFFF;
     margin-top:20px;
@@ -71,13 +69,7 @@
   .well-leg-email, 
   .well-leg-website, 
   .well-leg-albanyno {
-    /*line-height: 10px;*/
     line-height: 70%;
-    /*font-size: 1em;*/
-  }
-
-  .well-leg-name {
-    /*font-size: 2em;*/
   }
 
   .well-leg-house,
@@ -97,6 +89,10 @@
   column-count: 2;
 }
 .well-schools-list-title {
+}
+
+.accordion-inner {
+  border: #dddfd4 solid 1px;
 }
 
 @media (max-width:767px) {
