@@ -15,5 +15,6 @@
 //= require jquery-smooth-scroll
 //= require jquery_ujs
 //= require jquery-ui
+//= require sevenup.0.3.min.js
 //= require turbolinks
 //= require_tree .
