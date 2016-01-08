@@ -75,6 +75,24 @@ a:hover {
   color: $link-hover-font-color;
 }
 
+footer {
+  a {
+    color: $palette-blue7;
+  }
+  a:hover {
+    color: $palette-blue9;
+  }
+}
+
+.result-item {
+  a {
+    color:$palette-blue9;
+  }
+  a:hover {
+    color: $palette-blue7;
+  }
+}
+
 /*2 - Elements*/
 
 .clickable {

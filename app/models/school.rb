@@ -12,7 +12,7 @@ class School < ActiveRecord::Base
   	)}
 
 	pg_search_scope :search_ros_schools, 
-									:against => [[:district_name, 'B'],[:district_code, 'C'], [:school, 'A']],
+									:against => [[:district_name, 'B'], [:school, 'A']],
 									:using => {
                     :tsearch => {:prefix => true},
                   }
