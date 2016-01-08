@@ -1,22 +1,5 @@
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '726839784118188',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
 <!-- Header -->
+
 <header id="top" class="header cover">
 	<%= render :partial => 'welcome/header'  %>
 </header>
