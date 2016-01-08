@@ -115,6 +115,10 @@ function buildTwitterLink(school, amount, url){
 }
 
 function buildFacebookLink(url) {
+	$("meta[property='og\\:title']").attr("content", "How much does NYS owe your school?");
+	$("meta[property='og\\:url']").attr("content", url);
+	$("meta[property='og\\:description']").attr("content", "New York State continues to ignore the settlement of a landmark school funding lawsuit that requires the state to provide billions more to schools.  Use this web app to find out how much New York State owes your school");
+	
 	var root = "https://www.facebook.com/sharer/sharer.php?u="
 	return root + url
 }
