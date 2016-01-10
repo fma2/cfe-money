@@ -19,7 +19,7 @@
 			<div class="col-xs-12 col-sm-6 cart-images">
 				<div class="col-lg-3 col-md-4 col-xs-4 thumb">
 					<div class="thumbnail" href="" id="item" data-item="classroom-teacher" data-name="Classroom Teacher/s" data-cost="55000">
-						<a class="" href="#">
+						<a class="" href="#" onclick="ga('send', 'event', 'Cart item', 'click', 'Teacher');">
 							<div class="caption">
 								<h4 class="">Classroom Teacher</h4>
 								<p class="">$55,000 per year</p>
@@ -30,7 +30,7 @@
 				</div>
 				<div class="col-lg-3 col-md-4 col-xs-4 thumb">
 					<div class="thumbnail" href="" id="item" data-item="afterschool-program" data-name="Afterschool Program/s" data-cost="3000">
-						<a class="" href="#">
+						<a class="" href="#" onclick="ga('send', 'event', 'Cart item', 'click', 'After-school program');">
 							<div class="caption">
 								<h4 class="">After-School Program</h4>
 								<p class="">$3,000 per student</p>
@@ -41,7 +41,7 @@
 				</div>
 				<div class="col-lg-3 col-md-4 col-xs-4 thumb">
 					<div class="thumbnail" href="" id="item" data-item="arts-program" data-name="Arts Program/s" data-cost="75000">
-						<a class="" href="#">
+						<a class="" href="#" onclick="ga('send', 'event', 'Cart item', 'click', 'Arts program');">
 							<div class="caption">
 								<h4 class="">Arts Program</h4>
 								<p class="">$75,000 per year</p>
@@ -52,7 +52,7 @@
 				</div>
 				<div class="col-lg-3 col-md-4 col-xs-4 thumb">
 					<div class="thumbnail" href="" id="item" data-item="library" data-name="Library/ies" data-cost="77000">
-						<a class="" href="#">
+						<a class="" href="#" onclick="ga('send', 'event', 'Cart item', 'click', 'Library');">
 							<div class="caption">
 								<h4 class="">Library</h4>
 								<p class="">$77,000 per year to maintain it</p>
@@ -63,7 +63,7 @@
 				</div>
 				<div class="col-lg-3 col-md-4 col-xs-4 thumb">
 					<div class="thumbnail" href="" id="item" data-item="sports" data-name="Sports Program/s" data-cost="8000">
-						<a class="" href="#">
+						<a class="" href="#" onclick="ga('send', 'event', 'Cart item', 'click', 'Sports program');">
 							<div class="caption">
 								<h4 class="">Sports Program</h4>
 								<p class="">$8,000 per season per sport</p>
@@ -74,7 +74,7 @@
 				</div>
 				<div class="col-lg-3 col-md-4 col-xs-4 thumb">
 					<div class="thumbnail" href="" id="item" data-item="teachers-aide" data-name="Teacher's Aide/s" data-cost="22000">
-						<a class="" href="#">
+						<a class="" href="#" onclick="ga('send', 'event', 'Cart item', 'click', 'Teacher's Aide');">
 							<div class="caption">
 								<h4 class="">Teacher's Aide</h4>
 								<p class="">$22,000 per year</p>
@@ -85,7 +85,7 @@
 				</div>
 				<div class="col-lg-3 col-md-4 col-xs-4 thumb">
 					<div class="thumbnail" href="" id="item" data-item="guidance-counselor" data-name="Guidance Counselor/s or Social Worker/s" data-cost="60000">
-						<a class="" href="#">
+						<a class="" href="#" onclick="ga('send', 'event', 'Cart item', 'click', 'Guidance counselor or social worker');">
 							<div class="caption">
 								<h4 class="">Guidance Counselor or Social Worker</h4>
 								<p class="">$60,000 per year</p>
@@ -96,7 +96,7 @@
 				</div>
 				<div class="col-lg-3 col-md-4 col-xs-4 thumb">
 					<div class="thumbnail" href="" id="item" data-item="classroom-laptops" data-name="Class set/s of laptops" data-cost="14550">
-						<a class="" href="#">
+						<a class="" href="#" onclick="ga('send', 'event', 'Cart item', 'click', 'Laptops');">
 							<div class="caption">
 								<h4 class="">Classroom laptops</h4>
 								<p class="">$14,550 for a 30-student class set</p>
@@ -136,12 +136,8 @@
 	</div>
 	<div class="row text-center" style="padding-top:20px;">
 		<div class="col-xs-12" id="next-steps">
-			<!-- <h3>Start over or learn more.</h3> -->
-<!-- 			<a href="#four" class="btn btn-circle page-scroll">
-				<i class="fa fa-arrow-circle-down fa-2x animated"></i>
-			</a> -->
-			<a class="page-scroll" href="#top"><button type="button" class="btn btn-default btn-lg">START OVER</button></a>
-			<a href="/why"><button type="button" class="btn btn-default btn-lg">LEARN MORE</button></a>
+			<a class="page-scroll" href="#top" onclick="ga('send', 'event', 'Next steps buttons', 'click', 'To start over');"><button type="button" class="btn btn-default btn-lg">START OVER</button></a>
+			<a href="/why" onclick="ga('send', 'event', 'Next steps buttons', 'click', 'To learn more');"><button type="button" class="btn btn-default btn-lg">LEARN MORE</button></a>
 		</div>
 	</div>
 </div>

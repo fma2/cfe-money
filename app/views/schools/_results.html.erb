@@ -13,7 +13,7 @@
 			data-assembly="<%= item.assembly_district  %>" 
 			data-senate="<%= item.senate_district %>" 
 			data-enrollment="<%= item.total_enrollment %>" 
-			data-owed="<%= item.amount_owed %>" >
+			data-owed="<%= item.amount_owed %>" onclick="ga('send', 'event', 'School results list', 'click', 'School - <%= item.school  %>');">
 			<li class="list-group-item"><%= item.dbn%> <%= item.school %>  (<%= item.district_name %>)</li>
 		</a>
 	</div>

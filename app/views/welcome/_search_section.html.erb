@@ -18,7 +18,7 @@
 				<ul class="nav nav-tabs nav-pills loc-tabs" role="tablist">
 					<% @locations.each do |l|  %>
 					<li role="presentation">
-						<a href="#<%= l.loc_code %>" aria-controls="<%= l.loc_code %>" role="tab" data-toggle="tab">
+						<a href="#<%= l.loc_code %>" aria-controls="<%= l.loc_code %>" role="tab" data-toggle="tab" onclick="ga('send', 'event', 'Search tabs', 'click', 'Location - <%= l.name %>');">
 							<div  aria-expanded="false">
 								<h5><%= l.name  %></h5>
 							</div>

@@ -170,6 +170,7 @@ function createLegSnippet(targetDiv, elem, textNodes, title) {
 			var a = document.createElement("a");
 			a.setAttribute("href", textNodes[k]);
 			a.setAttribute("target", "_blank")
+			a.setAttribute("onclick", "ga('send', 'event', 'Take action link', 'click', '"+title+" legislator');")
 			if (title != null) {
 				var text = document.createTextNode(title);
 				a.appendChild(text);

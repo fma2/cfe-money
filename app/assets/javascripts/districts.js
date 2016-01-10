@@ -68,8 +68,8 @@ function createElectedOfficialInformation(data,infodiv) {
     "<span class='well-leg-house'>"+chamber+"</span> " +
     "<span class='well-leg-district'>"+data.district+"</span>" +
     "</h5>" +
-    "<p class='well-leg-email'><a href='mailto:"+data.email+"?Subject=What are you doing to get CFE money back to our schools?'>"+data.email+"</a></p>" +
-    "<p class='well-leg-albanyno'><a href='tel:"+data.offices[0]["phone"]+"'>"+data.offices[0]["phone"]+"</a></p>" +
+    "<p class='well-leg-email'><a href='mailto:"+data.email+"?Subject=What are you doing to get CFE money back to our schools?' onclick='ga('send', 'event', 'Take action link', 'click', 'Email legislator');'>"+data.email+"</a></p>" +
+    "<p class='well-leg-albanyno'><a href='tel:"+data.offices[0]["phone"]+" onclick='ga('send', 'event', 'Take action link', 'click', 'Call legislator');''>"+data.offices[0]["phone"]+"</a></p>" +
     "<p class='well-leg-website'>" +
     "<a href="+data.url+" target='_blank'>website</a>" +
     "</p>" +
