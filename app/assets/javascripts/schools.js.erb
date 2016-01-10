@@ -23,7 +23,7 @@ $(document).on("click", '.result-item a', function(){
 			$.getScript(location.href);
 		});
 	}
-	document.title = "How much NYS owes "+button.data('school').toProperCase()+"";
+	document.title = "How much NYS owes "+button.data('school')+"";
 
 	prepareSchoolInformation(button);
 })

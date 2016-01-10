@@ -67,12 +67,12 @@ function ready(){
         setActiveSearchTab(1); // select NYC tab when page open
         $("#search_text1").val(schoolName);
         $.get('/search/nyc?search='+ schoolName);
-        document.title = "How much NYS owes "+schoolName.toProperCase()+"";
+        document.title = "How much NYS owes "+schoolName+"";
       } else if ($("#location_code").val() === "ros")  {
         setActiveSearchTab(2); // select NYC tab when page open
         $("#search_text2").val(schoolName);
         $.get('/search/ros?search='+ schoolName);
-        document.title = "How much NYS owes "+schoolName.toProperCase()+"";
+        document.title = "How much NYS owes "+schoolName+"";
       }
       showSchoolInfoDivs();
       $(window).load(function () {
