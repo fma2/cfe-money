@@ -1,6 +1,9 @@
 $(document).on("click", '.result-item a', function(){
 	// show and clean up divs
 	$("#legislators-section .leg-info").empty();
+	$("#added-items").empty();
+	$("#amount-left-to-spend").css("color", "black");
+	$("#cart").find('.amount-number').removeData();
 	showSchoolInfoDivs();
 
 	// prepare and render school info 

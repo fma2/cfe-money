@@ -6,6 +6,7 @@ function addCartItemsListeners(){
     var itemData = $(this).data;
     var itemTag = $(this).data('item')
     var itemName = $(this).data('name');
+    console.log($("#cart").find('#amount-left-to-spend').data("amount-number"));
     updateAmountLeftToSpend(cost, itemTag, itemName);
   })
 }
@@ -24,6 +25,7 @@ function animateCartButtons(){
 function updateAmountLeftToSpend(cost, item, name) {
   var cartSection = $("#cart")
   var amountLeft = cartSection.find('#amount-left-to-spend').data("amount-number");  
+  console.log(amountLeft)
   var updatedAmount = amountLeft - cost;
   $("#purchased-items").css("display", "block")
   if (updatedAmount > 0) {
