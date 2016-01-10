@@ -1,4 +1,5 @@
 <h6>search results: <%= @results.length %></h6>
+<p><a class="info-tooltip" data-toggle="tooltip" data-placement="top" title="Use your school's name, a unique word from your school's name, or the name of your district (e.g. District 5).">having trouble finding your school?</a></p>
 <ul class="list-group results-list" id="results-list">
 	<% @results.each do |item| %>
 	<div class="result-item clickable">
@@ -22,5 +23,6 @@
 <script type="text/javascript">
 $(function(){
 	addSmoothScroll('.result-item a.page-scroll');
+	$('[data-toggle="tooltip"]').tooltip()
 })
 </script>
