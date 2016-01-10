@@ -12,6 +12,7 @@
 	<script type="text/javascript">
 	$("#search_text1").keyup(function(event) {
 		$(".visible-results").show();
+		$(".action-items").hide();
 		$.get('/search/<%= location %>?search='+ $(this).val());
 		return false;
 	});
