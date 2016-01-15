@@ -14,6 +14,6 @@
 //= require jquery.turbolinks
 //= require jquery-smooth-scroll
 //= require jquery_ujs
-//= require jquery-ui
+//= require jquery-ui/tooltip
 //= require turbolinks
 //= require_tree .

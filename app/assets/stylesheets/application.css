@@ -1,5 +1,5 @@
 /*
-	*= require jquery-ui
- *= require_self
- *= require_tree .
+	*= require jquery-ui/tooltip
+	*= require_self
+ 	*= require_tree .
  */
