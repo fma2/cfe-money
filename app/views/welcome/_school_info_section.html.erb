@@ -1,0 +1,72 @@
+<div class="container cover-body">
+	<div class="row text-center school-search-result intro-text">
+		<div class="col-xs-12 warning-text">
+			<a href="#search-section" class="btn btn-circle page-scroll">
+				<i class="fa fa-arrow-circle-up fa-2x animated"></i>
+			</a>
+			<h1>Looks like no schools were found.  Return to the top to try again.</h1>
+		</div>
+	</div>
+	<div class="row equal school-section" id="school-information">
+		<div class="col-xs-12 col-sm-6 school-details" style="display:flex"  id="one">
+			<div class="row">
+				<div class="col-xs-12">
+					<h1 class="schoolInfoLabel"><span class="school-title"></span><span class="school-title-dbn"></span><span class="school-title-district"></span></h1>
+					<%= hidden_field_tag 'school_name', @school_name %>
+					<%= hidden_field_tag 'location_code', @location_code %>
+				</div>
+				<div class="col-xs-12">
+					<h2 class="amount-text">Total amount owed:<br><span class="amount-number"></span></h2>
+				</div>
+				<div class="col-xs-12">
+					<h2 class="per-student-number">Per student: <br>$<span class="per-student-amount"></span></h2>	
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 resources-list">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="row">
+						<div class="col-xs-12">
+							<h3>This money could buy students at <span class="school-title"></span> the following:</h3>
+						</div>
+					</div>
+					<div class="row resource-item resource-teacher">
+						<div class="col-xs-3 resource-image">
+							<img src="https://s3.amazonaws.com/cfemoneyowednys.org/images/01-teacher.png" alt="teacher-resource" class="img-responsive">
+						</div>
+						<div class="col-xs-9 resource-text">
+							<h4></h4>
+						</div>
+					</div>
+					<div class="row resource-item resource-arts">
+						<div class="col-xs-3 resource-image">
+							<img src="https://s3.amazonaws.com/cfemoneyowednys.org/images/02-arts-program.png" alt="arts-resource" class="img-responsive">
+						</div>
+						<div class="col-xs-9 resource-text">
+							<h4></h4>
+						</div>
+					</div>
+					<div class="row resource-item resource-library">
+						<div class="col-xs-3 resource-image">
+							<img src="https://s3.amazonaws.com/cfemoneyowednys.org/images/03-library.png" alt="library-resource" class="img-responsive">
+						</div>
+						<div class="col-xs-9 resource-text">
+							<h4></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row school-section" >
+		<div class="col-xs-12" id="next-steps">
+			<h3>Think that our students and schools deserve better?</h3>
+			<h3>See what you can do to take action.</h3>
+			<a href="#two" class="btn btn-circle page-scroll" onclick="ga('send', 'event', 'Next steps buttons', 'click', 'To take action section');">
+				<i class="fa fa-arrow-circle-down fa-2x animated"></i>
+			</a>
+		</div>
+	</div>
+</div>

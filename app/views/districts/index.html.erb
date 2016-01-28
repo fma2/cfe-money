@@ -1,0 +1,90 @@
+<%= render :partial => 'welcome/navigation'  %>
+
+<section id="districts-section" class="districts-section cover">
+	<div class="container cover-body text-left">
+		<div class="jumbotron">
+			<h1>Get the facts about your school district and electoral district!</h1>
+		</div>
+		<div class="row school-districts">
+			<div class="col-xs-12">
+				<h4>by new york city school district</h4>
+				<div id="school-district-info">
+				</div>
+				<div id="school-district-buttons">
+				</div>
+				<div class="info-text"><p class="district-caption">Districts 1 to 32 = geographic school districts;  District 75 = special schools district.</p></div>
+			</div>
+		</div>
+		<hr>		
+		<div class="row">
+			<div class="col-xs-12 electoral-districts">
+				<h4>by electoral district</h4>
+				<div id="electoral-district-info">
+				</div>
+				<div id="electoral-district-buttons">
+				</div>
+				<div class="info-text"><p class="district-caption">AD = New York State Assembly District; SD = New York State Senate District</p></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<script type="text/javascript">
+ // AJAX call for district section information
+	$.ajax({
+		dataType: 'json',
+		url: '/school_districts',
+		type: 'GET'
+	}).success(function(data) {
+		var schoolDistrictButtons = $('#school-district-buttons');
+		var schoolDistrictInfo =  $('#school-district-info');
+		createDistrictButtons(data, schoolDistrictButtons);
+		createSchoolDistrictInformation(data, schoolDistrictInfo)
+	}).fail(function() {
+		console.log("Failed to load school district information");
+	}); 
+
+	$.ajax({
+		dataType:'json',
+		url: 'http://openstates.org/api/v1//legislators/?state=ny&active=true&apikey=<%= ENV['SUNLIGHT_FOUNDATION_API_KEY'] %>',
+		type: 'GET'
+	}).success(function(data){
+		var legislators = data;
+		// console.log(legislators.length)
+		legSection = $("#districts-section .electoral-districts")
+		var electoralDistrictButtons = $("#electoral-district-buttons");
+		createElectoralDistrictButtons(data,electoralDistrictButtons)
+		for (k in legislators) {
+			console.log(legislators[k])
+			var legChamber = legislators[k].chamber;
+			var legDistrict = legislators[k].district;
+			var legName = legislators[k].full_name;
+			// legSection.append('<div class="'+legChamber+''+legDistrict+'"><p>'+legName+'</p></div>');
+
+			var electoralDistrictInfo = $("#electoral-district-info");
+			createElectedOfficialInformation(legislators[k], electoralDistrictInfo)
+			
+			findLegTotals(legChamber, legDistrict);
+			return;
+		}
+	}).fail(function() {
+		console.log("Failed to load electoral district information");
+	})
+
+	  // AJAX call for assembly section information
+  // $.ajax({
+  //   dataType: 'json',
+  //   url: '/electoral_districts',
+  //   type: 'GET'
+  // }).success(function(data) {
+  //   var electoralDistrictButtons = $("#electoral-district-buttons");
+  //   var electoralDistrictInfo = $("#electoral-district-info");
+  //   createElectoralDistrictButtons(data, electoralDistrictButtons);
+  //   createElectoralDistrictInformation(data,electoralDistrictInfo);
+  // }).fail(function() {
+  //   console.log("Failed to load electoral district information");
+  // }); 
+
+
+</script>

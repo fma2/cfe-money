@@ -1,0 +1,129 @@
+// GLOBAL VARIABLES
+var defaultLocationTab = 1; // set default location tab
+var teacher = 54329; // resource costs
+var arts_program = 75000;
+var library = 77000;
+var divsToToggle = ["#school-info-section", "#school-info-section .school-section", "#take-action-section", "#cart"]
+
+
+// Copyright 2014-2015 Twitter, Inc.
+// Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+  var msViewportStyle = document.createElement('style')
+  msViewportStyle.appendChild(
+    document.createTextNode(
+      '@-ms-viewport{width:auto!important}'
+    )
+  )
+  document.querySelector('head').appendChild(msViewportStyle)
+}
+
+$(document).ready(ready);
+// $(document).on('page:load', ready);
+
+function ready(){
+  // set animation, add default listeners
+  // fade page in
+  $("body").hide(0).delay(100).fadeIn(2200);
+
+  // animate search bar
+  $('#search_text2, #search_text1').on("click", function( e ) { 
+    $("body, html").animate({ 
+      scrollTop: $('.loc-tabs').offset().top 
+    }, 600);
+  }) 
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    $('#search_text1').tooltip({'delay': {'show':500, 'hide':'100'},'trigger':'hover', 'placement':'top', 'title': 'Use school names when available. For district search, type the word “district” plus the name or number. Click on the school in the dropdown menu to select it.'});
+    $('#search_text2').tooltip({'delay': {'show':500, 'hide':'100'},'trigger':'hover', 'placement':'top', 'title': 'For district search, type the name of the district. Click on the school in the dropdown menu to select it.'});
+  })
+
+  addSmoothScroll('a.page-scroll'); // add smoothScroll
+  addCartItemsListeners(); // add cart event listeners
+  animateCartButtons(); // animate captions for cart items     
+
+  // render page if-else
+  var schoolName = $("#school_name").val();
+  console.log(schoolName);
+  if (schoolName == "" || schoolName == undefined) {
+    console.log ("nothing here")
+
+    // initial hide of divs below header
+    $(function(){
+      $(".visible-results").hide();
+      showDiv("#two .equal")
+      $("#legislators-section").hide();
+      for (k in divsToToggle) {
+        hideDiv(divsToToggle[k]);
+      }
+      setActiveSearchTab(1); // select NYC tab when page open
+    })
+  } else {
+
+    $(function(){
+      var schoolName = $("#school_name").val();
+      if ($("#location_code").val() === "nyc") {
+        setActiveSearchTab(1); // select NYC tab when page open
+        $("#search_text1").val(schoolName);
+        $.get('/search/nyc?search='+ schoolName);
+        document.title = "How much NYS owes "+schoolName+"";
+      } else if ($("#location_code").val() === "ros")  {
+        setActiveSearchTab(2); // select NYC tab when page open
+        $("#search_text2").val(schoolName);
+        $.get('/search/ros?search='+ schoolName);
+        document.title = "How much NYS owes "+schoolName+"";
+      }
+      showSchoolInfoDivs();
+      $(window).load(function () {
+        $('html, body').animate({
+          scrollTop: $('#one').offset().top
+        }, 'slow');
+      })
+      var delay = 1500;
+      setTimeout(function() {
+        var button = $(".result-item a[data-school='"+schoolName+"']");
+        prepareSchoolInformation(button);
+      }, delay);
+
+    })
+
+}
+}
+
+function addSmoothScroll(div) {
+  $(div).smoothScroll();
+}
+
+function setActiveSearchTab(tabNum){
+  $('.loc-tabs li:nth-child('+tabNum+')').addClass('active'); 
+  $('.tab-content .tab-pane:nth-child('+tabNum+')').addClass('in');
+  $('.tab-content .tab-pane:nth-child('+tabNum+')').addClass('active');
+}
+
+function hideDiv(selector) {
+  $(selector).css("visibility", "hidden")
+} 
+function showDiv(selector) {
+  $(selector).css("visibility", "visible")
+}
+
+function formatAmount(amount){
+  return parseFloat(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');    
+}
+
+String.prototype.toProperCase = function () {
+  return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
+
+function isArray(object)
+{
+  if (object.constructor === Array) return true;
+  else return false;
+}
+
+
+function twitterLink() {
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+}
+

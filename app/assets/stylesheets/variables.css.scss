@@ -1,0 +1,62 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Codystar:300);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+/* Variables */
+
+/*blue palette - http://www.colorcombos.com/color-schemes/17/ColorCombo17.html*/
+$sapphire:#333399;
+$dodger-blue: #3399FF;
+$mariner: #3366CC;
+$blue: #0030FF;
+$perwinkle: #D6DFFF;
+$malibu: #7B9AFF;
+$bright-blue: #00ddd8;
+$purple-blue: #517398;
+$midnight-blue: #262c3a;
+/*other colors*/
+$black: #000;
+$dark-green: #003300;
+$light-gray: #E6EBE6;
+$gray: gray;
+$white: #fff;
+$pale-gray: #dddfd4;
+$turquoise: #3fb0ac;
+$orange-red: #ff606e;
+
+
+/*Palette*/
+/*Blues*/
+$palette-blue1: $perwinkle;
+$palette-blue2: $malibu;
+$palette-blue3: $bright-blue;
+$palette-blue4: $blue;
+$palette-blue5: $dodger-blue;
+$palette-blue6: $mariner;
+$palette-blue7: $sapphire;
+$palette-blue8: $purple-blue;
+$palette-blue9: $midnight-blue;
+$bootstrap-blue: #337ab7;
+
+/*Grays*/
+$palette-white: $white;
+$palette-black: $black;
+$palette-gray1: $light-gray;
+$palette-gray2: $pale-gray;
+$palette-gray3: $gray;
+
+/*Other*/
+$palette-orangered: $orange-red;
+
+
+/*Typography*/
+$main-font: 'Lato', sans-serif;
+$other-font: 'Codystar', cursive;
+$basic-color: $black;
+$highlight-text-color: $black;
+
+
+/*Links*/
+$link-font-color: $palette-blue6;
+$link-hover-font-color: $palette-blue7;
+

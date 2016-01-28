@@ -1,0 +1,204 @@
+$(document).on("click", '.result-item a', function(){
+	// show and clean up divs
+	$("#legislators-section .leg-info").empty();
+	$("#added-items").empty();
+	$("#amount-left-to-spend").css("color", "black");
+	$("#cart").find('.amount-number').removeData();
+	showSchoolInfoDivs();
+
+	// prepare and render school info 
+	var button = $(this);
+	
+	// update val in search bar according to what is selected
+	if (button.data("loc") == 1) {
+		$("#search_text1").val(button.data('school'));
+		history.replaceState(null,document.title, $("#schools_search1").attr("action") + "?" + $("#schools_search1").serialize());
+		$(window).bind("popstate", function() {
+			$.getScript(location.href);
+		});
+	} else {
+		$("#search_text2").val(button.data('school'));
+		history.replaceState(null,document.title, $("#schools_search2").attr("action") + "?" + $("#schools_search2").serialize());
+		$(window).bind("popstate", function() {
+			$.getScript(location.href);
+		});
+	}
+	document.title = "How much NYS owes "+button.data('school')+"";
+
+	prepareSchoolInformation(button);
+})
+
+function showSchoolInfoDivs(){
+	$(function() {
+		hideDiv('.warning-text');
+		$(".action-items").show();
+		$("#legislators-section").show();
+		for (k in divsToToggle) {
+			showDiv(divsToToggle[k]);
+		}
+	});
+}
+
+function prepareSchoolInformation(button){
+	var schoolInfo = $('#school-information')
+	var takeAction = $('#take-action-section')
+	var cartSection = $('#cart');
+	var school = button.data('school');
+	var district = button.data('district');
+	var enrollment = button.data('enrollment');
+	var amount = button.data('owed');
+	var senate = button.data('senate');
+	var assembly = button.data('assembly');
+
+	if (school !=undefined) {
+		var formattedAmt = '$'+formatAmount(amount)+'';
+
+		schoolInfo.find('.school-title').text(school.toProperCase() + " ");
+		
+		schoolInfo.attr("data-school-info", [button.data('school-id'), button.data('loc')] );
+
+		$("#school-info-section").find('#share-school a').attr("href", "/schools/"+button.data('loc')+"/"+button.data('school-id')+"");
+
+		schoolInfo.find('.school-title-district').text("(" + district.toProperCase() + ")")
+
+		var title = "THIS IS THE AMOUNT OWED TO "+school+"";
+		$('#cart a.school-tooltip').attr("title", title);
+
+		if (formattedAmt=="0.00") {
+			$('.amount-number').text("budget data not available");
+		} else {
+			$('.amount-number').text(formattedAmt);
+			cartSection.find('.amount-number').attr("data-amount-number", amount);
+		}
+		displayResourceAmount(amount, schoolInfo);
+		var perStudentAmount = parseFloat(amount / enrollment).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+		schoolInfo.find('.per-student-amount').text(perStudentAmount);
+
+		findSchoolLegInformation("upper", senate, takeAction);
+		findSchoolLegInformation("lower", assembly, takeAction);
+
+		var url = window.location.href;	
+		createSocialLinks(school, formattedAmt, url)
+	}
+};
+
+
+//Social links
+function createSocialLinks(school, amount, url) {
+	var takeAction = $('#take-action-section')
+	var twitterLinkElem = takeAction.find('.twitter-link');
+	var facebookLinkElem = takeAction.find('.facebook-link');
+
+	$.ajax({
+		dataType: 'json',
+		url: '/bitly/new',
+		type: 'GET',
+		data: {url: url},
+	}).success(function(data){
+		console.log(url);
+		console.log(data[0]);
+		var twitterLink = buildTwitterLink(school, amount, data[0]);
+		var facebookLink = buildFacebookLink(data[0]);
+		console.log(facebookLink);
+		twitterLinkElem.attr("href", encodeURI(twitterLink));
+		facebookLinkElem.attr("href", encodeURI(facebookLink));
+
+	}).fail(function(){
+		console.log("Failed to retrieve shortened url");
+		var twitterLink = buildTwitterLink(school, amount, "http://www.cfemoneyowednys.org");
+		twitterLinkElem.attr("href", encodeURI(twitterLink));
+	})
+}
+
+function buildTwitterLink(school, amount, url){
+	var root = "https://twitter.com/intent/tweet";
+	var text = "NY State owes "+school+" "+amount+". The lack of funding is hurting our students."
+	var hashtags = "StandUp4Kids";
+	var via = ""
+	return root + "?text="+ text + "&url=" + url + "&hashtags=" + hashtags
+}
+
+function buildFacebookLink(url) {
+	$("meta[property='og\\:title']").attr("content", "How much does NYS owe your school?");
+	$("meta[property='og\\:url']").attr("content", url);
+	$("meta[property='og\\:description']").attr("content", "New York State continues to ignore the settlement of a landmark school funding lawsuit that requires the state to provide billions more to schools.  Use this web app to find out how much New York State owes your school");
+	
+	var root = "https://www.facebook.com/sharer/sharer.php?u="
+	return root + url
+}
+
+// School legislators js
+function findSchoolLegInformation(chamber, district, targetDiv) {
+	$.ajax({
+		dataType:'json',
+		url: 'http://openstates.org/api/v1//legislators/?state=ny&chamber='+chamber+'&active=true&district='+district+'&apikey=<%= ENV['SUNLIGHT_FOUNDATION_API_KEY'] %>',
+		type: 'GET'
+	}).success(function(data){
+		var legislators = data;
+		var leg = legislators[0]
+		displaySchoolLegInformation (chamber, leg, targetDiv);
+		return;
+	}).fail(function() {
+		console.log("Failed to load electoral district information");
+		$("#legislators-section").show();
+	})
+}
+
+function displaySchoolLegInformation(chamber, legislator, targetDiv) {
+	var chamberCorrectedCase = legislator["chamber"]
+	targetDiv.find('.legislators-section .leg-'+chamber+' .leg-photo img').attr("src", legislator["photo_url"]);
+	var legInfoSection = $('.legislators-section .leg-'+chamber+' .leg-info');
+	var legName = document.createTextNode(legislator["full_name"]);
+	var legChamber = document.createTextNode('Chamber: '+chamberCorrectedCase+'');
+	var legDistrict = document.createTextNode('District: '+legislator["district"]+'');
+	var legEmail= 'mailto:'+legislator["email"]+'';
+	var legPhone = 'tel:'+legislator.offices[0]["phone"]+'';
+	createLegSnippet(legInfoSection, "p", [legName, legChamber, legDistrict], "")
+	createLegSnippet(legInfoSection, "span", [legEmail], "Email");
+	createLegSnippet(legInfoSection, "span", [legPhone], "Call");
+}
+
+function createLegSnippet(targetDiv, elem, textNodes, title) {
+	for (k in textNodes) {
+		if (elem === "p") {
+			var node = document.createElement(elem);
+			node.appendChild(textNodes[k]);
+			targetDiv.append(node);
+		} else {
+			var span = document.createElement(elem);
+			span.classList.add("btn");
+			span.classList.add("btn-default")
+			var a = document.createElement("a");
+			a.setAttribute("href", textNodes[k]);
+			a.setAttribute("target", "_blank")
+			a.setAttribute("onclick", "ga('send', 'event', 'Take action link', 'click', '"+title+" legislator');")
+			if (title != null) {
+				var text = document.createTextNode(title);
+				a.appendChild(text);
+			}
+			span.appendChild(a);
+			targetDiv.append(span);
+		}
+	}
+}
+
+// School resources
+function calculateResourceAmount(cost, fundsAvailable){
+	return Math.round(fundsAvailable / cost);
+}
+
+function displayResourceAmount(amount, targetDiv) {
+	// var amountAvailable = amount
+	// if (amount > library) {
+	// 	amountAvailable +- library
+	// 		targetDiv.find('.resource-library .resource-text h4').text(''+num_library+' libraries')		
+	// }
+	var amount_per_resource = amount / 3
+	var num_teacher = calculateResourceAmount(teacher, amount_per_resource)
+	var num_arts_programs = calculateResourceAmount(arts_program, amount_per_resource)
+	var num_library = calculateResourceAmount(library, amount_per_resource)
+
+	targetDiv.find('.resource-teacher .resource-text h4').text('Hiring at least '+num_teacher+' classroom teacher/s')
+	targetDiv.find('.resource-arts .resource-text h4').text('Providing an arts program for at least '+num_arts_programs+' year/s')
+	targetDiv.find('.resource-library .resource-text h4').text('Maintaining a library for at least '+num_library+' year/s')
+}

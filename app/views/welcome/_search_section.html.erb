@@ -1,0 +1,45 @@
+<div class="container" id="search-section">
+	<div class="row" id="location-tabs-row">
+		<hr>
+		<div class="col-xs-12 col-md-12 col-lg-12">
+			<h4 class="subtitle-text2">
+				<span class="col-xs-12 highlight-title get-started-text">
+					Select a location <span style="color: #ff606e;">&</span> search for a school or district to get started.
+				</span>
+			</h4>
+			<!-- <p>
+				<span class="col-xs-12">
+					<a href="#two" class="page-scroll">
+						Or, jump ahead to take action
+					</a>.
+				</span>
+			</p> -->
+			<div role="tabpanel" class="col-xs-12 subtitle-buttons">
+				<ul class="nav nav-tabs nav-pills loc-tabs" role="tablist">
+					<% @locations.each do |l|  %>
+					<li role="presentation">
+						<a href="#<%= l.loc_code %>" aria-controls="<%= l.loc_code %>" role="tab" data-toggle="tab" onclick="ga('send', 'event', 'Search tabs', 'click', 'Location - <%= l.name %>');">
+							<div  aria-expanded="false">
+								<h5><%= l.name  %></h5>
+							</div>
+						</a>
+					</li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container" id="search-bar-section">
+	<div class="row" id="search-bar-row">
+		<div class="col-xs-12 col-md-12 col-lg-12">
+			<div class="col-xs-12 tab-content">
+				<% @locations.each_with_index do |l, i|  %>
+				<div role="tabpanel" class="tab-pane fade" id="<%= l.loc_code %>">
+					<%= render :partial => "/locations/#{l.loc_code}_index", :locals => {:location => l.loc_code, :location_name => l.name }  %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

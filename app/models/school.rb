@@ -2,12 +2,9 @@ class School < ActiveRecord::Base
 	include PgSearch
 	
 	belongs_to :location
-
-	has_many :electoral_district_schools
-	has_many :electoral_districts, through: :electoral_district_schools
 	
 	pg_search_scope :search_nyc_schools, 
-									:against => [[:district_code, 'B'],[:district_name, 'C'], [:school, 'A']], 
+									:against => [[:addl_district_tag2, 'B'],[:district_name, 'C'], [:school, 'A']], 
 									:using => {
                     :tsearch => {:prefix => true},
                   }
@@ -15,7 +12,7 @@ class School < ActiveRecord::Base
   	)}
 
 	pg_search_scope :search_ros_schools, 
-									:against => [[:district_code, 'B'],[:district_name, 'C'], [:school, 'A']],
+									:against => [[:district_name, 'B'], [:school, 'A']],
 									:using => {
                     :tsearch => {:prefix => true},
                   }

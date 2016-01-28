@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default" data-section-name="name">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#" onclick="ga('send', 'event', 'Navigation bar', 'click', 'Google translate');">
+				<!-- Google translate -->
+				<div id="google_translate_element"></div>
+				<script type="text/javascript">
+				function googleTranslateElementInit() {
+					new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+				}
+				</script>
+				<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+			</a>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" onclick="ga('send', 'event', 'Navigation bar', 'click', 'Menu bar');">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse" aria-expanded="false">
+			<ul class="nav navbar-nav text-right">
+				<li><a href="/" onclick="ga('send', 'event', 'Navigation bar', 'click', 'Home');">home</a></li>
+				<li>
+					<a href="/why" onclick="ga('send', 'event', 'Navigation bar', 'click', 'Why it matters');">
+						why it matters
+					</a>
+				</li>
+				<li>
+					<a href="/how" onclick="ga('send', 'event', 'Navigation bar', 'click', 'How it works');">how it works</a>
+				</li>
+				<li>
+					<a href="/why#take-action" onclick="ga('send', 'event', 'Navigation bar', 'click', 'Take action');">
+						take action
+					</a>
+				</li>
+				<li>
+					<a href="/resources" onclick="ga('send', 'event', 'Navigation bar', 'click', 'Resources');">resources</a>
+				</li>
+				<li class="divider"></li>		
+			</ul>
+		</div>
+	</div>
+</nav>

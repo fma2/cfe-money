@@ -1,280 +1,122 @@
-/* Search Schools Section */
+@import 'variables.css.scss';
+@import 'base.css.scss';
 
-#search_text1, #search_text2 {
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.5);
-  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
-  z-index:1;
-}
+/* School information section */
 
-.search-bar-and-results-section {
-  height: 275px
-}
-
-.results-list {
-  height: 150px;
-  overflow: auto;
-
-  a {
-    color: #003300;
+#school-information {
+  .warning-text {
+    visibility: visible;
   }
-  a:hover{
-    color:  #335C33;
-    text-decoration:none;
-  }
-}
-
-/* Districts Section */
-
-.totals-row {
-  padding-top:100px;
-}
-.info-number {
-  font-size: 3em;
-}
-
-.well-title {
-  padding-top: 10px;
-  font-size: 1em;
-}
-
-.well-content {
-  padding-bottom: 10px;
-  font-size: 3em;
-}
-
-.district-caption {
-  text-align:right;
-}
-
-#school-district-buttons, 
-#electoral-district-buttons,
-.description-text, footer {
-  .btn-custom {
-    background-color: #FFF;
-    border-color: #ded9d9;
-    border-color: #f5f5f5;
-    color: #4C4C4C;
-
-    color:#B2B2B2;
-    color: #4C4C4C;
-  }
-  .btn-custom:hover,
-  .btn-custom:focus,
-  .btn-custom:active,
-  .btn-custom.active {
-    background-color:#E6EBE6;
-    border-color: #c6bebe;
-  }
-  .btn-custom.disabled:hover,
-  .btn-custom.disabled:focus,
-  .btn-custom.disabled:active,
-  .btn-custom.disabled.active,
-  .btn-custom[disabled]:hover,
-  .btn-custom[disabled]:focus,
-  .btn-custom[disabled]:active,
-  .btn-custom[disabled].active,
-  fieldset[disabled] .btn-custom:hover,
-  fieldset[disabled] .btn-custom:focus,
-  fieldset[disabled] .btn-custom:active,
-  fieldset[disabled] .btn-custom.active {
-    background-color: #ded9d9;
-    border-color: #ded9d9;
+  .school-details{
+    background-color: $palette-blue6;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 0;
+    h1.schoolInfoLabel {
+      font-size: 4rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-align: left;
+      color: $palette-white; 
+    }
+    h2.amount-text, h2.per-student-number{
+      color: $palette-blue1;
+    }
+    h2 {
+      span.amount-number, span.per-student-amount {
+        color: $palette-white;
+      }
+    }    
   }
 
+  .resources-list {
+    color: $palette-black;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+
+    h3 {
+      text-transform: uppercase;
+    }
+    .resource-item {
+      display: flex;
+      align-items:center;
+      justify-content: center;
+      .resource-image {
+        text-align: left;
+      }
+
+      .resource-text {
+        text-align: left;
+        display:inline-block;
+        vertical-align:middle;
+      }
+      .col-xs-6.resource-text {
+        padding-top:20px;
+      }
+      
+      img {
+        max-width: 100%;
+        right:0;
+      }
+
+    }
+  }  
 }
 
+@media (max-width:767px) {
+  .title-image {
+    display:none;
+  }
+  #school-information {
+    display: block;
 
-/* School Modal */
+    .school-details {
+      padding:1.5rem 0;
 
-.modal-header {
-  background-color: #003300;
-  color: black;  
+      h1.schoolInfoLabel{
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.75rem;
+      }
+    }
+    .resources-list {
+      padding:0rem 0;
+
+      h3 {
+        font-size: 1.5rem;
+      }
+      h4 {
+        font-size: 1.35rem;
+      }
+    }
+  }
+  
+  #next-steps{
+    padding-top: 1rem;
+    h3 {
+      font-size:1.5rem;
+      margin-top:0.5rem;
+      margin-bottom:0.5rem;
+    }
+  }
+
 }
 
-#schoolModal, #aboutModal {
-  z-index: 99999;
-}
-#schoolModal .modal-title, .modal-title-dbn, .modal-title-district{
-  font-size: 3em;
-  color: white;
-}
-
-.amount-number,
-.enrollment-number {
-  font-size:3.5em;
-}
-
-#aboutModal .modal-title{
-  font-size: 1.5em;
-  color: white;
+@media (min-width: 768px){
+  #school-information {
+    display:flex;
+  }
 }
 
 .legislators-title {
   p {
-  font-weight: 200;
-  text-align:center;
-  }
-}
-
-.legislator-information {
-  img {
-    height: 71px;
-    width: 55px;
-    /*width:304; height:236;*/
-    height:71px;
-    background-color:#FFFFFF;
-    margin-top:20px;
-    border: solid 1px #CCC; -moz-box-shadow: 1px 1px 5px #999; -webkit-box-shadow: 1px 1px 5px #999; box-shadow: 1px 1px 5px #999;
-  }
-  
-  .leg-photo {
-    float: right;
-
-  }
-
-  .leg-email, 
-  .leg-website, 
-  .leg-albanyno {
-    /*line-height: 10px;*/
-    line-height: 70%;
-    /*font-size: 1em;*/
-  }
-
-  .leg-name {
-    /*font-size: 2em;*/
-  }
-
-  .leg-house,
-  .leg-district {
-    /*line-height: 12px;*/
-    line-height: 80%;
-    /*font-size: 1.5em;*/
-  }
-
-  .leg-district {
-    padding-bottom: 10px;
-  }
-
-  h3 {
     font-weight: 200;
-  }
-  h4 {
-  }
-}
-
-.well-legislator-information {
-  img {
-    height: 71px;
-    width: 55px;
-    /*width:304; height:236;*/
-    height:71px;
-    background-color:#FFFFFF;
-    margin-top:20px;
-    border: solid 1px #CCC; -moz-box-shadow: 1px 1px 5px #999; -webkit-box-shadow: 1px 1px 5px #999; box-shadow: 1px 1px 5px #999;
-  }
-  .well-leg-email, 
-  .well-leg-website, 
-  .well-leg-albanyno {
-    /*line-height: 10px;*/
-    line-height: 70%;
-    /*font-size: 1em;*/
-  }
-
-  .well-leg-name {
-    /*font-size: 2em;*/
-  }
-
-  .well-leg-house,
-  .well-leg-district {
-    /*line-height: 12px;*/
-    line-height: 80%;
-    /*font-size: 1.5em;*/
-  }
-
-  .well-leg-district {
-    padding-bottom: 10px;
-  }
-
-
-}
-.well-schools-list {
-  -webkit-column-count: 2; /* Chrome, Safari, Opera */
-  -moz-column-count: 2; /* Firefox */
-  column-count: 2;
-}
-.well-schools-list-title {
-}
-
-.school-list-item{ 
-  display: block;
-}
-
-/* Media Queries */
-
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-  #schoolModal {
-    .modal-title, .modal-title-dbn, .modal-title-district {
-      font-size: 1.1em;
-    }
-    .amount-number, .enrollment-number{
-      font-size: 2em;
-    }
-  }
-  .results-list{
-    height:200px;
-  }
-
-  #search_text1, #search_text2 {
-    font-size: 8.5px;
-  } 
-
-  .legislator-information {
-    .leg-email, 
-    .leg-website, 
-    .leg-albanyno {
-      line-height: 60%;
-      font-size: 85%;
-    }
-
-    .leg-name {
-      font-size: 90%;
-    }
-
-    .leg-house,
-    .leg-district {
-      line-height: 70%;
-      font-size: 90%;
-    }
-
-    .leg-district {
-      padding-bottom: 10px;
-    }
-
-    h3 {
-      font-weight: 200;
-    }
-  }
-  .well-legislator-information{
-     .well-leg-photo {
-      float: right;
-    }
-  }
-
-}
-
-/* iPads (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
-  .results-list{
-    height:270px;
+    text-align:center;
   }
 }
-
-
 
 

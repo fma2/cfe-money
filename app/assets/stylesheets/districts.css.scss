@@ -1,0 +1,106 @@
+/* Districts page */
+
+.totals-row {
+  padding-top:100px;
+}
+.info-number {
+  font-size: 3em;
+}
+
+.well-title {
+  padding-top: 10px;
+  font-size: 1em;
+}
+
+.well-content {
+  padding-bottom: 10px;
+  font-size: 3em;
+}
+
+.district-caption {
+  text-align:right;
+}
+
+#legislative-districts button.btn.btn-default{
+  opacity: 0.35;
+}
+
+#school-district-buttons, 
+#electoral-district-buttons,
+.description-text, footer {
+  .btn-custom {
+    background-color: #FFF;
+    border-color: #ded9d9;
+    border-color: #f5f5f5;
+    color: #4C4C4C;
+
+    color:#B2B2B2;
+    color: #4C4C4C;
+  }
+  .btn-custom:hover,
+  .btn-custom:focus,
+  .btn-custom:active,
+  .btn-custom.active {
+    background-color:#E6EBE6;
+    border-color: #c6bebe;
+  }
+  .btn-custom.disabled:hover,
+  .btn-custom.disabled:focus,
+  .btn-custom.disabled:active,
+  .btn-custom.disabled.active,
+  .btn-custom[disabled]:hover,
+  .btn-custom[disabled]:focus,
+  .btn-custom[disabled]:active,
+  .btn-custom[disabled].active,
+  fieldset[disabled] .btn-custom:hover,
+  fieldset[disabled] .btn-custom:focus,
+  fieldset[disabled] .btn-custom:active,
+  fieldset[disabled] .btn-custom.active {
+    background-color: #ded9d9;
+    border-color: #ded9d9;
+  }
+
+}
+
+.well-legislator-information {
+  img {
+    height: 71px;
+    height:71px;
+    background-color:#FFFFFF;
+    margin-top:20px;
+    border: solid 1px #CCC; -moz-box-shadow: 1px 1px 5px #999; -webkit-box-shadow: 1px 1px 5px #999; box-shadow: 1px 1px 5px #999;
+  }
+  .well-leg-email, 
+  .well-leg-website, 
+  .well-leg-albanyno {
+    line-height: 70%;
+  }
+
+  .well-leg-house,
+  .well-leg-district {
+    line-height: 80%;
+  }
+
+  .well-leg-district {
+    padding-bottom: 10px;
+  }
+
+
+}
+.well-schools-list {
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+}
+.well-schools-list-title {
+}
+
+.accordion-inner {
+  border: #dddfd4 solid 1px;
+}
+
+@media (max-width:767px) {
+  .well-content {
+    font-size: 2em;
+  }
+}

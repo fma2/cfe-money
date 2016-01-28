@@ -1,0 +1,195 @@
+ <div class="container" id="resources-page">
+ 	<div class="row">
+ 		<div id="sub-navigation" class="col-md-3">
+ 			<p class="lead"><span>Jump to a topic:<span></p>
+ 			<div class="list-group">
+ 				<a href="#costs-breakdown" class="list-group-item page-scroll">Costs of resources</a>
+ 				<a href="#nyc-districts" class="list-group-item page-scroll">Numbers by geographic district</a>
+ 				<a href="#legislative-districts" class="list-group-item page-scroll">Numbers by electoral district</a>
+ 				<hr>
+ 			</div>
+ 			<a href="/" id="back-link" class="list-group-item"><i class="fa fa-arrow-circle-left"></i> Back</a>
+ 		</div>
+ 		<div id="resources-section" class="col-md-9">
+ 			<div class="row">
+ 				<div class="col-md-12">
+ 					<h1 id="school-funding-resources">School funding resources</h1>
+ 				</div>
+ 				<div class="col-md-12">
+ 					<div id="costs-breakdown">
+ 						<h2>Cost of school resources</h2>
+ 						<h4>Below is a menu of options that schools could provide if they received the funding they are owed.<span class="mobile-note"> This page is optimized for desktop viewing</span></h4>
+ 						<div class="row">
+ 							<div class="col-xs-12">
+ 								<table class="table table-striped table-hover" id="costs-table">
+ 									<tr>
+ 										<th><h4>Service Area</h4></th>
+ 										<th><h4>Cost</h4></th> 
+ 										<th><h4>Unit</h4></th>
+ 										<th><h4>Note</h4></th>
+ 										<th><h4>Bottom Line</h4> </th>
+ 									</tr>
+ 									<tr class="item-cost">
+ 										<td class="">Classroom Teacher</td>
+ 										<td class="">$54,329</td>
+ 										<td class="">Salary</td>
+ 										<td class="">After 2 year of teaching, With a Masters degree (without additional certificates)</td>
+ 										<td class="">$55,000 per teacher per year</td>
+ 									</tr>
+ 									<tr class="item-cost">
+ 										<td class="">Teacher’s Aide </td>
+ 										<td class="">$21,743</td>
+ 										<td class="">Salary</td>
+ 										<td class="">Base Pay</td>
+ 										<td class="">$22,000 per aide per year</td>
+ 									</tr>
+ 									<tr class="item-cost">
+ 										<td class="">Guidance Counselor/ Social Worker</td>
+ 										<td class="">$60,371</td>
+ 										<td class="">Salary</td>
+ 										<td class="">After 2 years in the system, after having completed 60 credits in counseling courses</td>
+ 										<td class="">$60,000 per counselor per year</td>
+ 									</tr>
+ 									<tr class="item-cost">
+ 										<td class="">Afterschool program</td>
+ 										<td class="">$3,000</td>
+ 										<td class="">Per student</td>
+ 										<td class="">Based on SONYC numbers</td>
+ 										<td class="">500-student school: $1.5 million for afterschool for all kids per year</td>
+ 									</tr>
+ 									<tr class="item-cost">
+ 										<td class="">Arts Program</td>
+ 										<td class="">~$75,000</td>
+ 										<td class="">Per art program</td>
+ 										<td class="">Cost based on Office of Arts and Spe­cial Projects<br>Each school receives $3,500 per art program ($1,000 for supplies and resources and $2,500 for cultural partnerships)<br><br>Average art teacher salary: $50,000</td>
+ 										<td class="">$75,000 per year</td>
+ 									</tr>
+ 									<tr class="item-cost">
+ 										<td class="">Library</td>
+ 										<td class="">$50,000<br><br>$15,233<br><br>$23.37</td>
+ 										<td class="">Salary<br><br>Library budget<br>Per pupil</td>
+ 										<td class=""><ul><li>This is the minimal cost for maintaining an existing library, not to build a new one</li><li>This is based on 2013-14 survey data of 768 school and public libraries</li><li> Per Pupil is based on averages for the 1999-2000 school year, before budget cuts decimated libraries</li></ul></td>
+ 										<td class="">$77,000 per year<br>For 500 students </td>
+ 									</tr>
+ 									<tr class="item-cost">
+ 										<td class="">Sports</td>
+ 										<td class="">$5,000<br><br>$2,000<br><br>$1,000</td>
+ 										<td class="">Coach Salary<br>Referee Salary<br>Other</td>
+ 										<td class="">These figures are per sport per season.<br>The salaries reflect the averages that are currently being paid (coach salary varies wildly by sport)<br>Other includes </td>
+ 										<td class=""></td>
+ 									</tr>
+ 									<tr class="item-cost">
+ 										<td class="">Classroom laptop/s</td>
+ 										<td class="">$485</td>
+ 										<td class="">Per laptop</td>
+ 										<td class="">This is the cost of a Lenovo X140eAMD 11.6" laptop according to <a href="https://dfoforms.nycenet.edu/shopdoe/" target="_blank">ShopDOE</a></td>
+ 										<td class="">A class set costs $14,550<br>For a class of 30 students, with one laptop per student</td>
+ 									</tr>
+ 									<tr>
+ 										<p>* salaries do not include benefits.</p>
+ 									</tr>
+ 								</table>
+ 							</div>
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="col-md-12">
+ 					<div id="nyc-districts">
+ 						<h2>Numbers by New York City geographic district</h2>
+ 						<h4>Select a district to reveal how much it is owed.</h4>
+ 						<div class="row school-districts">
+ 							<div class="col-xs-12">
+ 								<div class="accordion" id="school-districts-accordion">
+ 								</div>
+ 							</div>
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="col-md-12">
+ 					<div id="legislative-districts">
+ 						<h2>Numbers by New York State electoral district</h2>
+ 						<h4>Search and select an electoral district to reveal how much it is owed.</h4>
+ 						<div class="input-group">
+ 							<input type="search" class="form-control" id="filter-legislator" placeholder="Type a district number or legislator last name" aria-describedby="basic-addon2"> 
+ 							<span class="input-group-btn"> <button class="btn btn-default" type="button"><span  class="glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
+ 						</div>
+ 						<div class="row electoral-districts">
+ 							<div class="col-xs-12">
+ 								<!-- <h5>Search by district number or legislator last name: <input type="text" id="txt_name"/></h5> -->
+ 								
+ 								<div class="accordion" id="electoral-districts-accordion">
+ 								</div>
+ 							</div>
+ 						</div>
+
+ 						<div class="row">
+ 							<div class="col-xs-12 electoral-districts">
+ 								<!-- <h4>by electoral district</h4> -->
+ 								<div id="electoral-district-info">
+ 								</div>
+ 								<div id="electoral-district-buttons">
+ 								</div>
+
+ 							</div>
+ 						</div>
+ 						<p class="">AD = New York State Assembly District; SD = New York State Senate District</p>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ </div>
+
+ <script type="text/javascript">
+// AJAX call for district section information
+$.ajax({
+	dataType: 'json',
+	url: '/school_districts',
+	type: 'GET'
+}).success(function(data) {
+	var schoolDistrictInfo = $('#school-districts-accordion');
+	createSchoolDistrictInformation(data, schoolDistrictInfo)
+}).fail(function() {
+	console.log("Failed to load school district information");
+}); 
+
+$.ajax({
+	dataType:'json',
+	url: 'http://openstates.org/api/v1//legislators/?state=ny&active=true&apikey=<%= ENV['SUNLIGHT_FOUNDATION_API_KEY'] %>',
+	type: 'GET'
+}).success(function(data){
+	var legislators = data;
+	legSection = $("#districts-section .electoral-districts")
+	var electoralDistrictButtons = $("#electoral-district-buttons");
+	// createElectoralDistrictButtons(data,electoralDistrictButtons)
+	for (k in legislators) {
+		var legChamber = legislators[k].chamber;
+		var legDistrict = legislators[k].district;
+		var legName = legislators[k].full_name;
+		var electoralDistrictInfo = $("#electoral-districts-accordion");
+		createElectedOfficialInformation(legislators[k], electoralDistrictInfo)
+		findLegTotals(legChamber, legDistrict);
+	}
+}).fail(function() {
+	console.log("Failed to load electoral district information");
+})
+
+$(document).ready(function(){
+	$("#filter-legislator").keyup(function(){
+		var bla = $('#filter-legislator').val();
+		$( ".leg-button" ).each(function(){
+			var htxt=$(this).text();
+			if (htxt.indexOf(bla) > -1) {
+				$(this).show();
+			} else {
+				$(this).hide();
+			}
+		});
+	});
+});
+
+</script>
