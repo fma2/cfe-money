@@ -82,6 +82,16 @@ function prepareSchoolInformation(button){
 	}
 };
 
+function createPetitionLink(loc) {
+	var takeAction = $('#take-action-section')
+	var petitionLinkElem = takeAction.find('.petition-link');
+	if (loc == 1) {
+		petitionLinkElem.attr("href", "https://actionnetwork.org/petitions/54cd8f74cc5f70122571f78fec59274c25e03691?hash=558393283e4c6f56b9ab24c0e19191ef");
+	} else {
+		petitionLinkElem.attr("href", "http://www.uft.org");
+	}
+}
+
 
 //Social links
 function createSocialLinks(school, amount, url) {
