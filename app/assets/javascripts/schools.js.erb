@@ -30,7 +30,7 @@ $(document).on("click", '.result-item a', function(){
 
 function showSchoolInfoDivs(){
 	$(function() {
-		hideDiv('.warning-text');
+		$('.warning-text').css("display", "none");
 		$(".action-items").show();
 		$("#legislators-section").show();
 		for (k in divsToToggle) {
