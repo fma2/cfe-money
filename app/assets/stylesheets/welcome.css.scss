@@ -120,12 +120,10 @@
 
 /* Header */
 
+.header.cover {
+  display: table;
+}
 .header {
-/*  background: url("https://s3.amazonaws.com/cfemoneyowednys.org/images/_MG_2104.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
   padding-top:2rem;
   .container {
     padding-left: 0;
@@ -148,7 +146,6 @@
     .title h1 {
       font-weight: 600;
       text-transform: uppercase;
-      /*color: rgba(0, 0, 0, 0); */
       color: $palette-blue6;
       -webkit-text-stroke: 1px $palette-blue6;
       margin-top: 0;
@@ -334,9 +331,27 @@
     display:block;
     /*justify-content: center;*/
   }
+  .action-items {
+    padding-left: 5%;
+    padding-right:5%;
+  }
   .action-item {
-    padding-top: 1.5rem;
-    padding-bottom:1.5rem;
+    padding-left:0px;
+    padding-right:0px;
+    span {
+      color: $palette-black;
+    }
+    .btn {
+      color: $palette-blue6;
+      white-space: normal;
+      min-height:20rem;
+      display:flex;
+      align-items: center;
+      justify-content:center;
+      background-color: $palette-white;
+      border:1px solid #ddd;
+      border-radius:4px;
+    }
   }
   .title-col, .action-items{
     display:block
@@ -411,6 +426,7 @@
       margin-left: auto;
       margin-right: auto;
     }
+
   }
 }
 
@@ -423,11 +439,24 @@
 }
 
 @media (max-width:767px) {
+  #next-steps{
+    padding-top: 1rem;
+    h3 {
+      font-size:1.35rem;
+      margin-top:0.5rem;
+      margin-bottom:0.5rem;
+    }
+  }
   #take-action-section {
     h1.section-title{
       font-size: 2.25rem;
     }
+    .action-items {
+      padding-left: 0px;
+      padding-right:0px;
+    }
     .action-item {
+      text-align: left;
       padding-top:1rem !important;
       padding-bottom:1rem !important;
       h3 {
@@ -438,6 +467,9 @@
         a:hover {
           color: $palette-blue7;
         }
+      }
+      .btn {
+        min-height: 5rem;
       }
     }
     .leg-lower, .leg-upper {
@@ -458,6 +490,14 @@
       .img-responsive {
         max-width: 60%;
       }
+    }
+  }
+}
+
+@media(max-width: 480px) {
+  #take-action-section {
+    .img-responsive {
+      max-width: 300%;
     }
   }
 }
@@ -630,7 +670,6 @@ section.last {
   p {
     font-size: 1.5rem;
   }
-  /*width: 80%;*/
   h2 {
     color: $palette-blue5;
   }
