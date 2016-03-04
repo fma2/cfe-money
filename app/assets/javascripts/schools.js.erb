@@ -198,11 +198,6 @@ function calculateResourceAmount(cost, fundsAvailable){
 }
 
 function displayResourceAmount(amount, targetDiv) {
-	// var amountAvailable = amount
-	// if (amount > library) {
-	// 	amountAvailable +- library
-	// 		targetDiv.find('.resource-library .resource-text h4').text(''+num_library+' libraries')		
-	// }
 	var amount_per_resource = amount / 3
 	var num_teacher = calculateResourceAmount(teacher, amount_per_resource)
 	var num_arts_programs = calculateResourceAmount(arts_program, amount_per_resource)
