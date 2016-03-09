@@ -13,8 +13,8 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
   msViewportStyle.appendChild(
     document.createTextNode(
       '@-ms-viewport{width:auto!important}'
+      )
     )
-  )
   document.querySelector('head').appendChild(msViewportStyle)
 }
 
@@ -42,6 +42,13 @@ function ready(){
   addSmoothScroll('a.page-scroll'); // add smoothScroll
   addCartItemsListeners(); // add cart event listeners
   animateCartButtons(); // animate captions for cart items     
+
+  $("#searchclear1").click(function(){
+    $("#search_text1").val('');
+  });
+  $("#searchclear2").click(function(){
+    $("#search_text2").val('');
+  });
 
   // render page if-else
   var schoolName = $("#school_name").val();
@@ -88,7 +95,7 @@ function ready(){
 
     })
 
-}
+  }
 }
 
 function addSmoothScroll(div) {

@@ -1,6 +1,7 @@
 <div class="search-bar-and-results-section">
 	<%= form_tag(search_path(location), method: "get", onsubmit: "return false", id: "schools_search2") do %>
 	<div class="input-group" >
+		<span id="searchclear2" class="glyphicon glyphicon-remove-circle"></span>
 		<%= text_field_tag("search_text2", nil, placeholder: "Type a school name or district", size: 250, class:'form-control input-lg') %>
 		<span class="input-group-btn">
 			<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>

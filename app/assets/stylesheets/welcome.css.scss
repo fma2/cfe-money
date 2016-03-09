@@ -305,6 +305,19 @@
   padding: 0;
 }
 
+#searchclear1, #searchclear2 {
+  position: absolute;
+  right: 50px;
+  top: 0;
+  bottom: 0;
+  height: 14px;
+  margin: auto;
+  font-size: 14px;
+  cursor: pointer;
+  color: #ccc;
+  z-index:3;
+}
+
 @media (min-width: 768px) {  
   #search-bar-section input#search_text1, 
   #search-bar-section input#search_text2 {
@@ -485,7 +498,7 @@
       .btn {
         min-height: 5rem;
       }
-       .col-xs-3 {
+      .col-xs-3 {
         min-height: 10rem;
       }
     }
