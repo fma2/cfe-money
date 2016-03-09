@@ -361,6 +361,10 @@
       display:flex;
       justify-content:center;
       align-items: center;
+      border-radius: 4px;
+      &:hover {
+        background: $palette-blue1;
+      }
     }
     .col-xs-9 {
       text-align: left;
@@ -383,9 +387,6 @@
       color: $palette-blue7;
     }
   }
-/*  .action-items {
-    padding-bottom: 4rem;
-  }*/
   .leg-photo{
     padding-left: 0;
     padding-right:0;
@@ -518,14 +519,24 @@
   }
 }
 
+@media(max-width: 968px) {
+  #take-action-section {
+    .action-item {
+      .col-xs-3 {
+        min-height: 11rem;
+      }
+    }
+  }
+}
+
 /*Cart section*/
 
 #cart {
   text-align: left;
 
   .col-xs-12.title-col {
-    padding-left:0;
-    padding-right:0;
+    padding-left:2rem;
+    padding-right:2rem;
   }
   h1.section-title {
     color: $palette-black;
