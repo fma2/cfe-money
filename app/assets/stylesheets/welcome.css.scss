@@ -351,6 +351,19 @@
       background-color: $palette-white;
       border:1px solid #ddd;
       border-radius:4px;
+      .fa {
+        color: $palette-white;
+      }
+    }
+    .col-xs-3 {
+      background: $palette-blue6;
+      min-height: 15rem;
+      display:flex;
+      justify-content:center;
+      align-items: center;
+    }
+    .col-xs-9 {
+      text-align: left;
     }
   }
   .title-col, .action-items{
@@ -470,6 +483,9 @@
       }
       .btn {
         min-height: 5rem;
+      }
+       .col-xs-3 {
+        min-height: 10rem;
       }
     }
     .leg-lower, .leg-upper {
