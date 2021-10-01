@@ -1,4 +1,2 @@
-# Project pulled from Github integration
-
-The content in this page is from a project pulled from my Github integration
-
+# cfe-money
+An app that shows how much CFE monies are owed to each school in NYC
